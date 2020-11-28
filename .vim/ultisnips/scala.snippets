@@ -1,0 +1,29 @@
+snippet def "define a function" wb
+def ${1}(${2}): ${3} = {
+  ${4}
+}
+endsnippet
+
+snippet defl "define an inline function" wb
+def ${1}(${2}): ${3} = ${4}
+endsnippet
+
+snippet pr "print" wb
+println(${1})${2}
+endsnippet
+
+snippet cl "define a class" b
+class ${1} {
+  ${2}
+}
+endsnippet
+
+snippet test "define JUnit test" b
+test("${1}") {
+  ${2}
+}
+endsnippet
+
+snippet as "define JUnit assert" b
+assert(${1}, "${2}")
+endsnippet

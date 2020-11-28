@@ -1,0 +1,20 @@
+snippet res "k8s resources" w
+resources:
+  limits:
+    cpu: ${1:250}m
+    memory: ${2:128}Mi
+  requests:
+    cpu: ${3:250}m
+    memory: ${4:128}Mi
+endsnippet
+
+snippet pod "k8s pod template" w
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ${1}
+spec:
+  containers:
+    - name: ${2}
+      image: ${3}
+endsnippet

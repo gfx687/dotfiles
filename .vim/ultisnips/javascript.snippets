@@ -1,0 +1,56 @@
+snippet log "console.log" w
+console.log(${1});
+endsnippet
+
+snippet logj "console.log formatted json" w
+console.log(JSON.stringify(${1}, null, 3));
+endsnippet
+
+snippet cl "class definition" b
+class ${1} {
+  constructor(${2}) {
+		${3}
+  }	${4}
+}
+endsnippet
+
+snippet req "node require" b
+const ${1} = require('${1}');
+endsnippet
+
+snippet reqd "node require" b
+const ${1} = require('${2}');
+endsnippet
+
+snippet swd "JSDoc Swagger. Base swagger jsdoc for router" w
+/**
+ * @swagger
+ *
+ *  /api${1}:
+ *    post:
+ *      description: ${2}
+ *      produces:
+ *        - application/json
+ *      parameters:${4}
+ *      responses:
+ *        200:
+ *          description: ${3}
+ */
+
+endsnippet
+
+snippet swp "JSDoc Swagger. Params required" w
+- name: ${1}
+*          description: ${2}
+*          in: ${3:formData}
+*          required: true
+*          type: ${5:string}
+endsnippet
+
+snippet swpf "JSDoc Swagger. Params not required" w
+- name: ${1}
+*          description: ${2}
+*          in: ${3:formData}
+*          required: false
+*          type: ${5:string}
+endsnippet

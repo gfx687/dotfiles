@@ -1,0 +1,101 @@
+exec "xrandr --output DP-1 --left-of DP-2"
+exec "xrandr --output DP-2 --rotate left"
+exec "setxkbmap -option ctrl:nocaps -layout us,ru -option 'grp:win_space_toggle'"
+# exec --no-startup-id feh --bg-fill ~/.dotfiles/wallpaper.jpg
+exec_always --no-startup-id $HOME/.dotfiles/.config/polybar/polybar.sh
+exec --no-startup-id xautolock -locker "~/.dotfiles/bin/lock-with-blurred-screenshot" -time 10 -detectsleep -notify 10
+
+set $mod Mod4
+font pango:Fira Code 12
+
+set $right DP-1
+set $left DP-2
+
+# binds
+bindsym Control+Print exec gnome-screenshot -i
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+Return exec "kitty $SHELL -c 'tmux new-session -A -s main'"
+bindsym $mod+Ctrl+q kill
+
+bindcode $mod+48 layout toggle split
+bindcode $mod+47 layout tabbed
+bindcode $mod+Ctrl+47 layout stacking
+
+bindsym $mod+Tab exec "rofi -show window"
+bindsym $mod+Ctrl+Tab exec "rofi -combi-modi drun,run -show combi"
+bindsym $mod+l exec "sh ~/.dotfiles/bin/lock-with-blurred-screenshot"
+
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+m move workspace to output $right
+bindsym $mod+Shift+m move workspace to output $left
+
+bindcode $mod+Shift+65 floating toggle
+bindcode $mod+65 focus mode_toggle
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+
+# dropdown terminal
+exec --no-startup-id kitty --title scratchpadterm
+for_window [title="scratchpadterm"] floating enable, resize set width 100 ppt, resize set height 50 ppt, move position 0 0, move scratchpad
+bindsym F12 [title="scratchpadterm"] scratchpad show
+bindsym $mod+t [title="scratchpadterm"] scratchpad show
+
+# configure workspaces
+bindsym $mod+1 workspace 1: Ⅰ
+bindsym $mod+2 workspace 2: Ⅱ
+bindsym $mod+3 workspace 3: Ⅲ
+bindsym $mod+q workspace 4: Ⅳ
+bindsym $mod+w workspace 5: Ⅴ
+bindsym $mod+e workspace 6: Ⅵ
+bindsym $mod+a workspace 7: Ⅶ
+bindsym $mod+s workspace 8: Ⅷ
+bindsym $mod+d workspace 9: Ⅸ
+
+bindsym $mod+Shift+1 move container to workspace 1: Ⅰ
+bindsym $mod+Shift+2 move container to workspace 2: Ⅱ
+bindsym $mod+Shift+3 move container to workspace 3: Ⅲ
+bindsym $mod+Shift+q move container to workspace 4: Ⅳ
+bindsym $mod+Shift+w move container to workspace 5: Ⅴ
+bindsym $mod+Shift+e move container to workspace 6: Ⅵ
+bindsym $mod+Shift+a move container to workspace 7: Ⅶ
+bindsym $mod+Shift+s move container to workspace 8: Ⅷ
+bindsym $mod+Shift+d move container to workspace 9: Ⅸ
+
+# workspace 1 output $left
+# workspace 2 output $right
+# workspace 3 output $right
+# workspace 4 output $left
+
+set_from_resource $red         color9  #ff0000
+set_from_resource $cyan        color14 #ff0000
+set_from_resource $black       color0  #ff0000
+set_from_resource $white       color7  #ff0000
+
+# class                 border  bground text    indicator child_border
+client.focused          $cyan   $cyan   $black  $cyan     $cyan
+client.focused_inactive $red    $red    $red    $red      $red
+client.unfocused        #2E3440 #2E3440 $white  #2E3440   #2E3440
+client.urgent           $red    $red    $red    $red      $red
+client.placeholder      $red    $red    $red    $red      $red
+client.background       $red
+
+hide_edge_borders smart
+
+# gaps
+gaps inner 10
+# gaps top 30
+# gaps outer 10
+for_window [class=".*"] border pixel 3
+

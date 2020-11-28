@@ -1,0 +1,29 @@
+#!/bin/bash
+revert() {
+  rm /tmp/*screen*.png
+  xset dpms 0 0 0
+}
+trap revert HUP INT TERM
+xset +dpms dpms 0 0 5
+scrot -d 1 /tmp/locking_screen.png
+convert -blur 0x8 /tmp/locking_screen.png /tmp/screen_blur.png
+convert -composite /tmp/screen_blur.png ~/.dotfiles/Evil_Rick_Sprite.png -gravity South -geometry -20x1200 /tmp/screen.png
+i3lock -i /tmp/screen.png \
+  --ringcolor=8FBCBBee --keyhlcolor=88C0D0ee \
+  --insidevercolor=8FBCBBee --ringvercolor=8FBCBBee \
+  --insidewrongcolor=BF616Aee --ringwrongcolor=BF616Aee \
+  --wrongtext="" --veriftext=""
+
+# setxkbmap us
+revert
+
+#i3lock-color \
+# -i $TMPBG \
+# --timepos="x-90:h-ch-20" \
+# --datepos="tx+24:ty+25" \
+# --clock --datestr "Type password to unlock..." \
+# --insidecolor=00000000 --ringcolor=ffffffff --line-uses-inside \
+# --keyhlcolor=d23c3dff --bshlcolor=d23c3dff --separatorcolor=00000000 \
+# --insidevercolor=fecf4dff --insidewrongcolor=d23c3dff \
+# --ringvercolor=ffffffff --ringwrongcolor=ffffffff --indpos="x+290:h-120" \
+# --radius=20 --ring-width=3 --veriftext="" --wrongtext=""

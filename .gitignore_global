@@ -1,0 +1,6 @@
+.DS_Store
+*.swp
+*.swo
+.tags_*
+.tags
+.temp-files
