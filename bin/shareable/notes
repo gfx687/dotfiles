@@ -1,0 +1,2 @@
+tmux new-window "cd ~/Documents/notes && nvim note1"
+tmux rename-window "notes"

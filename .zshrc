@@ -5,10 +5,6 @@ docompinit() {
 typeset -U path
 typeset -U fpath
 
-export TERM=xterm-256color
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
 # :prezto
 {
   zstyle ':prezto:*:*' color 'yes'
@@ -63,6 +59,11 @@ export LANG=en_US.UTF-8
   # chmod +x ~/.dotfiles/bin/shareable/*
   # chmod +x ~/.dotfiles/bin/non-shareable/*
 
+  export TERM=xterm-256color
+  export LC_ALL=en_US.UTF-8
+  export LANG=en_US.UTF-8
+  export VISUAL=nvim
+  export EDITOR=nvim
   export PSQL_EDITOR="nvim-mini +\"set filetype\"=sql"
 
   kubectl() {
@@ -149,14 +150,13 @@ export LANG=en_US.UTF-8
 
 # :alias
 {
-  alias sudo='sudo '
   alias v='nvim'
-  alias zr='source ~/.zshrc && print "zsh config has been reloaded"'
   alias py=python3
-  alias emacst='emacs --no-window-system '
+  alias rg='ranger'
   alias ck='create-and-change-directory'
-
+  alias binchmod='chmod +x $HOME/.dotfiles/bin/shareable/* && chmod +x $HOME/.dotfiles/bin/non-shareable/*'
   alias l='ls -1Al'
+  alias :q='exit'
 
   alias clipcopy='xclip -in -selection clipboard'
   alias clippaste='xclip -out -selection clipboard'
@@ -169,8 +169,6 @@ export LANG=en_US.UTF-8
 
   alias gd='gwd && echo -e "\n\033[1;33mSTATUS:" && gws -uall'
   alias gdo='git diff origin/master'
-
-  alias gRo='git open'
 
   # :alias-kubectl
   alias k=kubectl

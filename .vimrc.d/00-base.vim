@@ -42,6 +42,8 @@ set lcs=trail:·,tab:→\ "        " show spaces as characters
 set expandtab                   " Write spaces instead of tabs
 set shiftwidth=2                " Spaces per tab (works with expandtab)
 set autoindent                  " Enabile Autoindent
+set updatetime=300              " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience
+
 
 " This enables us to undo files even if you exit Vim.
 if has('persistent_undo')
@@ -67,10 +69,17 @@ nnoremap <silent> <Leader>fj :%!jq .<CR>
 " delete, replace without yanking
 nnoremap d "_d
 vnoremap d "_d
+nnoremap D "_D
+vnoremap D "_D
 vnoremap p "_dP
+vnoremap s "_s
 
-nnoremap n nzzzv               " Show found line in the center of the screen
-nnoremap N Nzzzv
+" Show found line in the center of the screen
+nnoremap n nzz
+nnoremap N Nzz
+
+" do not include linebreak character
+vnoremap $ g_
 
 
 """""""""""""""""""""
