@@ -1,5 +1,29 @@
-snippet af "Anon function"
-func() {
-	${0}
+snippet examplehttp "mini http server example" b
+package main
+
+import (
+	"encoding/json"
+	"net/http"
+)
+
+type SA struct {
+	Msg string
+	Code int
+}
+
+func greet(w http.ResponseWriter, r *http.Request) {
+	jData, err := json.Marshal(&SA{"message", 123})
+	if err != nil {
+
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusAccepted)
+	w.Write(jData)
+}
+
+func main() {
+	http.HandleFunc("/", greet)
+	http.ListenAndServe(":8080", nil)
 }
 endsnippet

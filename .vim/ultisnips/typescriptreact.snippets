@@ -1,0 +1,37 @@
+snippet ir "import React" b
+import React from 'react';
+endsnippet
+
+snippet i{} "import {} from" b
+import { $2 } from '$1';
+endsnippet
+
+snippet ot "HTML tag" wb
+<$1 $2>$3</$1>
+endsnippet
+
+snippet ct "HTML tag" wb
+<$1 $2/>
+endsnippet
+
+snippet aaaaaa "const = useState" w
+const [$1, `!p
+def capfirst(s):
+  if len(s) < 2:
+    return s.upper();
+  return s[:1].upper() + s[1:];
+
+snip.rv="set" + capfirst(t[1])
+`] = useState<$2>($3);
+endsnippet
+
+snippet ust "const = useState" w
+const [$1, `!p
+def capfirst(s):
+  if len(s) < 2:
+    return s.upper();
+  return s[:1].upper() + s[1:];
+
+snip.rv="set" + capfirst(t[1])
+`] = useState<$2>($3);
+endsnippet

@@ -11,12 +11,9 @@ typeset -U fpath
   zstyle ':prezto:load' pmodule \
         'completion' \
         'git' \
-        'history-substring-search' \
         'history'
 
-  setopt globdots
-  setopt menu_complete
-
+  # zstyle ':prezto:module:editor' key-bindings 'vi'
   zstyle ':completion:*' rehash true
 }
 
@@ -42,9 +39,9 @@ typeset -U fpath
     zgen load zdharma/fast-syntax-highlighting
 
     ZSH_AUTOSUGGEST_STRATEGY=("history")
-    zgen load zsh-users/zsh-autosuggestions && _zsh_autosuggest_start
+    # zgen load zsh-users/zsh-autosuggestions && _zsh_autosuggest_start
 
-    zgen load paulirish/git-open
+    # zgen load paulirish/git-open
 
     zgen load denysdovhan/spaceship-prompt spaceship
 
@@ -54,6 +51,18 @@ typeset -U fpath
 
 # :setup
 {
+  bindkey -v "^R" fzf-history-widget
+  bindkey -v "^P" fzf-file-widget
+  bindkey -v '\x1bb' backward-word
+  bindkey -v '\x1bf' forward-word
+
+  setopt extended_history
+  setopt hist_expire_dups_first
+  setopt hist_ignore_dups
+  setopt hist_verify
+  setopt inc_append_history
+  setopt share_history
+
   path+=("$HOME/.dotfiles/bin/shareable")
   path+=("$HOME/.dotfiles/bin/non-shareable")
   # chmod +x ~/.dotfiles/bin/shareable/*
@@ -70,8 +79,20 @@ typeset -U fpath
     if ! type __start_kubectl >/dev/null 2>&1; then
         source <(command kubectl completion zsh)
     fi
-
     command kubectl "$@"
+  }
+
+  # breaks paths autocompletion
+  # compctl -K _dotnet_zsh_complete dotnet
+
+  # nvm
+  export NVM_DIR="$HOME/.nvm"
+  # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+  node() {
+    lazy_load_nvm
+    node $@
   }
 }
 
@@ -96,6 +117,13 @@ typeset -U fpath
   # SPACESHIP_KUBECTL_SHOW=true
   SPACESHIP_DIR_TRUNC=5
   SPACESHIP_DIR_TRUNC_PREFIX=".../"
+  SPACESHIP_PROMPT_ORDER=(user host dir git exec_time line_sep jobs exit_code char)
+
+  # UNbold promptand remove bad chars
+  () {
+    local z=$'\0'
+    PROMPT='${${${$(spaceship_prompt)//\%\%/'$z'}//\%B}//'$z'/%%}'
+  }
 }
 
 # :git
@@ -119,11 +147,14 @@ typeset -U fpath
 {
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+  # one orig
+  # --color bg:#f9f9f9
+  # --color bg+:#ececec
   ONECOLORS='
     --color fg:#2a2b33
-    --color bg:#f9f9f9
+    --color bg:#eeeeee
     --color fg+:#2a2b33
-    --color bg+:#ececec
+    --color bg+:#d3d3d3
     --color info:#4C566A
     --color spinner:#4C566A
     --color header:#4C566A
@@ -132,6 +163,20 @@ typeset -U fpath
     --color pointer:#7abd5c
     --color hl:#7abd5c
     --color hl+:#7abd5c
+  '
+  NORDCOLORS='
+    --color=fg:#e5e9f0
+    --color=bg:#3b4252
+    --color=hl:#8FBCBB
+    --color=fg+:#e5e9f0
+    --color=bg+:#3b4252
+    --color=hl+:#8FBCBB
+    --color=info:#eacb8a
+    --color=prompt:#bf6069
+    --color=pointer:#b48dac
+    --color=marker:#a3be8b
+    --color=spinner:#b48dac
+    --color=header:#a3be8b
   '
 
   export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS$ONECOLORS
@@ -146,6 +191,19 @@ typeset -U fpath
     mkdir -p "$@"
     cd "$@"
   }
+
+  lazy_load_nvm() {
+    unset -f node
+    export NVM_DIR=~/.nvm
+    [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+  }
+
+  _dotnet_zsh_complete()
+  {
+    local completions=("$(dotnet complete "$words")")
+
+    reply=( "${(ps:\n:)completions}" )
+  }
 }
 
 # :alias
@@ -156,7 +214,6 @@ typeset -U fpath
   alias ck='create-and-change-directory'
   alias binchmod='chmod +x $HOME/.dotfiles/bin/shareable/* && chmod +x $HOME/.dotfiles/bin/non-shareable/*'
   alias l='ls -1Al'
-  alias :q='exit'
 
   alias clipcopy='xclip -in -selection clipboard'
   alias clippaste='xclip -out -selection clipboard'

@@ -1,3 +1,5 @@
 {
-  "suggest.noselect": false
+  "suggest.noselect": false,
+  "diagnostic.format": "[%severity] %message [%source%code]",
+  "diagnostic.infoSign": "--"
 }

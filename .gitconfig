@@ -36,7 +36,7 @@
   default = upstream
 [core]
   autocrlf = input
-  editor = vim
+  editor = nvim
   excludesfile = ~/.gitignore_global
 [advice]
   statusHints = false

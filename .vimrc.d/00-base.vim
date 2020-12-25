@@ -64,7 +64,7 @@ endif
 
 let mapleader = "\<space>"
 nnoremap <silent> <Leader>/ :noh<CR>
-nnoremap <silent> <Leader>fj :%!jq .<CR>
+nmap <silent> <Leader>f :%!jq .<CR>
 
 " delete, replace without yanking
 nnoremap d "_d
@@ -72,7 +72,12 @@ vnoremap d "_d
 nnoremap D "_D
 vnoremap D "_D
 vnoremap p "_dP
+nnoremap s "_s
 vnoremap s "_s
+nnoremap c "_c
+
+vnoremap > >gv
+vnoremap < <gv
 
 " Show found line in the center of the screen
 nnoremap n nzz
@@ -91,6 +96,3 @@ augroup _buf_write_pre
   autocmd!
   autocmd BufWritePre * :%s/\s\+$//e
 augroup end
-
-" Enter automatically into the files directory
-" autocmd BufEnter * silent! lcd %:p:h

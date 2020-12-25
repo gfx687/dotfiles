@@ -1,0 +1,97 @@
+snippet gn "Guid.NewGuid()" wb
+Guid.NewGuid()
+endsnippet
+
+snippet pg "get-only prop" b
+/// <summary>
+/// $2
+/// </summary>
+public $1 $2 { get; private set; }
+endsnippet
+
+snippet ps "get-set prop" b
+/// <summary>
+/// $2
+/// </summary>
+public $1 $2 { get; set; }
+endsnippet
+
+
+# :comments
+snippet csum "summary" b
+/// <summary>
+/// $1
+/// </summary>
+endsnippet
+
+snippet cctor "cctor" b
+/// <summary>ctor</summary>
+endsnippet
+
+snippet cinh "inheritdoc" b
+/// <inheritdoc />
+endsnippet
+
+
+# :test
+snippet le "Serilog error" b
+Serilog.Log.Logger.Error("test log" + $1);
+endsnippet
+
+snippet lje "Serilog error" b
+Serilog.Log.Logger.Error("test log: " + System.Text.Json.JsonSerializer.Serialize(new
+{
+	$1
+}));
+endsnippet
+
+snippet ita "It.IsAny" wb
+It.IsAny<$1>()
+endsnippet
+
+snippet it "It.Is" wb
+It.Is<$1>(it => $2)
+endsnippet
+
+snippet to "Times.Once" wb
+Times.Once
+endsnippet
+
+snippet xt "xUnit test theory" b
+[Theory]
+[AutoData]
+public async Task $1()
+{
+	// Arrange
+	$2
+
+	// Act
+
+	// Assert
+}
+endsnippet
+
+snippet xf "xUnit test fact" b
+[Fact]
+public async Task $1()
+{
+	// Arrange
+	$2
+
+	// Act
+
+	// Assert
+}
+endsnippet
+
+snippet udb "using dbcontext" b
+using (var db = new DefaultDbContext(DbOptions))
+{
+	$1
+	await db.SaveChangesAsync();
+}
+endsnippet
+
+snippet up "Update property" wb
+UpdateProperty(p => p.$1, $2)
+endsnippet
