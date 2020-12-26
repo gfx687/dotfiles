@@ -64,6 +64,8 @@ endif
 
 let mapleader = "\<space>"
 nnoremap <silent> <Leader>/ :noh<CR>
+nnoremap <leader>p o<Esc>p
+
 nmap <silent> <Leader>f :%!jq .<CR>
 
 " delete, replace without yanking
@@ -71,7 +73,7 @@ nnoremap d "_d
 vnoremap d "_d
 nnoremap D "_D
 vnoremap D "_D
-vnoremap p "_dP
+vnoremap p "_dp
 nnoremap s "_s
 vnoremap s "_s
 nnoremap c "_c

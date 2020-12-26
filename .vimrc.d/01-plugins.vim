@@ -2,7 +2,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'gfx687/vim-one'
 Plug 'itchyny/lightline.vim'
 
-" if !exists('mini')
+if !exists('mini')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'dense-analysis/ale'
   Plug 'SirVer/ultisnips'
@@ -11,29 +11,29 @@ Plug 'itchyny/lightline.vim'
   Plug 'tpope/vim-fugitive'
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
   Plug 'preservim/nerdtree'
-" end
+end
 
-Plug 'sheerun/vim-polyglot'     " syntax highlighting
-Plug 'tpope/vim-commentary'     " gcc to comment line
+Plug 'sheerun/vim-polyglot'      " syntax highlighting
+Plug 'tpope/vim-commentary'      " gcc to comment line
 Plug 'mattn/emmet-vim'
 Plug 'OmniSharp/omnisharp-vim'
 
-" " use can use # or *, if needed
-" Plug 'RRethy/vim-illuminate'    " Highlightes word under cursor
+" use can use # or *, if needed
+" Plug 'RRethy/vim-illuminate'     " Highlightes word under cursor
 
-Plug 'wellle/targets.vim'       " more text objects
-Plug 'jiangmiao/auto-pairs'     " autocompletion and autoindent for bracets
-Plug 'markonm/traces.vim'       " substitute highlighting
-Plug 'tpope/vim-surround'       " visual + S + surrounder
-Plug 'justinmk/vim-sneak'       " Multiline F and T search by 2 characters
+Plug 'AndrewRadev/splitjoin.vim' " turn oneline code into block
+Plug 'wellle/targets.vim'        " more text objects
+Plug 'jiangmiao/auto-pairs'      " autocompletion and autoindent for bracets
+Plug 'markonm/traces.vim'        " substitute highlighting
+Plug 'tpope/vim-surround'        " visual + S + surrounder
+Plug 'justinmk/vim-sneak'        " Multiline F and T search by 2 characters
 call plug#end()
 
-" Colorscheme
+" :colorscheme
 " set t_Co=256
 set background=light
 colorscheme one
-let s:pallete = g:lightline#colorscheme#one#palette
-let s:pallete.normal.middle = [['#494b53', '#eeeeee', 238, 255]]
+hi Normal guibg=NONE ctermbg=NONE
 
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -56,6 +56,17 @@ let g:lightline = {
   \   'fileencoding': 'LightlineFileencoding',
   \ },
   \ }
+
+autocmd VimEnter * call SetupLightlineColors()
+
+function SetupLightlineColors() abort
+  let s:pallete = g:lightline#colorscheme#one#palette
+  let s:pallete.normal.middle[0][1] = '#eeeeee'
+  let s:pallete.tabline.middle[0][1] = '#eeeeee'
+  let s:pallete.tabline.tabsel[0][1] = '#98c379'
+  let s:pallete.tabline.tabsel[0][3] = 'NONE'
+  call lightline#colorscheme()
+endfunction
 
 " show only if not utf-8
 function! LightlineFileencoding() abort

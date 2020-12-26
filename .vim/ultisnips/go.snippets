@@ -1,3 +1,17 @@
+snippet pr "fmt.Println" b
+fmt.Println($1)
+endsnippet
+
+snippet : ":=" b
+$1 := $0
+endsnippet
+
+snippet f "func" b
+func $1($2) $3 {
+	$0
+}
+endsnippet
+
 snippet examplehttp "mini http server example" b
 package main
 
