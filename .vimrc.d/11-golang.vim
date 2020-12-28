@@ -8,13 +8,11 @@ augroup Golang_ft
 augroup end
 
 func! Go_prev_func()
-    call search('^func ', 'b')
+    call search('^\(func\|type\|var\) ', 'b')
     nohlsearch
-    normal zt
 endfunc!
 
 func! Go_next_func()
-    call search('^func ', '')
+    call search('^\(func\|type\|var\) ', '')
     nohlsearch
-    normal zt
 endfunc!

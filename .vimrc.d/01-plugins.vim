@@ -33,7 +33,6 @@ call plug#end()
 " set t_Co=256
 set background=light
 colorscheme one
-hi Normal guibg=NONE ctermbg=NONE
 
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -61,8 +60,8 @@ autocmd VimEnter * call SetupLightlineColors()
 
 function SetupLightlineColors() abort
   let s:pallete = g:lightline#colorscheme#one#palette
-  let s:pallete.normal.middle[0][1] = '#eeeeee'
-  let s:pallete.tabline.middle[0][1] = '#eeeeee'
+  let s:pallete.normal.middle = [ [ '#494b53', 'NONE', '238', 'NONE' ] ]
+  let s:pallete.tabline.middle = [ [ '#494b53', 'NONE', '238', 'NONE' ] ]
   let s:pallete.tabline.tabsel[0][1] = '#98c379'
   let s:pallete.tabline.tabsel[0][3] = 'NONE'
   call lightline#colorscheme()
@@ -78,8 +77,9 @@ map s <Plug>Sneak_s
 map S <Plug>Sneak_S
 
 if !exists('mini')
-  " :vim-fugitive
+  " :fugitive :git
   nnoremap <leader>gs :Gstatus<Cr>
+  nnoremap <leader>gb :Gblame<Cr>
   " stash list: :Glog -g stashes
 
   function! LightlineGitbranch() abort

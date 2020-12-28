@@ -11,9 +11,3 @@ augroup Javascript_ft
   " refactor tag to have it's content on it's own line
   au FileType typescriptreact,javascriptreact nmap <c-y><cr> vit"9xi<c-y><cr><c-r>9<esc>
 augroup end
-
-augroup Golang_ft
-  au!
-  au FileType go setlocal ts=4 sts=4 sw=4 noexpandtab
-  au FileType go setlocal cc=80
-augroup end

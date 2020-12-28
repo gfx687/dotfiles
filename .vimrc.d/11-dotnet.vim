@@ -39,6 +39,7 @@ augroup Csharp_ft
 
   autocmd FileType cs nmap <silent> <buffer> gd <Plug>(omnisharp_go_to_definition)
   autocmd FileType cs nmap <silent> <buffer> gr <Plug>(omnisharp_find_usages)
+  autocmd FileType cs nmap <silent> <buffer> gi <Plug>(omnisharp_find_implementations)
   autocmd FileType cs nmap <silent> <buffer> <Leader>ca <Plug>(omnisharp_code_actions)
   autocmd FileType cs xmap <silent> <buffer> <Leader>ca <Plug>(omnisharp_code_actions)
   autocmd FileType cs nmap <silent> <buffer> <Leader>cr <Plug>(omnisharp_rename)

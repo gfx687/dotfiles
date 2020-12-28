@@ -74,6 +74,7 @@ typeset -U fpath
   export VISUAL=nvim
   export EDITOR=nvim
   export PSQL_EDITOR="nvim-mini +\"set filetype\"=sql"
+  export GOPATH="$HOME/go"
 
   kubectl() {
     if ! type __start_kubectl >/dev/null 2>&1; then
