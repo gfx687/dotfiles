@@ -1,0 +1,14 @@
+#!/bin/sh
+die () {
+    echo >&2 "$@"
+    exit 1
+}
+
+[[ -n $1 ]] || die "colorscheme required"
+[[ $1 =~ ^(onelight|nord|gruvbox)$ ]] || die "not supported colors"
+
+echo "setting colorscheme: $1\n"
+gsed -i "s/\(^\s*export THEME=\)\(.*\)/\1$1/g" ~/.dotfiles/.zshrc
+gsed -i "s/^colors: *.*/colors: *$1/" ~/.dotfiles/.config/alacritty/alacritty.yml
+zsh
+

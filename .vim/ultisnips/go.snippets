@@ -6,6 +6,13 @@ snippet : ":=" b
 $1 := $0
 endsnippet
 
+snippet :e "_, err :=" b
+$1, err := $2
+if err != nil {
+	$3
+}
+endsnippet
+
 snippet f "func" b
 func $1($2) $3 {
 	$0

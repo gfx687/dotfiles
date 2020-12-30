@@ -6,7 +6,6 @@ let g:OmniSharp_popup_position = 'peek'
 let g:OmniSharp_diagnostic_exclude_paths = [
 \ 'obj/',
 \ 'Migrations/',
-\ '.nuget/',
 \]
 
 " one color theme
@@ -33,9 +32,11 @@ augroup Csharp_ft
   autocmd FileType cs setlocal colorcolumn=120
   autocmd FileType cs setlocal commentstring=//\ %s
 
-  autocmd FileType cs highlight Identifier guifg=#6B2FBA
-  autocmd FileType cs highlight Keyword guifg=#2f5af3
-  autocmd FileType cs highlight Method guifg=#0093A1
+  if $THEME == "onelight"
+    autocmd FileType cs highlight Identifier guifg=#6B2FBA
+    autocmd FileType cs highlight Keyword guifg=#2f5af3
+    autocmd FileType cs highlight Method guifg=#0093A1
+  endif
 
   autocmd FileType cs nmap <silent> <buffer> gd <Plug>(omnisharp_go_to_definition)
   autocmd FileType cs nmap <silent> <buffer> gr <Plug>(omnisharp_find_usages)

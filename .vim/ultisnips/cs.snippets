@@ -42,8 +42,28 @@ endsnippet
 
 
 # :test
+
+snippet ms "Mock setup" b
+$1
+	.Setup(x => x.$2)
+	.ReturnsAsync($3);
+endsnippet
+
+snippet msm "Mock setup" b
+$1
+	.Setup(x => x.Send(It.IsAny<$2>(), ct))
+	.ReturnsAsync($3);
+endsnippet
+
+snippet mv "Mock verify" b
+$1.Verify(x => x.$2(It.Is<$3>(it =>
+		$4
+	)$5),
+	$6);
+endsnippet
+
 snippet le "Serilog error" b
-Serilog.Log.Logger.Error("test log" + $1);
+Serilog.Log.Logger.Error("test log: " + $1);
 endsnippet
 
 snippet lje "Serilog error" b

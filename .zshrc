@@ -10,8 +10,8 @@ typeset -U fpath
   zstyle ':prezto:*:*' color 'yes'
   zstyle ':prezto:load' pmodule \
         'completion' \
-        'git' \
-        'history'
+        'history' \
+        'git'
 
   # zstyle ':prezto:module:editor' key-bindings 'vi'
   zstyle ':completion:*' rehash true
@@ -38,10 +38,10 @@ typeset -U fpath
 
     zgen load zdharma/fast-syntax-highlighting
 
-    ZSH_AUTOSUGGEST_STRATEGY=("history")
-    # zgen load zsh-users/zsh-autosuggestions && _zsh_autosuggest_start
+    # ZSH_AUTOSUGGEST_STRATEGY=("history")
+    zgen load zsh-users/zsh-autosuggestions && _zsh_autosuggest_start
 
-    # zgen load paulirish/git-open
+    zgen load paulirish/git-open
 
     zgen load denysdovhan/spaceship-prompt spaceship
 
@@ -75,6 +75,7 @@ typeset -U fpath
   export EDITOR=nvim
   export PSQL_EDITOR="nvim-mini +\"set filetype\"=sql"
   export GOPATH="$HOME/go"
+  export THEME=onelight
 
   kubectl() {
     if ! type __start_kubectl >/dev/null 2>&1; then
@@ -120,7 +121,7 @@ typeset -U fpath
   SPACESHIP_DIR_TRUNC_PREFIX=".../"
   SPACESHIP_PROMPT_ORDER=(user host dir git exec_time line_sep jobs exit_code char)
 
-  # UNbold promptand remove bad chars
+  # UNbold prompt and remove bad chars
   () {
     local z=$'\0'
     PROMPT='${${${$(spaceship_prompt)//\%\%/'$z'}//\%B}//'$z'/%%}'
@@ -179,9 +180,26 @@ typeset -U fpath
     --color=spinner:#b48dac
     --color=header:#a3be8b
   '
+  GRUVBOXCOLORS='
+    --color=fg:#ebdbb2
+    --color=fg+:#ebdbb2
+    --color=bg:#282828
+    --color=bg+:#282828
+    --color=hl:#689d6a
+    --color=hl+:#458588
+    --color=info:#689d6a
+    --color=prompt:#689d6a
+    --color=pointer:#458588
+    --color=marker:#458588
+    --color=spinner:#458588
+    --color=header:#458588
+  '
 
-  export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS$ONECOLORS
+  COLORS=$ONECOLORS
+  if [[ "$THEME" == "nord" ]]; then COLORS=$NORDCOLORS; fi
+  if [[ "$THEME" == "gruvbox" ]]; then COLORS=$GRUVBOXCOLORS; fi
 
+  export FZF_DEFAULT_OPTS=$COLORS
   export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 }
@@ -211,7 +229,6 @@ typeset -U fpath
 {
   alias v='nvim'
   alias py=python3
-  alias rg='ranger'
   alias ck='create-and-change-directory'
   alias binchmod='chmod +x $HOME/.dotfiles/bin/shareable/* && chmod +x $HOME/.dotfiles/bin/non-shareable/*'
   alias l='ls -1Al'

@@ -78,6 +78,7 @@ vnoremap P "_dP
 nnoremap s "_s
 vnoremap s "_s
 nnoremap c "_c
+vnoremap c "_c
 
 vnoremap > >gv
 vnoremap < <gv

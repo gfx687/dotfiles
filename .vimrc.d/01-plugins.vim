@@ -1,5 +1,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'gfx687/vim-one'
+Plug 'arcticicestudio/nord-vim'
+Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
 
 if !exists('mini')
@@ -8,6 +10,7 @@ if !exists('mini')
   Plug 'SirVer/ultisnips'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
+  " Plug 'yuki-ycino/fzf-preview.vim'
   Plug 'tpope/vim-fugitive'
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
   Plug 'preservim/nerdtree'
@@ -29,49 +32,6 @@ Plug 'tpope/vim-surround'        " visual + S + surrounder
 Plug 'justinmk/vim-sneak'        " Multiline F and T search by 2 characters
 call plug#end()
 
-" :colorscheme
-" set t_Co=256
-set background=light
-colorscheme one
-
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
-
-" lightline
-let g:lightline = {
-  \ 'colorscheme': 'one',
-  \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'filename', 'readonly', 'modified' ] ],
-  \   'right': [ [ 'lineinfo' ],
-  \              [ 'percent' ],
-  \              [ 'gitbranch', 'fileencoding', 'filetype' ] ]
-  \ },
-  \ 'component_function': {
-  \   'gitbranch': 'LightlineGitbranch',
-  \   'fileencoding': 'LightlineFileencoding',
-  \ },
-  \ }
-
-autocmd VimEnter * call SetupLightlineColors()
-
-function SetupLightlineColors() abort
-  let s:pallete = g:lightline#colorscheme#one#palette
-  let s:pallete.normal.middle = [ [ '#494b53', 'NONE', '238', 'NONE' ] ]
-  let s:pallete.tabline.middle = [ [ '#494b53', 'NONE', '238', 'NONE' ] ]
-  let s:pallete.tabline.tabsel[0][1] = '#98c379'
-  let s:pallete.tabline.tabsel[0][3] = 'NONE'
-  call lightline#colorscheme()
-endfunction
-
-" show only if not utf-8
-function! LightlineFileencoding() abort
-  return &fileencoding ==# 'utf-8' ? '' : (&fileencoding ==# '' ? 'no ft' : &fileencoding)
-endfunction
-
 " :vim-sneak
 map s <Plug>Sneak_s
 map S <Plug>Sneak_S
@@ -81,10 +41,6 @@ if !exists('mini')
   nnoremap <leader>gs :Gstatus<Cr>
   nnoremap <leader>gb :Gblame<Cr>
   " stash list: :Glog -g stashes
-
-  function! LightlineGitbranch() abort
-    return fugitive#head() ==# '' ? '' : ' ' . fugitive#head()
-  endfunction
 
   " :ale
   let g:ale_linters = { 'cs': ['OmniSharp'] }
@@ -125,21 +81,6 @@ if !exists('mini')
 
   map <leader>nn :NERDTreeToggle<cr>
   map <leader>nf :NERDTreeFind<cr>
-
-  " :fzf.vim
-  let g:fzf_layout = { 'down': '~20%' }
-  nmap <C-P> :Files<Cr>
-  nmap <C-E> :Buffers<Cr>
-  nmap <C-F> :Ag<Cr>
-  vmap <C-F> "9y :Ag <C-R>9<CR>
-  nmap <C-W><C-P> :call fzf#vim#files('.', {'options':'--query '.expand('<cword>')})<CR>
-
-  " disable preview window
-  let g:fzf_preview_window = []
-
-  " hide fzf statusline
-  autocmd! FileType fzf set laststatus=0 noshowmode noruler
-    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
   " :ultisnips
   let g:UltiSnipsExpandTrigger = "<nop>"
