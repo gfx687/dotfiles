@@ -1,72 +1,55 @@
-""""""""""""""""""""""
-"      Settings      "
-""""""""""""""""""""""
-set nocompatible                " Enables Vim specific features
+set nocompatible
 
-filetype off                    " Reset filetype detection first ...
-filetype plugin indent on       " ... and enable filetype detection
-syntax on                       " Unable syntax highlight for colorscheme
+filetype plugin indent on
+syntax on
 
-set clipboard=unnamedplus       " Use system clipboard
-set mouse=a                     " Enable mouse
-set laststatus=2                " Show status line always
-set encoding=utf8               " Set default encoding to UTF-8
-set autoread                    " Automatically read changed files
-set autoindent                  " Enabile Autoindent
-set backspace=indent,eol,start  " Makes backspace key more powerful.
-set incsearch                   " Shows the match while typing
-set hlsearch                    " Highlight found searches
-set noerrorbells                " No beeps
-set number                      " Show line numbers
-set relativenumber              " ... relatively to cursor line
-set so=7                        " Number of context lines above and below the cursor
-set showcmd                     " Show me what I'm typing
-set noswapfile                  " Don't use swapfile
-set nobackup                    " Don't create annoying backup files
-set splitright                  " Vertical windows should be split to right
-set splitbelow                  " Horizontal windows should split to bottom
-set autowrite                   " Automatically save before :next, :make etc.
-set hidden                      " Buffer should still exist if window is closed
-set fileformats=unix,dos,mac    " Prefer Unix over Windows over OS 9 formats
-set noshowmatch                 " Do not show matching brackets by flickering
-set noshowmode                  " We show the mode with airline or lightline
-set ignorecase                  " Search case insensitive...
-set smartcase                   " ... but not it begins with upper case
-set completeopt=menu,menuone    " Show popup menu, even if there is one entry
-set pumheight=10                " Completion window max size
-set nocursorcolumn              " Do not highlight column (speeds up highlighting)
-set nocursorline                " Do not highlight cursor (speeds up highlighting)
-set lazyredraw                  " Wait to redraw
-set list                        " show spaces as characters
-set lcs=trail:·,tab:→\ "        " show spaces as characters
-set expandtab                   " Write spaces instead of tabs
-set shiftwidth=2                " Spaces per tab (works with expandtab)
-set autoindent                  " Enabile Autoindent
-set updatetime=300              " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience
+" Hit `%` on `if` to jump to `else`.
+runtime macros/matchit.vim
 
-
-" This enables us to undo files even if you exit Vim.
-if has('persistent_undo')
-  set undofile
-  set undodir=~/.vim/tempdirs/undodir
-endif
-
+set backspace=indent,eol,start
+set hidden
+set noswapfile
+set wildmenu
+set autoread
+set incsearch hlsearch ignorecase smartcase
+set ruler
+set laststatus=2
+set list listchars=trail:·,tab:→\ "
+set autoindent
+set expandtab
+set scrolloff=7
+set number "relativenumber
+set splitbelow splitright
 set ttyfast
-if !has('nvim')
-  set ttymouse=xterm2
-  set ttyscroll=3
+set mouse=a
+
+if has('unnamedplus')
+  set clipboard=unnamedplus
+else
+  set clipboard=unnamed
 endif
 
-
-""""""""""""""""""""""
-"      Mappings      "
-""""""""""""""""""""""
+if has('persistent_undo')
+  if !isdirectory($HOME."/.vim")
+    call mkdir($HOME."/.vim", "", 0770)
+  endif
+  if !isdirectory($HOME."/.vim/undo-dir")
+    call mkdir($HOME."/.vim/undo-dir", "", 0700)
+  endif
+  set undofile
+  set undodir=~/.vim/undo-dir
+endif
 
 let mapleader = "\<space>"
 nnoremap <silent> <Leader>/ :noh<CR>
 nnoremap <leader>p o<Esc>p
 
-nmap <silent> <Leader>f :%!jq .<CR>
+" Show found line in the center of the screen
+nnoremap n nzz
+nnoremap N Nzz
+
+" do not include linebreak character
+vnoremap $ g_
 
 " delete, replace without yanking
 nnoremap d "_d
@@ -79,17 +62,6 @@ nnoremap s "_s
 vnoremap s "_s
 nnoremap c "_c
 vnoremap c "_c
-
-vnoremap > >gv
-vnoremap < <gv
-
-" Show found line in the center of the screen
-nnoremap n nzz
-nnoremap N Nzz
-
-" do not include linebreak character
-vnoremap $ g_
-
 
 """""""""""""""""""""
 "      Hooks        "
