@@ -228,6 +228,7 @@ typeset -U fpath
 # :alias
 {
   alias v='nvim'
+  alias vim='vim -u ~/.dotfiles/.vimrc.d/00-base.vim'
   alias py=python3
   alias ck='create-and-change-directory'
   alias binchmod='chmod +x $HOME/.dotfiles/bin/shareable/* && chmod +x $HOME/.dotfiles/bin/non-shareable/*'

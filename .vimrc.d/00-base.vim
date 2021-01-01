@@ -16,12 +16,16 @@ set ruler
 set laststatus=2
 set list listchars=trail:·,tab:→\ "
 set autoindent
+set smarttab
 set expandtab
+set tabstop=4
+set shiftwidth=0
 set scrolloff=7
 set number "relativenumber
 set splitbelow splitright
 set ttyfast
 set mouse=a
+set path+=**
 
 if has('unnamedplus')
   set clipboard=unnamedplus
@@ -39,6 +43,9 @@ if has('persistent_undo')
   set undofile
   set undodir=~/.vim/undo-dir
 endif
+
+let g:netrw_banner=0
+let g:netrw_liststyle=3
 
 let mapleader = "\<space>"
 nnoremap <silent> <Leader>/ :noh<CR>
