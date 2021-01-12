@@ -73,7 +73,7 @@ typeset -U fpath
   export LANG=en_US.UTF-8
   export VISUAL=nvim
   export EDITOR=nvim
-  export PSQL_EDITOR="nvim-mini +\"set filetype\"=sql"
+  export PSQL_EDITOR="vim -u ~/.dotfiles/.vimrc.d/00-base.vim +\"set filetype\"=sql"
   export GOPATH="$HOME/go"
   export THEME=onelight
 

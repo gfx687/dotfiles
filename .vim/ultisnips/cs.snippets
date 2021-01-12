@@ -1,5 +1,19 @@
+snippet c "public class" b
+public class ${1}
+{
+	$0
+}
+endsnippet
+
+snippet i "public interface" b
+public interface ${1}
+{
+	$0
+}
+endsnippet
+
 snippet pr "private readonly" b
-private readonly
+private readonly 
 endsnippet
 
 snippet psr "public static readonly" b
@@ -24,6 +38,36 @@ snippet ps "get-set prop" b
 public $1 $2 { get; set; }
 endsnippet
 
+snippet mc "template for mediatr command + handler" b
+/// <summary>
+/// ${3}
+/// </summary>
+public class ${1} : IRequest<${2:Result<Unit>}>
+{
+	/// <summary>ctor</summary>
+	public $1()
+	{
+	}
+}
+
+/// <summary>
+/// <see cref="$1" /> handler
+/// </summary>
+public class $1Handler
+	: IRequestHandler<$1, $2>
+{
+	/// <summary>ctor</summary>
+	public $1Handler()
+	{
+	}
+
+	/// <inheritdoc />
+	public async Task<$2> Handle($1 request, CancellationToken cancellationToken)
+	{
+		throw new System.NotImplementedException();
+	}
+}
+endsnippet
 
 # :comments
 snippet csum "summary" b

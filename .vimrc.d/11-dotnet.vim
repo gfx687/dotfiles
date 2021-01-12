@@ -28,6 +28,9 @@ let g:OmniSharp_highlight_groups = {
 
 augroup Csharp_ft
   autocmd!
+  autocmd FileType cs let g:ale_enabled = 1
+  autocmd FileType cs let g:ale_fix_on_save = 0
+
   autocmd FileType cs setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType cs setlocal colorcolumn=120
   autocmd FileType cs setlocal commentstring=//\ %s
@@ -60,4 +63,3 @@ augroup Csharp_ft
 
   autocmd FileType cs nmap <silent> <buffer> <leader>dg <Plug>(omnisharp_global_code_check)
 augroup END
-

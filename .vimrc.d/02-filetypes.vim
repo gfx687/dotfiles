@@ -1,7 +1,12 @@
 augroup Other_ft
   au!
-  au FileType python setlocal ts=2 sts=2 sw=2 expandtab
   au BufRead,BufNewFile */bin/* set ft=sh
+augroup end
+
+augroup Python_ft
+  au!
+  au FileType python setlocal ts=4 sts=4 sw=4 expandtab
+  au FileType python nmap <leader>r :call ExecInTmuxSplit('python3 ' . expand('%:p'))<CR>
 augroup end
 
 augroup Javascript_ft

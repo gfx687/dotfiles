@@ -1,1 +1,3 @@
+# -X flag can be used multiple times to rewrite previous value
+# so `curljson -X PUT` will make PUT request, not POST
 curl -X POST -H "content-type: application/json" $@

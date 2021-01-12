@@ -21,7 +21,7 @@ set expandtab
 set tabstop=4
 set shiftwidth=0
 set scrolloff=7
-set number "relativenumber
+set number relativenumber
 set splitbelow splitright
 set ttyfast
 set mouse=a
@@ -70,12 +70,4 @@ vnoremap s "_s
 nnoremap c "_c
 vnoremap c "_c
 
-"""""""""""""""""""""
-"      Hooks        "
-"""""""""""""""""""""
-
-" Remove trailing whitespaces on save
-augroup _buf_write_pre
-  autocmd!
-  autocmd BufWritePre * :%s/\s\+$//e
-augroup end
+" TODO : configure foldcolumn

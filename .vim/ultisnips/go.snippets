@@ -1,9 +1,13 @@
-snippet pr "fmt.Println" b
-fmt.Println($1)
+snippet pr "fmt.Printf" b
+fmt.Printf("${1:%v}\n"${2:, })
 endsnippet
 
-snippet : ":=" b
+snippet : ":=" wb
 $1 := $0
+endsnippet
+
+snippet :_ ":=" wb
+$1, _ := $0
 endsnippet
 
 snippet :e "_, err :=" b
@@ -15,6 +19,12 @@ endsnippet
 
 snippet f "func" b
 func $1($2) $3 {
+	$0
+}
+endsnippet
+
+snippet m "func" b
+func ($1) $2($3) $4 {
 	$0
 }
 endsnippet

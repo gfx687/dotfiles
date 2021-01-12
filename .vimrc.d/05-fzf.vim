@@ -39,6 +39,8 @@ command! -bang -nargs=* Rg
     \ call fzf#vim#grep('rg --column --line-number --no-heading --smart-case -- '.shellescape(<q-args>), 1,
     \ { 'options': extend(fzf_options, fzf_preview) }, <bang>0)
 
+" TODO: :Marks
+
 function! s:list_buffers()
   redir => list
   silent ls
