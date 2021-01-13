@@ -1,0 +1,66 @@
+{
+    "title": "Shift to parentesses if tapped and to Shift if held",
+    "rules": [
+        {
+            "description": "Left Shift to ( if tapped and to Left Shift if held",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "left_shift",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_shift",
+                            "lazy": true
+                        }
+                    ],
+                    "to_if_alone": [
+                        {
+                            "key_code": "9",
+                            "modifiers": [
+                                "left_shift"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Right Shift to ) if tapped and to Right Shift if held",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "right_shift",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_shift",
+                            "lazy": true
+                        }
+                    ],
+                    "to_if_alone": [
+                        {
+                            "key_code": "0",
+                            "modifiers": [
+                                "left_shift"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+
+    ]
+}

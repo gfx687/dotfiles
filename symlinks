@@ -1,0 +1,3 @@
+# karabiner (macos)
+rm -r ~/.config/karabiner/assets/complex_modifications
+ln -s ~/.dotfiles/.config/karabiner/assets/complex_modifications ~/.config/karabiner/assets

@@ -21,7 +21,7 @@ let fzf_preview = []
 
 if fzf_float == 1
   let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.94 } }
-  let fzf_options = [ '--layout=reverse', '--info=inline']
+  let fzf_options = [ '--layout=reverse', '--info=inline' ]
   let fzf_preview = [ '--preview', 'cat {1}', '--preview-window', 'down:50%' ]
 else
   let g:fzf_layout = { 'down': '~30%' }
@@ -37,9 +37,14 @@ command! -bang -nargs=? -complete=dir Buffers
 
 command! -bang -nargs=* Rg
     \ call fzf#vim#grep('rg --column --line-number --no-heading --smart-case -- '.shellescape(<q-args>), 1,
-    \ { 'options': extend(fzf_options, fzf_preview) }, <bang>0)
+    \ { 'options': extend(
+      \ extend(fzf_options, ['--delimiter=:', '--nth=4..']),
+      \ fzf_preview) },
+    \ <bang>0)
 
 " TODO: :Marks
+" TODO : bug, :Rg breaks options of :Files and :Buffers (try using either
+" after :Rg)
 
 function! s:list_buffers()
   redir => list
@@ -51,5 +56,3 @@ endfunction
 function! s:delete_buffers(lines)
   execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
 endfunction
-
-
