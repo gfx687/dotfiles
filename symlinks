@@ -1,3 +1,7 @@
 # karabiner (macos)
 rm -r ~/.config/karabiner/assets/complex_modifications
 ln -s ~/.dotfiles/.config/karabiner/assets/complex_modifications ~/.config/karabiner/assets
+
+# yabai + skhd (macos)
+ln -s ~/.dotfiles/.config/yabai ~/.config/
+ln -s ~/.dotfiles/.config/skhd ~/.config/
