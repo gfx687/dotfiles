@@ -1,5 +1,7 @@
 {
   "suggest.noselect": false,
   "diagnostic.format": "[%severity] %message [%source%code]",
-  "diagnostic.infoSign": "--"
+  "diagnostic.infoSign": "--",
+  "diagnostic.checkCurrentLine": true,
+  "sql.database": "postgresql"
 }

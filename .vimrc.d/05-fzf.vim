@@ -38,9 +38,16 @@ command! -bang -nargs=? -complete=dir Buffers
 command! -bang -nargs=* Rg
     \ call fzf#vim#grep('rg --column --line-number --no-heading --smart-case -- '.shellescape(<q-args>), 1,
     \ { 'options': extend(
-      \ extend(fzf_options, ['--delimiter=:', '--nth=4..']),
+      \ fzf_options,
       \ fzf_preview) },
     \ <bang>0)
+
+" command! -bang -nargs=* Rg
+"     \ call fzf#vim#grep('rg --column --line-number --no-heading --smart-case -- '.shellescape(<q-args>), 1,
+"     \ { 'options': extend(
+"       \ extend(fzf_options, ['--delimiter=:', '--nth=4..']),
+"       \ fzf_preview) },
+"     \ <bang>0)
 
 " TODO: :Marks
 " TODO : bug, :Rg breaks options of :Files and :Buffers (try using either

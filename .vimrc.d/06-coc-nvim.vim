@@ -7,7 +7,9 @@ let g:coc_global_extensions = [
     \ 'coc-html',
     \ 'coc-css',
     \ 'coc-highlight',
-    \ 'coc-go'
+    \ 'coc-go',
+    \ 'coc-rls',
+    \ 'coc-sql'
   \ ]
 
 nmap <silent> gd <Plug>(coc-definition)

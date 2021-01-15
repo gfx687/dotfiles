@@ -3,20 +3,23 @@
   name = gfx687
 [credential]
   helper = cache --timeout=360000
-[color]
-  ui = true
-[color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
-[color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red
-  new = green
-[pager]
-  diff = diff-so-fancy | less --tabs=4 -RFX
-  show = diff-so-fancy | less --tabs=4 -RFX
+
+[core]
+  pager = delta
+
+[delta]
+  side-by-side = true
+  line-numbers = true
+  syntax-theme = OneHalfLight
+  line-numbers-left-style = green
+  line-numbers-right-style = green
+  line-numbers-zero-style = "#bbbbbb"
+  file-style = bold green ul
+  file-decoration-style = green ul ol
+  commit-style = yellow
+  commit-decoration-style = yellow box
+  hunk-header-style = omit
+
 [mergetool]
   prompt = false
 [mergetool "mvimdiff"]

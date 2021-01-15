@@ -130,12 +130,6 @@ typeset -U fpath
 
 # :git
 {
-  if [ ! -f "$HOME/.zsh/diff-so-fancy" ]; then
-    curl -s 'https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy' --output "$HOME/.zsh/diff-so-fancy"
-
-    chmod +x $HOME/.zsh/diff-so-fancy
-  fi
-
   if [ ! -f "$HOME/.zsh/git-log-compact" ]; then
     curl -s 'https://raw.githubusercontent.com/mackyle/git-log-compact/b17e4ec6f6e1ddb206c6a6ab24f053798790f32b/git-log-compact' --output "$HOME/.zsh/git-log-compact"
 
@@ -233,18 +227,14 @@ typeset -U fpath
   alias ck='create-and-change-directory'
   alias binchmod='chmod +x $HOME/.dotfiles/bin/shareable/* && chmod +x $HOME/.dotfiles/bin/non-shareable/*'
   alias l='ls -1Al'
-
-  alias clipcopy='xclip -in -selection clipboard'
-  alias clippaste='xclip -out -selection clipboard'
+  alias bat='bat --theme=OneHalfLight --color=always'
 
   # :alias-git
   alias gl='git-log-compact --graph --max-count=30 --all --decorate'
   alias gc!='git commit --amend --reuse-message HEAD'
   alias gca='git add .; git commit --all'
   alias gca!='git add .; git commit --all --amend --reuse-message HEAD'
-
-  alias gd='gwd && echo -e "\n\033[1;33mSTATUS:" && gws -uall'
-  alias gdo='git diff origin/master'
+  alias gd='git diff'
 
   # :alias-kubectl
   alias k=kubectl

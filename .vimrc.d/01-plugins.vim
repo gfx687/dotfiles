@@ -17,6 +17,7 @@ Plug 'sheerun/vim-polyglot'      " syntax highlighting
 Plug 'tpope/vim-commentary'      " gcc to comment line
 Plug 'mattn/emmet-vim'
 Plug 'OmniSharp/omnisharp-vim'
+Plug 'rust-lang/rust.vim'
 
 " can use # or *, if needed
 " Plug 'RRethy/vim-illuminate'     " Highlightes word under cursor
@@ -44,9 +45,13 @@ let g:ale_enabled = 0
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
     \ 'javascript': ['prettier', 'eslint'],
+    \ 'rust':       ['rustfmt'],
     \ '*': ['remove_trailing_lines', 'trim_whitespace']
-  \}
-let g:ale_linters = { 'cs': ['OmniSharp'] }
+  \ }
+let g:ale_linters = {
+    \ 'cs': ['OmniSharp'],
+    \ 'rust': ['cargo', 'rls']
+  \ }
 
 " :nerdtree
 let g:NERDTreeWinPos = 'right'

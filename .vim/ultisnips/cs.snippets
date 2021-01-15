@@ -91,6 +91,10 @@ endsnippet
 
 # :test
 
+snippet tl "test logger" b
+private readonly ITestOutputHelper _log;
+endsnippet
+
 snippet ms "Mock setup" b
 $1
 	.Setup(x => x.$2)
@@ -110,15 +114,18 @@ $1.Verify(x => x.$2(It.Is<$3>(it =>
 	$6);
 endsnippet
 
-snippet le "Serilog error" b
-Serilog.Log.Logger.Error("test log: " + $1);
-endsnippet
-
-snippet lje "Serilog error" b
+snippet ls "Serilog error" b
 Serilog.Log.Logger.Error("test log: " + System.Text.Json.JsonSerializer.Serialize(new
 {
 	$1
-}));
+}, new System.Text.Json.JsonSerializerOptions { WriteIndented = true }));
+endsnippet
+
+snippet lc "Serilog error" b
+System.Console.WriteLine("test log: " + System.Text.Json.JsonSerializer.Serialize(new
+{
+	$1
+}, new System.Text.Json.JsonSerializerOptions { WriteIndented = true }));
 endsnippet
 
 snippet ita "It.IsAny" wb
