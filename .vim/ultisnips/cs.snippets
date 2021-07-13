@@ -1,48 +1,99 @@
-snippet c "public class" b
-public class ${1}
+global !p
+import vim
+import os
+
+def get_filename():
+	path = os.path.basename(vim.current.buffer.name)
+	return path.replace('.cs', '')
+endglobal
+
+snippet cwl "Console.WriteLine" Ab
+Console.WriteLine(${1});
+endsnippet
+
+snippet thr "throw new " Ab
+throw new $0;
+endsnippet
+
+snippet $ "$ string format" Ai
+$"$0"
+endsnippet
+
+snippet .ts ".ToString()" Ai
+.ToString()
+endsnippet
+
+snippet .ta ".ToArray()" Ai
+.ToArray()
+endsnippet
+
+snippet .tl ".ToList()" Ai
+.ToList()
+endsnippet
+
+snippet (= "lambda" Ai
+(${1:x} => $1.$0
+endsnippet
+
+snippet ts "public struct" Ab
+public struct ${1:`!p snip.rv=get_filename()`}
 {
-	$0
+	${0:#classDefinition}
 }
 endsnippet
 
-snippet i "public interface" b
-public interface ${1}
+snippet trec "public record" Ab
+public record ${1:`!p snip.rv=get_filename()`}
 {
-	$0
+	${0:#classDefinition}
 }
 endsnippet
 
-snippet pr "private readonly" b
-private readonly 
+snippet tc "public class" Ab
+public class ${1:`!p snip.rv=get_filename()`}
+{
+	${0:#classDefinition}
+}
+endsnippet
+
+snippet ti "public interface" Ab
+public interface ${1:`!p snip.rv=get_filename()`}
+{
+	${0:#interfaceDefinition}
+}
+endsnippet
+
+snippet gn "Guid.NewGuid()" Aw
+Guid.NewGuid()
+endsnippet
+
+snippet pre "private readonly" Ab
+private readonly
 endsnippet
 
 snippet psr "public static readonly" b
 public static readonly $0
 endsnippet
 
-snippet gn "Guid.NewGuid()" wb
-Guid.NewGuid()
-endsnippet
-
-snippet pg "get-only prop" b
+snippet pg "get-only prop" Ab
 /// <summary>
-/// $2
+/// $3
 /// </summary>
 public $1 $2 { get; private set; }
 endsnippet
 
-snippet ps "get-set prop" b
+snippet ps "get-set prop" Ab
 /// <summary>
 /// $2
 /// </summary>
 public $1 $2 { get; set; }
 endsnippet
 
-snippet mc "template for mediatr command + handler" b
+snippet mdc "template for mediatr request + handler" b
 /// <summary>
 /// ${3}
 /// </summary>
-public class ${1} : IRequest<${2:Result<Unit>}>
+public class ${1:`!p snip.rv=get_filename()`} : IRequest<${2:Result<Unit>}>
 {
 	/// <summary>ctor</summary>
 	public $1()
@@ -69,27 +120,55 @@ public class $1Handler
 }
 endsnippet
 
+
 # :comments
-snippet csum "summary" b
+snippet /s "summary" Ab
 /// <summary>
 /// $1
 /// </summary>
 endsnippet
 
-snippet cctor "cctor" b
+snippet /c "cctor" Ab
 /// <summary>ctor</summary>
 endsnippet
 
-snippet cinh "inheritdoc" b
+snippet /i "inheritdoc" Ab
 /// <inheritdoc />
 endsnippet
 
-snippet csee "see cref" wb
+snippet /r "see cref" Aw
 <see cref="${1}" />
 endsnippet
 
 
 # :test
+snippet .sb ".Should().Be" Ai
+.Should().Be
+endsnippet
+
+snippet trc "wrap block into try-catch" Ab
+try
+{
+	${VISUAL:default}
+}
+catch (${1:Exception} ex)
+{
+	${2://handle}
+}
+endsnippet
+
+snippet prm "turn selected private readonlys to Mock<>" Ab
+`!p
+lines = snip.v.text.splitlines()
+indent = re.split('\w', lines[0])[0]
+
+for l in lines:
+    v = l.split()
+	if l != lines[0]:
+		snip.rv += f"\n{indent}"
+    snip.rv += f"{v[0]} {v[1]} Mock<{v[2]}> {v[3][:-1]} = new Mock<{v[2]}>(MockBehavior.Strict);"
+`
+endsnippet
 
 snippet tl "test logger" b
 private readonly ITestOutputHelper _log;
@@ -114,21 +193,21 @@ $1.Verify(x => x.$2(It.Is<$3>(it =>
 	$6);
 endsnippet
 
-snippet ls "Serilog error" b
+snippet ls "Serilog error" Ab
 Serilog.Log.Logger.Error("test log: " + System.Text.Json.JsonSerializer.Serialize(new
 {
 	$1
 }, new System.Text.Json.JsonSerializerOptions { WriteIndented = true }));
 endsnippet
 
-snippet lc "Serilog error" b
-System.Console.WriteLine("test log: " + System.Text.Json.JsonSerializer.Serialize(new
+snippet lc "Serilog error" Ab
+${1:System.Console}.WriteLine("test log: " + System.Text.Json.JsonSerializer.Serialize(new
 {
-	$1
+	$0
 }, new System.Text.Json.JsonSerializerOptions { WriteIndented = true }));
 endsnippet
 
-snippet ita "It.IsAny" wb
+snippet ita "It.IsAny" Awb
 It.IsAny<$1>()
 endsnippet
 
@@ -175,6 +254,6 @@ using (var db = new DefaultDbContext(DbOptions))
 }
 endsnippet
 
-snippet up "Update property" wb
-UpdateProperty(p => p.$1, $2)
+snippet .up "Update property" Ai
+.UpdateProperty(p => p.$1, $2)
 endsnippet

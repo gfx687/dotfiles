@@ -29,6 +29,7 @@ Plug 'markonm/traces.vim'        " substitute highlighting
 Plug 'tpope/vim-surround'        " visual + S + surrounder
 Plug 'justinmk/vim-sneak'        " Multiline F and T search by 2 characters
 Plug 'gfx687/exec-in-tmux-split'
+Plug 'takac/vim-hardtime'        " no repeating of jjj, kkk etc
 call plug#end()
 
 " :vim-sneak
@@ -62,38 +63,5 @@ let g:NERDTreeWinSize=70
 map <leader>nn :NERDTreeToggle<cr>
 map <leader>nf :NERDTreeFind<cr>
 
-" :ultisnips
-let g:UltiSnipsExpandTrigger = "<nop>"
-let g:UltiSnipsJumpForwardTrigger = '<C-J>'
-let g:UltiSnipsJumpBackwardTrigger = '<C-K>'
-let g:UltiSnipsSnippetDirectories = [ $HOME . '/.vim/ultisnips' ]
-
-let g:UltiSnipsEnableSnipMate = 0
-let g:UltiSnipsEditSplit="horizontal"
-
-inoremap <silent> <Tab> <c-r>=_expand_snippet()<cr>
-xnoremap <silent> <Tab> <Esc>:call UltiSnips#SaveLastVisualSelection()<cr>gvs
-
-func! _expand_snippet()
-let g:_expand_snippet = 1
-call UltiSnips#ExpandSnippet()
-let g:_expand_snippet = 0
-
-if g:ulti_expand_res == 0
-  if pumvisible()
-    "&& !empty(v:completed_item)
-    return coc#_select_confirm()
-  else
-    call coc#refresh()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1]  =~# '\s'
-      return "\<tab>"
-    end
-  end
-else
-  call coc#refresh()
-  return ""
-end
-
-return "\<c-n>"
-endfunc
+" :vim-hardtime
+let g:hardtime_default_on = 1

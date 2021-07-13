@@ -16,3 +16,9 @@ augroup Javascript_ft
   " refactor tag to have it's content on it's own line
   au FileType typescriptreact,javascriptreact nmap <c-y><cr> vit"9xi<c-y><cr><c-r>9<esc>
 augroup end
+
+augroup Rust_ft
+  au!
+
+  au FileType rust nmap <leader>r :call ExecInTmuxSplit('cargo run ' . expand('%:p'))<CR>
+augroup end

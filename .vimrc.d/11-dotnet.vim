@@ -11,17 +11,17 @@ let g:OmniSharp_diagnostic_exclude_paths = [
 " one color theme
 let g:OmniSharp_highlight_groups = {
 \ 'Keyword': 'Keyword',
-\ 'LocalName': 'Text',
-\ 'ParameterName': 'Text',
-\ 'FieldName': 'Text',
-\ 'NamespaceName': 'Text',
-\ 'PropertyName': 'Text',
-\ 'EnumMemberName': 'Text',
+\ 'LocalName': 0,
+\ 'ParameterName': 0,
+\ 'FieldName': 0,
+\ 'NamespaceName': 0,
+\ 'PropertyName': 0,
+\ 'EnumMemberName': 0,
 \ 'InterfaceName': 'Identifier',
 \ 'MethodName': 'Method',
 \ 'ExtensionMethodName': 'Method',
 \ 'XmlDocCommentName': 'NonText',
-\ 'XmlDocCommentNonText': 'Text',
+\ 'XmlDocCommentNonText': 0,
 \ 'XmlDocCommentDelimiter': 'NonText',
 \ 'XmlDocCommentAttributeName': 'NonText'
 \}
@@ -29,7 +29,6 @@ let g:OmniSharp_highlight_groups = {
 augroup Csharp_ft
   autocmd!
   autocmd FileType cs let g:ale_enabled = 1
-  autocmd FileType cs let g:ale_fix_on_save = 0
 
   autocmd FileType cs setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType cs setlocal colorcolumn=120
@@ -42,6 +41,8 @@ augroup Csharp_ft
   endif
 
   autocmd FileType cs nmap <silent> <buffer> gd <Plug>(omnisharp_go_to_definition)
+  autocmd FileType cs nmap gl :vsplit<Bar>OmniSharpGotoDefinition<Cr>
+  autocmd FileType cs nmap gk :split<Bar>OmniSharpGotoDefinition<Cr>
   autocmd FileType cs nmap <silent> <buffer> gr <Plug>(omnisharp_find_usages)
   autocmd FileType cs nmap <silent> <buffer> gi <Plug>(omnisharp_find_implementations)
   autocmd FileType cs nmap <silent> <buffer> <Leader>ca <Plug>(omnisharp_code_actions)

@@ -2,6 +2,7 @@
   "suggest.noselect": false,
   "diagnostic.format": "[%severity] %message [%source%code]",
   "diagnostic.infoSign": "--",
+  "diagnostic.errorSign": ">>",
   "diagnostic.checkCurrentLine": true,
   "sql.database": "postgresql"
 }

@@ -1,35 +1,31 @@
-snippet pr "fmt.Printf" b
-fmt.Printf("${1:%v}\n"${2:, })
+snippet str "string" Aw
+string
 endsnippet
 
-snippet : ":=" wb
+snippet fp "fmt.Println" Ab
+fmt.Printf("${1}\n", ${2})
+endsnippet
+
+snippet : ":=" Ab
 $1 := $0
 endsnippet
 
-snippet :_ ":=" wb
+snippet _: ":=" Ab
 $1, _ := $0
 endsnippet
 
-snippet :e "_, err :=" b
+snippet e: "_, err :=" Ab
 $1, err := $2
 if err != nil {
 	$3
 }
 endsnippet
 
-snippet f "func" b
-func $1($2) $3 {
-	$0
-}
-endsnippet
+# snippet "(.*)\.(\d)" "Description" Awr
+# `!p snip.rv=match.group(1) + "[" + match.group(2) + "]"`
+# endsnippet
 
-snippet m "func" b
-func ($1) $2($3) $4 {
-	$0
-}
-endsnippet
-
-snippet examplehttp "mini http server example" b
+snippet examplehttp "mini http server example" Ab
 package main
 
 import (

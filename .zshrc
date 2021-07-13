@@ -63,11 +63,6 @@ typeset -U fpath
   setopt inc_append_history
   setopt share_history
 
-  path+=("$HOME/.dotfiles/bin/shareable")
-  path+=("$HOME/.dotfiles/bin/non-shareable")
-  # chmod +x ~/.dotfiles/bin/shareable/*
-  # chmod +x ~/.dotfiles/bin/non-shareable/*
-
   export TERM=xterm-256color
   export LC_ALL=en_US.UTF-8
   export LANG=en_US.UTF-8
@@ -76,6 +71,10 @@ typeset -U fpath
   export PSQL_EDITOR="vim -u ~/.dotfiles/.vimrc.d/00-base.vim +\"set filetype\"=sql"
   export GOPATH="$HOME/go"
   export THEME=onelight
+
+  path+=("$HOME/.dotfiles/bin/shareable")
+  path+=("$HOME/.dotfiles/bin/non-shareable")
+  path+=("$GOPATH/bin")
 
   kubectl() {
     if ! type __start_kubectl >/dev/null 2>&1; then
@@ -221,6 +220,8 @@ typeset -U fpath
 
 # :alias
 {
+  alias sudo='sudo '
+  alias watch='watch '
   alias v='nvim'
   alias vim='vim -u ~/.dotfiles/.vimrc.d/00-base.vim'
   alias py=python3
@@ -253,5 +254,5 @@ typeset -U fpath
 
   # :alias-docker
   alias dk='docker '
-  alias dko='docker-compose'
+  alias dko='docker compose '
 }
