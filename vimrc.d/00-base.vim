@@ -26,9 +26,10 @@ set splitbelow splitright
 set ttyfast
 set mouse=a
 set path+=**
+set foldcolumn=auto
 
 if has('unnamedplus')
-  set clipboard=unnamedplus
+  set clipboard+=unnamedplus
 else
   set clipboard=unnamed
 endif
@@ -49,6 +50,7 @@ let g:netrw_liststyle=3
 
 let mapleader = "\<space>"
 nnoremap <silent> <Leader>/ :noh<CR>
+nnoremap <leader>cc :cclose<Cr>
 nnoremap <leader>p o<Esc>p
 
 " Show found line in the center of the screen

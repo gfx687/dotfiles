@@ -63,17 +63,18 @@ typeset -U fpath
   setopt inc_append_history
   setopt share_history
 
-  export TERM=xterm-256color
+  # export TERM=xterm-256color
   export LC_ALL=en_US.UTF-8
   export LANG=en_US.UTF-8
   export VISUAL=nvim
   export EDITOR=nvim
-  export PSQL_EDITOR="vim -u ~/.dotfiles/.vimrc.d/00-base.vim +\"set filetype\"=sql"
+  export PSQL_EDITOR="vim -u ~/dotfiles/.vimrc.d/00-base.vim +\"set filetype\"=sql"
   export GOPATH="$HOME/go"
-  export THEME=onelight
+  export THEME=gruvbox
+  export LS_OPTIONS='--color=auto'
 
-  path+=("$HOME/.dotfiles/bin/shareable")
-  path+=("$HOME/.dotfiles/bin/non-shareable")
+  path+=("$HOME/dotfiles/bin/shareable")
+  path+=("$HOME/dotfiles/bin/non-shareable")
   path+=("$GOPATH/bin")
 
   kubectl() {
@@ -91,10 +92,10 @@ typeset -U fpath
   # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
   # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-  node() {
-    lazy_load_nvm
-    node $@
-  }
+#   node() {
+#     lazy_load_nvm
+#     node $@
+#   }
 }
 
 # :prompt
@@ -204,11 +205,11 @@ typeset -U fpath
     cd "$@"
   }
 
-  lazy_load_nvm() {
-    unset -f node
-    export NVM_DIR=~/.nvm
-    [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
-  }
+#   lazy_load_nvm() {
+#     unset -f node
+#     export NVM_DIR=~/.nvm
+#     [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+#   }
 
   _dotnet_zsh_complete()
   {
@@ -223,12 +224,15 @@ typeset -U fpath
   alias sudo='sudo '
   alias watch='watch '
   alias v='nvim'
-  alias vim='vim -u ~/.dotfiles/.vimrc.d/00-base.vim'
+  alias vim='nvim -u ~/dotfiles/.vimrc.d/00-base.vim'
   alias py=python3
   alias ck='create-and-change-directory'
-  alias binchmod='chmod +x $HOME/.dotfiles/bin/shareable/* && chmod +x $HOME/.dotfiles/bin/non-shareable/*'
-  alias l='ls -1Al'
+  alias binchmod='chmod +x $HOME/dotfiles/bin/shareable/* && chmod +x $HOME/dotfiles/bin/non-shareable/*'
+  alias ls='ls $LS_OPTIONS'
+  alias ll='ls $LS_OPTIONS -l'
+  alias l='ls $LS_OPTIONS -lA'
   alias bat='bat --theme=OneHalfLight --color=always'
+  alias open='xdg-open '
 
   # :alias-git
   alias gl='git-log-compact --graph --max-count=30 --all --decorate'

@@ -69,9 +69,10 @@ schemes:
       cyan:    '#8ec07c'
       white:   '#ebdbb2'
 
-colors: *onelight
+colors: *gruvbox
 
-background_opacity: 1
+window:
+  opacity: 1
 
 font:
   normal:
@@ -80,7 +81,7 @@ font:
     family: Fira Code
   italic:
     family: Fira Code
-  size: 13.0
+  size: 11.0
 
 key_bindings:
   - { key: Right,  mods: Alt,           chars: "\x1bf"                      }

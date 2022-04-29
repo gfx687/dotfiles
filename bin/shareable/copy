@@ -6,12 +6,11 @@
 # if command -v xclip > /dev/null 2&>1 ; then
 #     cmd=' xclip -selection clipboard'
 # fi
+cmd=' xclip -selection clipboard'
 
 # if [ -z "${cmd}" ] ; then
 #     echo "No clipboard utilities found. Tried: pbcopy, xclip"
 #     exit 1
 # fi
 
-
-cmd=' xclip -selection clipboard'
-eval "cat /proc/sys/kernel/random/uuid | tr -d '\n' | $cmd"
+eval "cat $1 | tr -d '\n' | $cmd"

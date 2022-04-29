@@ -19,10 +19,8 @@ Plug 'mattn/emmet-vim'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'rust-lang/rust.vim'
 
-" can use # or *, if needed
-" Plug 'RRethy/vim-illuminate'     " Highlightes word under cursor
-
-Plug 'AndrewRadev/splitjoin.vim' " turn oneline code into block
+" Plug 'preservim/tagbar'
+" Plug 'AndrewRadev/splitjoin.vim' " turn oneline code into block
 Plug 'wellle/targets.vim'        " more text objects
 Plug 'jiangmiao/auto-pairs'      " autocompletion and autoindent for bracets
 Plug 'markonm/traces.vim'        " substitute highlighting
@@ -37,8 +35,9 @@ map s <Plug>Sneak_s
 map S <Plug>Sneak_S
 
 " :fugitive :git
-nnoremap <leader>gs :Gstatus<Cr>
-nnoremap <leader>gb :Gblame<Cr>
+nnoremap <leader>gs :Git<Cr>
+nnoremap <leader>gb :Git blame<Cr>
+nnoremap <leader>gd :Gdiffsplit<Cr>
 " stash list: :Glog -g stashes
 
 " :ale
@@ -57,7 +56,7 @@ let g:ale_linters = {
 " :nerdtree
 let g:NERDTreeWinPos = 'right'
 let NERDTreeShowHidden=1
-let NERDTreeQuitOnOpen=1
+let NERDTreeQuitOnOpen=0
 let g:NERDTreeWinSize=70
 
 map <leader>nn :NERDTreeToggle<cr>

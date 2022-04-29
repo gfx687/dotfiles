@@ -3,6 +3,7 @@ nmap <C-E> :Buffers<Cr>
 nmap <C-F> :Rg<Cr>
 vmap <C-F> "9y :Rg <C-R>9<CR>
 nmap <C-W><C-P> :call fzf#vim#files('.', {'options':'--query '.expand('<cword>')})<CR>
+nmap <C-T> :BTags<Cr>
 
 " interfactively close buffers
 command! Bdelete call fzf#run(fzf#wrap({

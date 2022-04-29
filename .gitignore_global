@@ -1,6 +1,8 @@
 .DS_Store
 *.swp
 *.swo
+tags
 .tags_*
 .tags
 .tempfiles
+package-lock.json

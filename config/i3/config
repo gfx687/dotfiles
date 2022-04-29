@@ -1,15 +1,15 @@
-exec "xrandr --output DP-1 --left-of DP-2"
-exec "xrandr --output DP-2 --rotate left"
+# exec "xrandr --output DP-1 --left-of DP-2"
+# exec "xrandr --output DP-2 --rotate left"
 exec "setxkbmap -option ctrl:nocaps -layout us,ru -option 'grp:win_space_toggle'"
 # exec --no-startup-id feh --bg-fill ~/.dotfiles/wallpaper.jpg
-exec_always --no-startup-id $HOME/.dotfiles/.config/polybar/polybar.sh
-exec --no-startup-id xautolock -locker "~/.dotfiles/bin/lock-with-blurred-screenshot" -time 10 -detectsleep -notify 10
+# exec_always --no-startup-id $HOME/.dotfiles/.config/polybar/polybar.sh
+# exec --no-startup-id xautolock -locker "~/.dotfiles/bin/lock-with-blurred-screenshot" -time 10 -detectsleep -notify 10
 
 set $mod Mod4
 font pango:Fira Code 12
 
-set $right DP-1
-set $left DP-2
+# set $right DP-1
+# set $left DP-2
 
 # binds
 bindsym Control+Print exec gnome-screenshot -i
@@ -24,21 +24,21 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-bindsym $mod+Return exec "kitty $SHELL -c 'tmux new-session -A -s main'"
+# bindsym $mod+Return exec "kitty $SHELL -c 'tmux new-session -A -s main'"
 bindsym $mod+Ctrl+q kill
 
 bindcode $mod+48 layout toggle split
 bindcode $mod+47 layout tabbed
 bindcode $mod+Ctrl+47 layout stacking
 
-bindsym $mod+Tab exec "rofi -show window"
-bindsym $mod+Ctrl+Tab exec "rofi -combi-modi drun,run -show combi"
-bindsym $mod+l exec "sh ~/.dotfiles/bin/lock-with-blurred-screenshot"
+# bindsym $mod+Tab exec "rofi -show window"
+# bindsym $mod+Ctrl+Tab exec "rofi -combi-modi drun,run -show combi"
+# bindsym $mod+l exec "sh ~/.dotfiles/bin/lock-with-blurred-screenshot"
 
 bindsym $mod+f fullscreen toggle
 
-bindsym $mod+m move workspace to output $right
-bindsym $mod+Shift+m move workspace to output $left
+# bindsym $mod+m move workspace to output $right
+# bindsym $mod+Shift+m move workspace to output $left
 
 bindcode $mod+Shift+65 floating toggle
 bindcode $mod+65 focus mode_toggle
@@ -47,10 +47,10 @@ bindsym $mod+minus scratchpad show
 
 
 # dropdown terminal
-exec --no-startup-id kitty --title scratchpadterm
-for_window [title="scratchpadterm"] floating enable, resize set width 100 ppt, resize set height 50 ppt, move position 0 0, move scratchpad
-bindsym F12 [title="scratchpadterm"] scratchpad show
-bindsym $mod+t [title="scratchpadterm"] scratchpad show
+# exec --no-startup-id kitty --title scratchpadterm
+# for_window [title="scratchpadterm"] floating enable, resize set width 100 ppt, resize set height 50 ppt, move position 0 0, move scratchpad
+# bindsym F12 [title="scratchpadterm"] scratchpad show
+# bindsym $mod+t [title="scratchpadterm"] scratchpad show
 
 # configure workspaces
 bindsym $mod+1 workspace 1: Ⅰ
@@ -94,8 +94,7 @@ client.background       $red
 hide_edge_borders smart
 
 # gaps
-gaps inner 10
-# gaps top 30
-# gaps outer 10
-for_window [class=".*"] border pixel 3
-
+# gaps inner 10
+# # gaps top 30
+# # gaps outer 10
+# for_window [class=".*"] border pixel 3

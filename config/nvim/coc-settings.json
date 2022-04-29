@@ -4,5 +4,6 @@
   "diagnostic.infoSign": "--",
   "diagnostic.errorSign": ">>",
   "diagnostic.checkCurrentLine": true,
-  "sql.database": "postgresql"
+  "sql.database": "postgresql",
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/12.0.1/clangd_12.0.1/bin/clangd"
 }
