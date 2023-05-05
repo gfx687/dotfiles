@@ -3,9 +3,6 @@ set nocompatible
 filetype plugin indent on
 syntax on
 
-" Hit `%` on `if` to jump to `else`.
-runtime macros/matchit.vim
-
 set backspace=indent,eol,start
 set hidden
 set noswapfile
@@ -26,7 +23,8 @@ set splitbelow splitright
 set ttyfast
 set mouse=a
 set path+=**
-set foldcolumn=auto
+set undofile
+set undodir=~/.vim/undo-dir
 
 if has('unnamedplus')
   set clipboard+=unnamedplus
@@ -34,29 +32,16 @@ else
   set clipboard=unnamed
 endif
 
-if has('persistent_undo')
-  if !isdirectory($HOME."/.vim")
-    call mkdir($HOME."/.vim", "", 0770)
-  endif
-  if !isdirectory($HOME."/.vim/undo-dir")
-    call mkdir($HOME."/.vim/undo-dir", "", 0700)
-  endif
-  set undofile
-  set undodir=~/.vim/undo-dir
-endif
-
-let g:netrw_banner=0
-let g:netrw_liststyle=3
-
 let mapleader = "\<space>"
 nnoremap <silent> <Leader>/ :noh<CR>
 nnoremap <leader>cc :cclose<Cr>
 nnoremap <leader>p o<Esc>p
 
+inoremap jk <ESC>
+
 " Show found line in the center of the screen
 nnoremap n nzz
 nnoremap N Nzz
-nnoremap # #N
 
 " do not include linebreak character
 vnoremap $ g_
@@ -73,4 +58,13 @@ vnoremap s "_s
 nnoremap c "_c
 vnoremap c "_c
 
+" insert tabs more seamlessly
+nnoremap > >>
+nnoremap < <<
+vnoremap <silent> > >gv
+vnoremap <silent> < <gv
+
+nnoremap @@ @q
+
 " TODO : configure foldcolumn
+" set foldcolumn=auto
