@@ -6,7 +6,6 @@
 
 # :prezto
 {
-    # Color output (auto set to 'no' on dumb terminals).
     zstyle ':prezto:*:*' color 'yes'
 
     zstyle ':prezto:load' pmodule \
@@ -45,11 +44,27 @@
     setopt autocd                                    # cd by just folder name
 }
 
+# :fzf
+{
+    # possibly only works for Debian, as fzf was installed via apt
+    source /usr/share/doc/fzf/examples/key-bindings.zsh
+    bindkey -v "^P" fzf-file-widget
+    bindkey -v "^R" fzf-history-widget
+
+    FZF_CTRL_R_OPTS='--layout=reverse'
+    FZF_DEFAULT_COMMAND='fdfind --type file --follow --hidden --exclude .git'
+    FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+}
+
 # :func
 {
     create-and-change-dir() {
         mkdir -p "$@"
         cd "$@"
+    }
+
+    diff-with-dsf() {
+        diff "$@" | diff-so-fancy
     }
 }
 
@@ -61,12 +76,13 @@
     alias py=python3
     alias ck='create-and-change-dir'
     alias l='ls --color=auto -lA'
+    alias diff='diff-with-dsf'
 
     # :alias-git
     alias gl='PAGER=cat git log --oneline --graph --decorate --all --max-count=30'
     alias gc!='git commit --amend --reuse-message HEAD'
     alias gca='git add .; git commit --all'
-    alias gca='git add .; git commit --all --amend --reuse-message HEAD'
+    alias gca!='git add .; git commit --all --amend --reuse-message HEAD'
     alias gd='git diff'
     alias gp='git push'
 
@@ -107,7 +123,3 @@
 # # https://github.com/spaceship-prompt/spaceship-prompt
 # SPACESHIP_PROMPT_ORDER=(user host dir git exec_time line_sep jobs exit_code char)
 #
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# export FZF_DEFAULT_OPTS=$COLORS
-# export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git'
-# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
