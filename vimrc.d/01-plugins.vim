@@ -5,7 +5,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'itchyny/lightline.vim'
 
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'dense-analysis/ale'
 " Plug 'SirVer/ultisnips'
 Plug 'junegunn/fzf'
@@ -22,7 +22,7 @@ Plug 'tpope/vim-commentary'      " gc + text object to comment
 
 " Plug 'preservim/tagbar'
 " Plug 'AndrewRadev/splitjoin.vim' " turn oneline code into block
-" Plug 'wellle/targets.vim'        " more text objects
+Plug 'wellle/targets.vim'        " more text objects
 Plug 'jiangmiao/auto-pairs'      " autocompletion and autoindent for bracets
 Plug 'markonm/traces.vim'        " substitute highlighting
 Plug 'tpope/vim-surround'        " visual + S + surrounder
@@ -39,7 +39,6 @@ map F <Plug>Sneak_S
 nnoremap <leader>gs :Git<Cr>
 nnoremap <leader>gb :Git blame<Cr>
 nnoremap <leader>gd :Gdiffsplit<Cr>
-" stash list: :Glog -g stashes
 
 " :ale
 let g:ale_enabled = 0
@@ -64,4 +63,4 @@ map <leader>nn :NERDTreeToggle<cr>
 map <leader>nf :NERDTreeFind<cr>
 
 " :vim-hardtime
-let g:hardtime_default_on = 1
+" let g:hardtime_default_on = 1

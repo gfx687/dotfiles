@@ -4,4 +4,5 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
+let g:dracula_italic = 0
 colorscheme dracula

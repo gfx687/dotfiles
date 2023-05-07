@@ -1,17 +1,3 @@
-#! /bin/bash
-# if command -v pbcopy > /dev/null 2&>1 ; then
-#     cmd=' pbcopy'
-# fi
-
-# if command -v xclip > /dev/null 2&>1 ; then
-#     cmd=' xclip -selection clipboard'
-# fi
-
-# if [ -z "${cmd}" ] ; then
-#     echo "No clipboard utilities found. Tried: pbcopy, xclip"
-#     exit 1
-# fi
-
-
+#!/bin/bash
 cmd=' xclip -selection clipboard'
 eval "cat /proc/sys/kernel/random/uuid | tr -d '\n' | $cmd"
