@@ -1,4 +1,5 @@
 let g:lightline = {
+  \ 'colorscheme': 'dracula',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'filename', 'readonly', 'modified' ] ],
@@ -23,15 +24,3 @@ function! LightlineGitbranch() abort
   endif
   return ''
 endfunction
-
-if $THEME == "onelight"
-  let g:lightline.colorscheme = 'one'
-endif
-
-if $THEME == "nord"
-  let g:lightline.colorscheme = 'nord'
-endif
-
-if $THEME == "gruvbox"
-  let g:lightline.colorscheme = 'gruvbox'
-endif
