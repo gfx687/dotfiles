@@ -8,7 +8,7 @@ let g:lightline = {
   \              [ 'gitbranch', 'fileencoding', 'filetype' ] ]
   \ },
   \ 'component_function': {
-  \   'gitbranch': 'LightlineGitbranch',
+  \   'gitbranch': 'FugitiveHead',
   \   'fileencoding': 'LightlineFileencoding',
   \ },
   \ }
@@ -16,11 +16,4 @@ let g:lightline = {
 " show only if not utf-8
 function! LightlineFileencoding() abort
   return &fileencoding ==# 'utf-8' ? '' : (&fileencoding ==# '' ? 'no ft' : &fileencoding)
-endfunction
-
-function! LightlineGitbranch() abort
-  if exists("*FugitiveHead")
-    return fugitive#head() ==# '' ? '' : ' ' . fugitive#head()
-  endif
-  return ''
 endfunction

@@ -56,9 +56,15 @@
     bindkey -v "^P" fzf-file-widget
     bindkey -v "^R" fzf-history-widget
 
-    FZF_CTRL_R_OPTS='--layout=reverse'
-    FZF_DEFAULT_COMMAND='fdfind --type file --follow --hidden --exclude .git'
-    FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    export FZF_CTRL_R_OPTS='--layout=reverse'
+    export FZF_DEFAULT_COMMAND='fdfind --type file --follow --hidden --exclude .git'
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+    # dracula colors
+    export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9
+        --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9
+        --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6
+        --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 }
 
 # :func
@@ -82,6 +88,7 @@
     alias ck='create-and-change-dir'
     alias l='ls --color=auto -lA'
     alias diff='diff-with-dsf'
+    alias fd='fdfind '
 
     # :alias-git
     alias gl='PAGER=cat git log --oneline --graph --decorate --all --max-count=30'
