@@ -8,5 +8,6 @@ source ~/dotfiles/vimrc.d/03-colors.vim
 source ~/dotfiles/vimrc.d/04-lightline.vim
 source ~/dotfiles/vimrc.d/05-fzf.vim
 source ~/dotfiles/vimrc.d/06-coc-nvim.vim
+source ~/dotfiles/vimrc.d/12-golang.vim
 
 noh

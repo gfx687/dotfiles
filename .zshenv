@@ -3,6 +3,7 @@ export LC_ALL=en_US.UTF-8
 export VISUAL=nvim
 export EDITOR=nvim
 export LESS='--mouse --wheel-lines=4 -Q -z-4'
+export GOPATH="$HOME/go"
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
@@ -14,5 +15,7 @@ path=(
   /usr/local/{,s}bin(N)
   $HOME/dotfiles/bin/shareable
   $HOME/dotfiles/bin/non-shareable
+  $GOPATH/bin
+  /usr/local/go/bin
   $path
 )

@@ -1,7 +1,28 @@
 {
-  "suggest.noselect": true,
-  "diagnostic.format": "[%severity] %message [%source%code]",
-  "diagnostic.infoSign": "--",
-  "diagnostic.errorSign": ">>",
-  "diagnostic.checkCurrentLine": true
+    "suggest.noselect": true,
+    "diagnostic.format": "[%severity] %message [%source%code]",
+    "diagnostic.infoSign": "--",
+    "diagnostic.errorSign": ">>",
+    "diagnostic.checkCurrentLine": true,
+    "languageserver": {
+        "go": {
+            "command": "gopls",
+            "rootPatterns": [
+                "go.work",
+                "go.mod",
+                ".vim/",
+                ".git/",
+                ".hg/"
+            ],
+            "filetypes": [
+                "go"
+            ],
+            "initializationOptions": {
+                "usePlaceholders": true
+            }
+        }
+    },
+    "go.goplsOptions": {
+        "gofumpt": false,
+    }
 }

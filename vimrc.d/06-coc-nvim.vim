@@ -4,7 +4,7 @@ set signcolumn=number
 
 let g:coc_global_extensions = [
     \ 'coc-json',
-    \ 'coc-vimlsp'
+    \ 'coc-vimlsp',
     \ ]
 
 " Completion on TAB
@@ -21,6 +21,7 @@ nmap <leader>ca <Plug>(coc-codeaction)
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <leader>dg :CocDiagnostics<CR>
+nmap <silent> gd <Plug>(coc-definition)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call ShowDocumentation()<CR>
@@ -33,6 +34,10 @@ function! ShowDocumentation()
   endif
 endfunction
 
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 
 
@@ -49,7 +54,6 @@ endfunction
 "     \ 'coc-sql'
 "   \ ]
 
-" nmap <silent> gd <Plug>(coc-definition)
 " nmap <silent> gr <Plug>(coc-references)
 " nmap <leader>cr <Plug>(coc-rename)
 " xmap if <Plug>(coc-funcobj-i)

@@ -23,7 +23,7 @@ Plug 'tpope/vim-commentary'      " gc + text object to comment
 " Plug 'preservim/tagbar'
 " Plug 'AndrewRadev/splitjoin.vim' " turn oneline code into block
 Plug 'wellle/targets.vim'        " more text objects
-Plug 'jiangmiao/auto-pairs'      " autocompletion and autoindent for bracets
+" Plug 'jiangmiao/auto-pairs'      " autocompletion and autoindent for bracets
 Plug 'markonm/traces.vim'        " substitute highlighting
 Plug 'tpope/vim-surround'        " visual + S + surrounder
 Plug 'justinmk/vim-sneak'        " Multiline F and T search by 2 characters
