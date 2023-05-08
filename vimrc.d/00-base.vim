@@ -25,12 +25,7 @@ set mouse=a
 set path+=**
 set undofile
 set undodir=~/.vim/undo-dir
-
-if has('unnamedplus')
-  set clipboard+=unnamedplus
-else
-  set clipboard=unnamed
-endif
+set clipboard+=unnamedplus
 
 let mapleader = "\<space>"
 nnoremap <silent> <Leader>/ :noh<CR>
@@ -66,5 +61,5 @@ vnoremap <silent> < <gv
 
 nnoremap @@ @q
 
+" TODO : something messes up with Y
 " TODO : configure foldcolumn
-" set foldcolumn=auto

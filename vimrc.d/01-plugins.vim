@@ -21,13 +21,12 @@ Plug 'tpope/vim-commentary'      " gc + text object to comment
 " Plug 'rust-lang/rust.vim'
 
 " Plug 'preservim/tagbar'
-" Plug 'AndrewRadev/splitjoin.vim' " turn oneline code into block
 Plug 'wellle/targets.vim'        " more text objects
-" Plug 'jiangmiao/auto-pairs'      " autocompletion and autoindent for bracets
+" Plug 'jiangmiao/auto-pairs'      " autocomp and autoindent, kinda buggy
 Plug 'markonm/traces.vim'        " substitute highlighting
 Plug 'tpope/vim-surround'        " visual + S + surrounder
 Plug 'justinmk/vim-sneak'        " Multiline F and T search by 2 characters
-" Plug 'gfx687/exec-in-tmux-split'
+Plug 'gfx687/exec-in-tmux-split'
 Plug 'takac/vim-hardtime'        " no repeating of jjj, kkk etc
 call plug#end()
 

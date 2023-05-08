@@ -1,7 +1,7 @@
 augroup Golang_ft
   au!
   " au FileType go setlocal ts=4 sts=4 sw=4 noexpandtab
-  " au FileType go setlocal cc=80
+  au FileType go setlocal cc=80
 
   au FileType go nmap <silent> <buffer> [[ :call Go_prev_func()<CR>
   au FileType go nmap <silent> <buffer> ]] :call Go_next_func()<CR>
