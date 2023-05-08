@@ -1,9 +1,13 @@
 nmap <C-P> :Files<Cr>
 nmap <C-E> :Buffers<Cr>
 nmap <C-F> :Rg<Cr>
+
 " vmap <C-F> "9y :Rg <C-R>9<CR>
 " nmap <C-W><C-P> :call fzf#vim#files('.', {'options':'--query '.expand('<cword>')})<CR>
+
 " TODO : keybind to remove buffers from :Buffers 
+" TODO : don't open :Words on `:W`, I enter it by accident while doing `:w`
+" way too often
 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
