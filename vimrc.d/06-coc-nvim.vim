@@ -19,21 +19,13 @@ nmap <leader>f <Plug>(coc-format)
 vmap <leader>f <Plug>(coc-format-selected)
 nmap <leader>ca <Plug>(coc-codeaction)
 
+" show documentation
+nmap <leader>i :call CocActionAsync('doHover')<CR>
+
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <leader>dg :CocDiagnostics<CR>
 nmap <silent> gd <Plug>(coc-definition)
-
-" Use K to show documentation in preview window
-nnoremap <silent> K :call ShowDocumentation()<CR>
-
-function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
-endfunction
 
 function! CheckBackspace() abort
   let col = col('.') - 1

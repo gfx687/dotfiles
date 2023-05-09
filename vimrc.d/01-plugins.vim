@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 " Plug 'gfx687/vim-one'
 " Plug 'arcticicestudio/nord-vim'
 " Plug 'morhetz/gruvbox'
+" Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'itchyny/lightline.vim'
 
@@ -23,7 +24,8 @@ Plug 'tpope/vim-commentary'      " gc + text object to comment
 Plug 'preservim/tagbar'
 Plug 'wellle/targets.vim'        " more text objects
 " Plug 'jiangmiao/auto-pairs'      " autocomp and autoindent, kinda buggy
-                                 " using coc-pairs from coc.nvim
+                                 " using coc-pairs from coc.nvim instead
+" Plug 'junegunn/vim-easy-align'
 Plug 'markonm/traces.vim'        " substitute highlighting
 Plug 'tpope/vim-surround'        " visual + S + surrounder
 Plug 'justinmk/vim-sneak'        " Multiline F and T search by 2 characters
