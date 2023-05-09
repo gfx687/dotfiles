@@ -32,3 +32,5 @@ command! -bang -nargs=* Rg
     \   "rg --column --line-number --no-heading --color=always --smart-case --hidden --glob '!.git\' -- ".shellescape(<q-args>), 1,
     \   fzf#vim#with_preview({'options': [ '--layout=reverse', '--info=inline' ] }), <bang>0)
 
+" tags
+let g:fzf_tags_command = 'ctags -R'

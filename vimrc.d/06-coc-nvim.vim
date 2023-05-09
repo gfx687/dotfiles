@@ -4,7 +4,8 @@ set signcolumn=number
 
 let g:coc_global_extensions = [
     \ 'coc-json',
-    \ 'coc-vimlsp',
+    \ 'coc-yaml',
+    \ 'coc-pairs'
     \ ]
 
 " Completion on TAB

@@ -20,9 +20,10 @@ Plug 'tpope/vim-commentary'      " gc + text object to comment
 " Plug 'OmniSharp/omnisharp-vim'
 " Plug 'rust-lang/rust.vim'
 
-" Plug 'preservim/tagbar'
+Plug 'preservim/tagbar'
 Plug 'wellle/targets.vim'        " more text objects
 " Plug 'jiangmiao/auto-pairs'      " autocomp and autoindent, kinda buggy
+                                 " using coc-pairs from coc.nvim
 Plug 'markonm/traces.vim'        " substitute highlighting
 Plug 'tpope/vim-surround'        " visual + S + surrounder
 Plug 'justinmk/vim-sneak'        " Multiline F and T search by 2 characters
@@ -63,3 +64,6 @@ map <leader>nf :NERDTreeFind<cr>
 
 " :vim-hardtime
 " let g:hardtime_default_on = 1
+
+" :tagbar
+nmap <F8> :TagbarToggle<CR>
