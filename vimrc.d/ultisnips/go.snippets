@@ -1,27 +1,41 @@
-snippet fp "fmt.Println" Ab
-fmt.Printf("${1}\n", ${2})
-endsnippet
-
-snippet : ":=" Ab
+snippet : ":=" b
 $1 := $0
 endsnippet
 
-snippet _: ":=" Ab
+snippet _: ":=" b
 $1, _ := $0
 endsnippet
 
-snippet e: "_, err :=" Ab
+snippet e: "_, err :=" b
 $1, err := $2
 if err != nil {
 	$3
 }
 endsnippet
 
-# snippet "(.*)\.(\d)" "Description" Awr
-# `!p snip.rv=match.group(1) + "[" + match.group(2) + "]"`
-# endsnippet
+snippet fr "for range" b
+for ${2:_}, $3 := range $1 {
+	${0}
+}
+endsnippet
 
-snippet examplehttp "mini http server example" Ab
+snippet fi "for i" b
+for ${1:i} := 0; $1 < $2; $1++ {
+	${0}
+}
+endsnippet
+
+snippet if "if" bw
+if $1 {
+	$0
+}
+endsnippet
+
+snippet fp "fmt.Println" b
+fmt.Printf("${1}\n", ${2})
+endsnippet
+
+snippet examplehttp "mini http server example" b
 package main
 
 import (
