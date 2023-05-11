@@ -61,5 +61,4 @@ vnoremap <silent> < <gv
 
 nnoremap @@ @q
 
-" TODO : something messes up with Y
 " TODO : configure foldcolumn

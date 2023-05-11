@@ -1,3 +1,7 @@
+snippet s "string" w
+string
+endsnippet
+
 snippet : ":=" b
 $1 := $0
 endsnippet
@@ -25,13 +29,17 @@ for ${1:i} := 0; $1 < $2; $1++ {
 }
 endsnippet
 
-snippet if "if" bw
+snippet if "if" w
 if $1 {
 	$0
 }
 endsnippet
 
-snippet fp "fmt.Println" b
+snippet fpl "fmt.Println" b
+fmt.Println("$1")
+endsnippet
+
+snippet fp "fmt.Printf" b
 fmt.Printf("${1}\n", ${2})
 endsnippet
 
