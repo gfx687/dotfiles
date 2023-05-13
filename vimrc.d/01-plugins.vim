@@ -54,7 +54,10 @@ Plug 'wellle/targets.vim'        " more text objects
 Plug 'gfx687/vim-ski'
     let g:skeletons_dir=$HOME . '/dotfiles/vimrc.d/skeletons/'
 
-" Plug 'reedes/vim-lexical'        " spell-checking
+Plug 'junegunn/vim-easy-align'   " gaip= to align by = symbol
+    xmap ga <Plug>(EasyAlign)
+    nmap ga <Plug>(EasyAlign)
+Plug 'reedes/vim-lexical'        " spell-checking, [s ]s zg zug
 " Plug 'junegunn/vim-easy-align'
 Plug 'markonm/traces.vim'        " substitute highlighting
 Plug 'tpope/vim-surround'        " visual + S + surrounder
@@ -67,3 +70,11 @@ Plug 'gfx687/exec-in-tmux-split'
 " Plug 'takac/vim-hardtime'        " no repeating of jjj, kkk etc
 "     let g:hardtime_default_on = 1
 call plug#end()
+
+" :vim-lexical
+augroup lexical
+      autocmd!
+      autocmd FileType markdown,mkd call lexical#init()
+augroup END
+let g:lexical#spell_key = '<leader>s'
+let g:lexical#thesaurus_key = '<leader>t'

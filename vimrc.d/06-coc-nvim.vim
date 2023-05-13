@@ -15,6 +15,7 @@ nmap <leader>rn <Plug>(coc-rename)
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gi :call CocActionAsync('doHover')<CR>
+nmap <silent> gr :call CocActionAsync('jumpReferences')<CR>
 
 nmap <leader>dg :CocDiagnostics<CR>
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
