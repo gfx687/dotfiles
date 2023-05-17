@@ -89,6 +89,8 @@
     alias l='ls --color=auto -lA'
     alias diff='diff-with-dsf'
     alias fd='fdfind '
+    # TODO : add func to create backups for files
+    # sudo cp --archive /etc/ufw/before6.rules /etc/ufw/before6.rules-COPY-$(date +"%Y%m%d%H%M%S")
 
     # :alias-git
     alias gl='PAGER=cat git log --oneline --graph --decorate --all --max-count=30'
@@ -98,6 +100,7 @@
     alias gca='git add .; git commit --all'
     alias gca!='git add .; git commit --all --amend --reuse-message HEAD'
     alias gd='git diff'
+    alias gd1='git diff HEAD~1 HEAD'
     alias gp='git push'
 
     # :alias-docker
