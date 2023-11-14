@@ -1,3 +1,8 @@
+" TODO and Known Issues
+" 1) :Rg search option only by text, not filenames
+"        There is some config example where you can add keybind into search
+"        Maybe add kb to switch files on/off for :Rg?
+
 nmap <C-P> :Files<Cr>
 nmap <C-E> :Buffers<Cr>
 nmap <C-F> :Rg<Cr>
@@ -6,10 +11,6 @@ nmap <C-T> :BTags<Cr>
 " command! W write
 " vmap <C-F> "9y :Rg <C-R>9<CR>
 " nmap <C-W><C-P> :call fzf#vim#files('.', {'options':'--query '.expand('<cword>')})<CR>
-
-" TODO : :Rg search option only by text, not filenames
-"        There is some config example where you can add keybind into search
-"        Maybe add kb to switch files on/off for :Rg?
 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',

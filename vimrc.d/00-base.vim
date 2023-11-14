@@ -1,3 +1,6 @@
+" TODO and Known Issues
+" 1) configure foldcolumn
+"
 set nocompatible
 
 filetype plugin indent on
@@ -60,5 +63,3 @@ vnoremap <silent> > >gv
 vnoremap <silent> < <gv
 
 nnoremap @@ @q
-
-" TODO : configure foldcolumn
