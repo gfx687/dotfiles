@@ -1,3 +1,7 @@
+# TODO and Known Issues
+# 1) add a func to create backups for files
+# 2) create base bash config like 00-vim to copy into remote machines. No mods, but all the aliases / settings (not zsh specific either, for base bash)
+
 # The following lines were added by compinstall
 # zstyle :compinstall filename '/home/gfx687/.zshrc'
 # autoload -Uz compinit
@@ -89,7 +93,6 @@
     alias l='ls --color=auto -lA'
     alias diff='diff-with-dsf'
     alias fd='fdfind '
-    # TODO : add func to create backups for files
     # sudo cp --archive /etc/ufw/before6.rules /etc/ufw/before6.rules-COPY-$(date +"%Y%m%d%H%M%S")
 
     # :alias-git

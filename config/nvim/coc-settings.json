@@ -1,4 +1,5 @@
 {
+    "coc.preferences.bracketEnterImprove": true,
     "suggest.noselect": true,
     "diagnostic.format": "[%severity] %message [%source%code]",
     "diagnostic.infoSign": "--",

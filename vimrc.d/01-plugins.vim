@@ -3,6 +3,8 @@ call plug#begin('~/.vim/plugged')
 " Plug 'arcticicestudio/nord-vim'
 " Plug 'morhetz/gruvbox'
 " Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+Plug 'projekt0n/github-nvim-theme'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'itchyny/lightline.vim'
 

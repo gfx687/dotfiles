@@ -21,6 +21,10 @@ nmap <leader>dg :CocDiagnostics<CR>
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
+" :h coc#on_enter()
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 
 " Completion on TAB
 " inoremap <silent><expr> <TAB>
