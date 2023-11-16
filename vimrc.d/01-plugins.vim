@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/plugged')
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
-Plug 'projekt0n/github-nvim-theme'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'itchyny/lightline.vim'
 
@@ -22,14 +21,15 @@ Plug 'preservim/nerdtree'
     map <leader>nn :NERDTreeToggle<cr>
     map <leader>nf :NERDTreeFind<cr>
 
-Plug 'tpope/vim-commentary'      " gc + text object to comment
+Plug 'norcalli/nvim-colorizer.lua'     " :ColorizerToggle
+Plug 'tpope/vim-commentary'            " gc + text object to comment
 " Plug 'OmniSharp/omnisharp-vim'
 " Plug 'preservim/vim-markdown'
 Plug 'preservim/tagbar'
     nmap <F8> :TagbarToggle<CR>
     let g:tagbar_wrap=1
 
-Plug 'wellle/targets.vim'        " more text objects
+Plug 'wellle/targets.vim'              " more text objects
 Plug 'gfx687/vim-ski'
     let g:skeletons_dir=$HOME . '/dotfiles/vimrc.d/skeletons/'
 
@@ -39,11 +39,11 @@ Plug 'junegunn/vim-easy-align'
     xmap ga <Plug>(EasyAlign)
     nmap ga <Plug>(EasyAlign)
 
-Plug 'reedes/vim-lexical'        " spell-checking, [s ]s <leader>s zg zug
-Plug 'markonm/traces.vim'        " substitute highlighting
-Plug 'tpope/vim-surround'        " visual + S + surrounder
-Plug 'bronson/vim-trailing-whitespace'
-Plug 'justinmk/vim-sneak'        " Multiline F and T search by 2 characters
+Plug 'reedes/vim-lexical'              " spell-checking, [s ]s <leader>s zg zug
+Plug 'markonm/traces.vim'              " substitute highlighting
+Plug 'tpope/vim-surround'              " visual + S + surrounder
+Plug 'bronson/vim-trailing-whitespace' " :FixWhitespace
+Plug 'justinmk/vim-sneak'              " multiline 2-character search
     map s <Plug>Sneak_s
     map S <Plug>Sneak_S
 

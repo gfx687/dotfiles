@@ -1,5 +1,9 @@
+" TODO and Known Issues
+" 1) configure catppuccin theme
+"    change color of lightle background to slightly darker gray
+"    change line / column number color
+
 let g:lightline = {
-  \ 'colorscheme': 'dracula',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'filename', 'readonly', 'modified' ] ],
@@ -17,3 +21,9 @@ let g:lightline = {
 function! LightlineFileencoding() abort
   return &fileencoding ==# 'utf-8' ? '' : (&fileencoding ==# '' ? 'no ft' : &fileencoding)
 endfunction
+
+if $BACKGROUND == "light"
+    let g:lightline.colorscheme = 'catppuccin'
+else
+    let g:lightline.colorscheme = 'dracula'
+endif

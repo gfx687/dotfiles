@@ -1,8 +1,12 @@
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
+set termguicolors
+set cursorline
 
-let g:dracula_italic = 0
-colorscheme dracula
+if $BACKGROUND == "light"
+    set background=light
+    colorscheme catppuccin-latte
+    hi CursorLine term=reverse guibg=#ccd0da
+else
+    set background=dark
+    colorscheme dracula
+    let g:dracula_italic = 0
+endif

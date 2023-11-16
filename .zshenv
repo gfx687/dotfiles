@@ -4,6 +4,7 @@ export VISUAL=nvim
 export EDITOR=nvim
 export LESS='--mouse --wheel-lines=4 -Q -z-4'
 export GOPATH="$HOME/go"
+export BACKGROUND=light
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
