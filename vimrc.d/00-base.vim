@@ -1,6 +1,6 @@
 " TODO and Known Issues
 " 1) configure foldcolumn
-"
+
 set nocompatible
 
 filetype plugin indent on

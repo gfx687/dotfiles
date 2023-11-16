@@ -1,3 +1,23 @@
+" TODO and Known Issues
+
+" Keybinds:
+"   C-N / C-P         - suggestion navigation (default)
+"   C-Y               - expand suggestion     (default)
+"   Enter / C-M / TAB - expand suggestion     (custom)
+"   C-D / C-U         - scroll preview window (custom)
+
+" Configuration Questions:
+"   codelens
+"   colors
+"   confirmKey
+"   hover
+"   inlayHint
+"   notification
+"   outline
+"   snippet
+"   suggest
+"   coc-status
+
 " Show signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 set signcolumn=number
@@ -5,7 +25,8 @@ set signcolumn=number
 let g:coc_global_extensions = [
     \ 'coc-json',
     \ 'coc-yaml',
-    \ 'coc-pairs'
+    \ 'coc-pairs',
+    \ 'coc-ultisnips'
     \ ]
 
 nmap <leader>f <Plug>(coc-format)
@@ -21,19 +42,20 @@ nmap <leader>dg :CocDiagnostics<CR>
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
+" Improvement of brakets and format on type (autoimports and such)
 " :h coc#on_enter()
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-
 " Completion on TAB
-" inoremap <silent><expr> <TAB>
-"       \ coc#pum#visible() ? coc#pum#next(1) :
-"       \ CheckBackspace() ? "\<Tab>" :
-"       \ coc#refresh()
-" inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<TAB>"
 
-" function! CheckBackspace() abort
-"   let col = col('.') - 1
-"   return !col || getline('.')[col - 1]  =~# '\s'
-" endfunction
+" Remap <C-d> and <C-u> to scroll float windows/popups
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-d> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-u> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-d> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-u> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-d> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-u> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif

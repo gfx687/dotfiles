@@ -1,6 +1,7 @@
 {
     "coc.preferences.bracketEnterImprove": true,
-    "suggest.noselect": true,
+    "suggest.noselect": false,
+    "suggest.enablePreselect": true,
     "diagnostic.format": "[%severity] %message [%source%code]",
     "diagnostic.infoSign": "--",
     "diagnostic.errorSign": ">>",

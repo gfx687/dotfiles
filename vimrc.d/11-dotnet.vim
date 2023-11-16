@@ -1,5 +1,4 @@
 " TODO and Known Issues
-" 1) scroll peek window
 
 let g:OmniSharp_completion_without_overloads = 1
 
