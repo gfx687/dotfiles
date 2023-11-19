@@ -1,7 +1,5 @@
 " TODO and Known Issues
-" 1) configure catppuccin theme
-"    change color of lightle background to slightly darker gray
-"    change line / column number color
+" 1) Add info about vim-lexical typos to the status line
 
 let g:lightline = {
   \ 'active': {
@@ -9,11 +7,12 @@ let g:lightline = {
   \             [ 'filename', 'readonly', 'modified' ] ],
   \   'right': [ [ 'lineinfo' ],
   \              [ 'percent' ],
-  \              [ 'gitbranch', 'fileencoding', 'filetype' ] ]
+  \              [ 'gitbranch', 'fileencoding' ] ]
   \ },
   \ 'component_function': {
   \   'gitbranch': 'FugitiveHead',
   \   'fileencoding': 'LightlineFileencoding',
+  \   'filename': '_relative_filename',
   \ },
   \ }
 
@@ -22,8 +21,14 @@ function! LightlineFileencoding() abort
   return &fileencoding ==# 'utf-8' ? '' : (&fileencoding ==# '' ? 'no ft' : &fileencoding)
 endfunction
 
+function! _relative_filename()
+  return expand('%')
+endfunction
+
 if $BACKGROUND == "light"
     let g:lightline.colorscheme = 'catppuccin'
+
+    " let g:lightline#colorscheme#catppuccin#palette.normal.middle = [ [ '#ff0000', '#ff0000', '#ff0000', '#ff0000' ] ]
 else
     let g:lightline.colorscheme = 'dracula'
 endif

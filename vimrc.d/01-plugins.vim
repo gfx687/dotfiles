@@ -1,5 +1,8 @@
+" TODO and Known Issues
+" - EasyAlign - dont add spaces around delimiter
+
 call plug#begin('~/.vim/plugged')
-Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+Plug 'gfx687/catppuccin-nvim', { 'as': 'catppuccin' }
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'itchyny/lightline.vim'
 
@@ -13,7 +16,7 @@ Plug 'tpope/vim-fugitive'
     nnoremap <leader>gd :Gdiffsplit<Cr>
 
 Plug 'preservim/nerdtree'
-    let g:NERDTreeWinPos = 'right'
+    let g:NERDTreeWinPos = 'left'
     let NERDTreeShowHidden=1
     let NERDTreeQuitOnOpen=0
     let g:NERDTreeWinSize=40

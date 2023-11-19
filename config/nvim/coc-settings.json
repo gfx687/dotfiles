@@ -1,7 +1,9 @@
 {
     "coc.preferences.bracketEnterImprove": true,
-    "suggest.noselect": false,
-    "suggest.enablePreselect": true,
+    "suggest.floatConfig.border": true,
+    "diagnostic.floatConfig.border": true,
+    "signature.floatConfig.border": true,
+    "hover.floatConfig.border": true,
     "diagnostic.format": "[%severity] %message [%source%code]",
     "diagnostic.infoSign": "--",
     "diagnostic.errorSign": ">>",

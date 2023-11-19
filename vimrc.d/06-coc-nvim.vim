@@ -1,4 +1,6 @@
 " TODO and Known Issues
+" 1) close pop-up while in I mod hotkey
+" 2) diagnostics - show whole project problems, not only current file
 
 " Keybinds:
 "   C-N / C-P         - suggestion navigation (default)
@@ -20,7 +22,7 @@
 
 " Show signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-set signcolumn=number
+set signcolumn=yes
 
 let g:coc_global_extensions = [
     \ 'coc-json',
