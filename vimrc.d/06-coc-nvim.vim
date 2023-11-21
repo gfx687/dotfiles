@@ -1,6 +1,7 @@
 " TODO and Known Issues
 " 1) close pop-up while in I mod hotkey
 " 2) diagnostics - show whole project problems, not only current file
+"    https://github.com/neoclide/coc.nvim/issues/2835
 
 " Keybinds:
 "   C-N / C-P         - suggestion navigation (default)
@@ -24,16 +25,21 @@
 " diagnostics appear/become resolved.
 set signcolumn=yes
 
+" coc-react-refactor - extract selected HTML into component
 let g:coc_global_extensions = [
     \ 'coc-json',
     \ 'coc-yaml',
     \ 'coc-pairs',
-    \ 'coc-ultisnips'
+    \ 'coc-ultisnips',
+    \ 'coc-tsserver',
+    \ 'coc-css',
+    \ 'coc-react-refactor'
     \ ]
 
 nmap <leader>f <Plug>(coc-format)
 vmap <leader>f <Plug>(coc-format-selected)
 nmap <leader>ca <Plug>(coc-codeaction)
+xmap <leader>ca  <Plug>(coc-codeaction-selected)
 nmap <leader>rn <Plug>(coc-rename)
 
 nmap <silent> gd <Plug>(coc-definition)

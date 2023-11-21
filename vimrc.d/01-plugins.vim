@@ -1,5 +1,7 @@
 " TODO and Known Issues
-" - EasyAlign - dont add spaces around delimiter
+" 1) EasyAlign - dont add spaces around delimiter
+" 2) auto-completion of react components in JSX adds '()' after component name
+" inside HTML tags
 
 call plug#begin('~/.vim/plugged')
 Plug 'gfx687/catppuccin-nvim', { 'as': 'catppuccin' }
@@ -28,9 +30,9 @@ Plug 'norcalli/nvim-colorizer.lua'     " :ColorizerToggle
 Plug 'tpope/vim-commentary'            " gc + text object to comment
 " Plug 'OmniSharp/omnisharp-vim'
 " Plug 'preservim/vim-markdown'
-Plug 'preservim/tagbar'
-    nmap <F8> :TagbarToggle<CR>
-    let g:tagbar_wrap=1
+" Plug 'preservim/tagbar'
+"     nmap <F8> :TagbarToggle<CR>
+"     let g:tagbar_wrap=1
 
 Plug 'wellle/targets.vim'              " more text objects
 Plug 'gfx687/vim-ski'
@@ -57,7 +59,7 @@ Plug 'gfx687/exec-in-tmux-split'
 " Plug 'pangloss/vim-javascript'
 Plug 'yuezk/vim-js'
 " Plug 'HerringtonDarkholme/yats.vim'
-" Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'MaxMEllon/vim-jsx-pretty'
 call plug#end()
 
 " :vim-lexical

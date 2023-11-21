@@ -1,5 +1,4 @@
 " TODO and Known Issues
-" 1) TAB expands snippets only if coc.nvim suggested them
 
 " Keybinds:
 "   Tab       - expand snippet from coc.nvim suggestion (coc-ultisnips)
