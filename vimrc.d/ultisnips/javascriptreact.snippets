@@ -1,1 +1,11 @@
 extends javascript
+
+snippet us "" w
+const [$1, set`!p
+name = t[1]
+if not name:
+	snip.rv = ''
+else:
+	snip.rv = name[0].upper() + name[1:]
+`] = React.useState($2);
+endsnippet

@@ -1,7 +1,9 @@
 " TODO and Known Issues
 " 1) EasyAlign - dont add spaces around delimiter
 " 2) auto-completion of react components in JSX adds '()' after component name
-" inside HTML tags
+"    inside HTML tags
+" 3) vim-markdown considers tags on top of the file to be headers and makes
+"    folds for time
 
 call plug#begin('~/.vim/plugged')
 Plug 'gfx687/catppuccin-nvim', { 'as': 'catppuccin' }
@@ -28,8 +30,7 @@ Plug 'preservim/nerdtree'
 
 Plug 'norcalli/nvim-colorizer.lua'     " :ColorizerToggle
 Plug 'tpope/vim-commentary'            " gc + text object to comment
-" Plug 'OmniSharp/omnisharp-vim'
-" Plug 'preservim/vim-markdown'
+Plug 'preservim/vim-markdown'
 " Plug 'preservim/tagbar'
 "     nmap <F8> :TagbarToggle<CR>
 "     let g:tagbar_wrap=1
@@ -53,6 +54,8 @@ Plug 'justinmk/vim-sneak'              " multiline 2-character search
     map S <Plug>Sneak_S
 
 Plug 'gfx687/exec-in-tmux-split'
+
+" Plug 'OmniSharp/omnisharp-vim'
 
 " javascript
 " Plug 'styled-components/vim-styled-components'

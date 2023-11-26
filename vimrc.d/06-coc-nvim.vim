@@ -2,6 +2,8 @@
 " 1) close pop-up while in I mod hotkey
 " 2) diagnostics - show whole project problems, not only current file
 "    https://github.com/neoclide/coc.nvim/issues/2835
+" 3) organize imports on format
+" 4) LSP options appear twice for javascript in JSX files (maybe others too)
 
 " Keybinds:
 "   C-N / C-P         - suggestion navigation (default)

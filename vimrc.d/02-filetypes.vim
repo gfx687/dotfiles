@@ -14,3 +14,9 @@ augroup Rust_ft
 
   au FileType rust nmap <leader>r :call ExecInTmuxSplit('cargo run ' . expand('%:p'))<CR>
 augroup end
+
+augroup Markdown_ft
+    au!
+
+    au Syntax markdown normal zR
+augroup end

@@ -1,5 +1,5 @@
 " TODO and Known Issues
-" 1) configure foldcolumn
+" 1) configure folding (https://github.com/Konfekt/FastFold)
 
 set nocompatible
 
@@ -29,6 +29,7 @@ set path+=**
 set undofile
 set undodir=~/.vim/undo-dir
 set clipboard+=unnamedplus
+set foldcolumn=1
 
 let mapleader = "\<space>"
 nnoremap <silent> <Leader>/ :noh<CR>
