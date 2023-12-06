@@ -6,7 +6,9 @@ augroup end
 augroup Python_ft
   au!
   au FileType python setlocal ts=4 sts=4 sw=4 expandtab
-  au FileType python nmap <leader>r :call ExecInTmuxSplit('python3 ' . expand('%:p'))<CR>
+  au FileType python let b:dispatch = 'python3 %'
+  " au FileType python nmap <leader>tt :call CocActionAsync('runCommand', 'pyright.singleTest')<CR>
+  " au FileType python nmap <leader>tf :call CocActionAsync('runCommand', 'pyright.fileTest')<CR>
 augroup end
 
 augroup Rust_ft

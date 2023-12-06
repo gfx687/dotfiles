@@ -1,10 +1,13 @@
+" TODO and Known Issues
+" comment color is too light, change it to more readable
+
 set termguicolors
 set cursorline
 
 if $BACKGROUND == "light"
     set background=light
     colorscheme catppuccin-latte
-    hi CursorLine term=reverse guibg=#ccd0da
+    hi CursorLine guibg=#dddddd
 else
     set background=dark
     colorscheme dracula

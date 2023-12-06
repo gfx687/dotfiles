@@ -28,5 +28,6 @@
     },
     "go.goplsOptions": {
         "gofumpt": false,
-    }
+    },
+    "python.pythonPath": "python3"
 }

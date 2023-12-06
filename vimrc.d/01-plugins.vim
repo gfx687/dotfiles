@@ -28,6 +28,8 @@ Plug 'preservim/nerdtree'
     map <leader>nn :NERDTreeToggle<cr>
     map <leader>nf :NERDTreeFind<cr>
 
+Plug 'tpope/vim-dadbod'
+Plug 'tpope/vim-dispatch'              " `<CR> `<Space>
 Plug 'norcalli/nvim-colorizer.lua'     " :ColorizerToggle
 Plug 'tpope/vim-commentary'            " gc + text object to comment
 Plug 'preservim/vim-markdown'
@@ -52,8 +54,6 @@ Plug 'bronson/vim-trailing-whitespace' " :FixWhitespace
 Plug 'justinmk/vim-sneak'              " multiline 2-character search
     map s <Plug>Sneak_s
     map S <Plug>Sneak_S
-
-Plug 'gfx687/exec-in-tmux-split'
 
 " Plug 'OmniSharp/omnisharp-vim'
 

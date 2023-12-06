@@ -12,7 +12,7 @@ let g:lightline = {
   \ 'component_function': {
   \   'gitbranch': 'FugitiveHead',
   \   'fileencoding': 'LightlineFileencoding',
-  \   'filename': '_relative_filename',
+  \   'filename': 'RelativeFilename',
   \ },
   \ }
 
@@ -21,7 +21,7 @@ function! LightlineFileencoding() abort
   return &fileencoding ==# 'utf-8' ? '' : (&fileencoding ==# '' ? 'no ft' : &fileencoding)
 endfunction
 
-function! _relative_filename()
+function! RelativeFilename()
   return expand('%')
 endfunction
 
@@ -32,3 +32,4 @@ if $BACKGROUND == "light"
 else
     let g:lightline.colorscheme = 'dracula'
 endif
+

@@ -42,7 +42,7 @@ nmap <leader>f <Plug>(coc-format)
 vmap <leader>f <Plug>(coc-format-selected)
 nmap <leader>ca <Plug>(coc-codeaction)
 xmap <leader>ca  <Plug>(coc-codeaction-selected)
-nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>cn <Plug>(coc-rename)
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gi :call CocActionAsync('doHover')<CR>

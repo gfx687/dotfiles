@@ -61,7 +61,7 @@
     bindkey -v "^R" fzf-history-widget
 
     export FZF_CTRL_R_OPTS='--layout=reverse'
-    export FZF_DEFAULT_COMMAND='fdfind --type file --follow --hidden --exclude .git'
+    export FZF_DEFAULT_COMMAND='fdfind --type file --hidden --exclude .git --exclude node_modules'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
     # dracula colors
