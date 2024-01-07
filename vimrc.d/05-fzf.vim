@@ -2,7 +2,6 @@
 " 1) :Rg search option only by text, not filenames
 "        There is some config example where you can add keybind into search
 "        Maybe add kb to switch files on/off for :Rg?
-" 2) set up faster grep tool
 
 nmap <C-P> :Files<Cr>
 nmap <C-E> :Buffers<Cr>

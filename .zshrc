@@ -58,6 +58,7 @@
     # possibly only works for Debian, as fzf was installed via apt
     source /usr/share/doc/fzf/examples/key-bindings.zsh
     bindkey -v "^P" fzf-file-widget
+    bindkey -v "^T" fzf-file-widget
     bindkey -v "^R" fzf-history-widget
 
     export FZF_CTRL_R_OPTS='--layout=reverse'
@@ -101,6 +102,7 @@
     alias l='ls --color=auto -lA'
     alias diff='diff-with-dsf'
     alias fd='fdfind '
+    alias treegi='rg --files | tree --fromfile'
     # sudo cp --archive /etc/ufw/before6.rules /etc/ufw/before6.rules-COPY-$(date +"%Y%m%d%H%M%S")
 
     # :alias-git

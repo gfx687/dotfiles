@@ -1,0 +1,36 @@
+{
+	// Place your snippets for markdown here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	"Interesting and Questions sections": {
+		"prefix": "qi",
+		"body": [
+			"## Interesting",
+			"- $1",
+			"",
+			"## Questions"
+			"- $2"
+			"$0"
+		],
+		"description": "Interesting and Questions sections"
+	},
+	"Questions, Interesting, Notes and Pile sections": {
+		"prefix": "qinu",
+		"body": [
+			"## My notes while researching the topic",
+			"$1",
+			"",
+			"## Unordered pile of information",
+			"$2",
+			"",
+			"## Interesting",
+			"- $3",
+			"",
+			"## Questions"
+			"- $4"
+			"$0"
+		],
+		"description": "Questions, Interesting, Notes and Pile sections"
+	}
+}

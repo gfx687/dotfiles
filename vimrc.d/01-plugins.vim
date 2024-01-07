@@ -2,8 +2,6 @@
 " 1) EasyAlign - dont add spaces around delimiter
 " 2) auto-completion of react components in JSX adds '()' after component name
 "    inside HTML tags
-" 3) vim-markdown considers tags on top of the file to be headers and makes
-"    folds for time
 
 call plug#begin('~/.vim/plugged')
 Plug 'gfx687/catppuccin-nvim', { 'as': 'catppuccin' }
@@ -29,7 +27,9 @@ Plug 'preservim/nerdtree'
     map <leader>nf :NERDTreeFind<cr>
 
 Plug 'tpope/vim-dadbod'
-Plug 'tpope/vim-dispatch'              " `<CR> `<Space>
+Plug 'kristijanhusak/vim-dadbod-ui'
+    let g:db_ui_execute_on_save=0
+Plug 'tpope/vim-dispatch'              " `<CR> `<Space> :Dispatch :Copen
 Plug 'norcalli/nvim-colorizer.lua'     " :ColorizerToggle
 Plug 'tpope/vim-commentary'            " gc + text object to comment
 Plug 'preservim/vim-markdown'
@@ -37,6 +37,7 @@ Plug 'preservim/vim-markdown'
 "     nmap <F8> :TagbarToggle<CR>
 "     let g:tagbar_wrap=1
 
+Plug 'jiangmiao/auto-pairs'
 Plug 'wellle/targets.vim'              " more text objects
 Plug 'gfx687/vim-ski'
     let g:skeletons_dir=$HOME . '/dotfiles/vimrc.d/skeletons/'
@@ -47,6 +48,7 @@ Plug 'junegunn/vim-easy-align'
     xmap ga <Plug>(EasyAlign)
     nmap ga <Plug>(EasyAlign)
 
+Plug 'easymotion/vim-easymotion'       " <leader> <leader> f / w
 Plug 'reedes/vim-lexical'              " spell-checking, [s ]s <leader>s zg zug
 Plug 'markonm/traces.vim'              " substitute highlighting
 Plug 'tpope/vim-surround'              " visual + S + surrounder

@@ -1,0 +1,69 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	"console.log": {
+		"scope": "javascript,typescript,javascriptreact,typescriptreact",
+		"prefix": "cl",
+		"body": [
+			"console.log($1)$2"
+		],
+		"description": "console.log"
+	},
+	"arrow function (single line)": {
+		"scope": "javascript,typescript,javascriptreact,typescriptreact",
+		"prefix": "af",
+		"body": [
+			"($1)$2 => $3",
+		],
+		"description": "arrow function (single line)"
+	},
+	"arrow function (code block)": {
+		"scope": "javascript,typescript,javascriptreact,typescriptreact",
+		"prefix": "afm",
+		"body": [
+			"($1)$2 => {",
+			"\t$3",
+			"}$4"
+		],
+		"description": "arrow function (code block)"
+	},
+	"arrow function (async)": {
+		"scope": "javascript,typescript,javascriptreact,typescriptreact",
+		"prefix": "afa",
+		"body": [
+			"async ($1)$2 => {",
+			"\t$3",
+			"}$4"
+		],
+		"description": "arrow function (async)"
+	},
+
+
+	// javascriptreact,typescriptreact,jsx,tsx
+	// collections of snippets:
+	// https://github.com/r5n-dev/vscode-react-javascript-snippets/blob/master/src/snippets/generated.json
+	// https://github.com/xabikos/vscode-react/blob/master/snippets/snippets.json
+
+	"React - useState": {
+		"scope": "javascriptreact,typescriptreact",
+		"prefix": "us",
+		"body": [
+			"const [ ${1:first}, set${1/(.*)/${1:/capitalize}/} ] = useState$3($4)",
+		],
+		"description": "React - useState"
+	},
+	"React - useEffect": {
+		"scope": "javascriptreact,typescriptreact",
+		"prefix": "ue",
+		"body": [
+			"useEffect(() => {",
+			"	$2",
+			"}, [$1])"
+		],
+		"description": "React - useEffect"
+	}
+}

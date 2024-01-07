@@ -8,7 +8,7 @@
 " Keybinds:
 "   C-N / C-P         - suggestion navigation (default)
 "   C-Y               - expand suggestion     (default)
-"   Enter / C-M / TAB - expand suggestion     (custom)
+"   C-M / TAB         - expand suggestion     (custom)
 "   C-D / C-U         - scroll preview window (custom)
 
 " Configuration Questions:
@@ -31,7 +31,6 @@ set signcolumn=yes
 let g:coc_global_extensions = [
     \ 'coc-json',
     \ 'coc-yaml',
-    \ 'coc-pairs',
     \ 'coc-ultisnips',
     \ 'coc-tsserver',
     \ 'coc-css',
@@ -40,12 +39,11 @@ let g:coc_global_extensions = [
 
 nmap <leader>f <Plug>(coc-format)
 vmap <leader>f <Plug>(coc-format-selected)
-nmap <leader>ca <Plug>(coc-codeaction)
-xmap <leader>ca  <Plug>(coc-codeaction-selected)
-nmap <leader>cn <Plug>(coc-rename)
-
+nmap <silent> <F2> <Plug>(coc-rename)
+nmap <silent> gq <Plug>(coc-codeaction)
+xmap <silent> gq  <Plug>(coc-codeaction-selected)
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gi :call CocActionAsync('doHover')<CR>
+nmap <silent> gh :call CocActionAsync('doHover')<CR>
 nmap <silent> gr :call CocActionAsync('jumpReferences')<CR>
 
 nmap <leader>dg :CocDiagnostics<CR>
@@ -54,8 +52,10 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " Improvement of brakets and format on type (autoimports and such)
 " :h coc#on_enter()
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+"                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+inoremap <silent><expr> <CR> "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Completion on TAB
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<TAB>"

@@ -1,0 +1,65 @@
+{
+	// Place your snippets for python here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"if-else one-liner": {
+		"prefix": "ift",
+		"body": [
+			"$1 if $2 else $3"
+		],
+		"description": "if-else one-line"
+	},
+	"simple limited loop": {
+		"prefix": "for11",
+		"body": [
+			"for i in range(0, 11):",
+			"	print(f'#{i}')"
+		],
+		"description": "simple limited loop"
+	},
+
+
+
+	"make http request and print result": {
+		"prefix": "curl",
+		"description": "make http request and print result"
+		"body": [
+			"import requests",
+			"",
+			"json = {",
+			"",
+			"}",
+			"headers = {",
+			"'Authorization': 'Bearer '",
+			"}",
+			"",
+			"# response = requests.post('', headers=headers, json=json)",
+			"response = requests.get('')",
+			"",
+			"print('Status Code:', response.status_code)",
+			"print('URL:', response.url)",
+			"print('Headers:\\n', response.headers)",
+			"print('Content-Type:', response.headers['Content-Type'])",
+			"print('Encoding:', response.encoding)",
+			"print('Text:\\n', response.text)  # Response body as a string",
+			"",
+			"# Uncomment below line to print the entire content (for large contents, be cautious)",
+			"# print('Content:\\n', response.content)  # Response body as bytes",
+			"",
+			"# print('JSON (if applicable):\\n', response.json())",
+			"print('Redirected:', response.history != [])",
+			"print('Cookies:', response.cookies)",
+			"print('Elapsed Time:', response.elapsed)",
+		]
+	}
+}
