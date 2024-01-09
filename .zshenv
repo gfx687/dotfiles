@@ -5,6 +5,7 @@ export EDITOR=nvim
 export LESS='--mouse --wheel-lines=4 -Q -z-4'
 export GOPATH="$HOME/go"
 export BACKGROUND=light
+export PYENV_ROOT="$HOME/.pyenv"
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
