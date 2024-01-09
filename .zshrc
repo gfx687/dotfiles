@@ -51,6 +51,11 @@
 {
     unsetopt beep                                   # no beeps
     setopt autocd                                   # cd by just folder name
+
+
+    # is needed for pyenv to work but slows dows zsh start
+    # eval "$(pyenv init -)"
+    # [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 }
 
 # :fzf
