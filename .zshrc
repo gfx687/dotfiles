@@ -55,14 +55,16 @@
 
 # :fzf
 {
-    # possibly only works for Debian, as fzf was installed via apt
-    source /usr/share/doc/fzf/examples/key-bindings.zsh
+    # scritps are in different places for different distros, check fzf README
+    # /usr/share/docs/fzf
+    source /usr/share/fzf/shell/key-bindings.zsh                  # fedora
+    # source /usr/share/doc/fzf/examples/key-bindings.zsh           # debian
     bindkey -v "^P" fzf-file-widget
     bindkey -v "^T" fzf-file-widget
     bindkey -v "^R" fzf-history-widget
 
     export FZF_CTRL_R_OPTS='--layout=reverse'
-    export FZF_DEFAULT_COMMAND='fdfind --type file --hidden --exclude .git --exclude node_modules'
+    export FZF_DEFAULT_COMMAND='fd --type file --hidden --exclude .git --exclude node_modules'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
     # dracula colors
@@ -101,7 +103,7 @@
     alias ck='create-and-change-dir'
     alias l='ls --color=auto -lA'
     alias diff='diff-with-dsf'
-    alias fd='fdfind '
+    # alias fd='fdfind '
     alias treegi='rg --files | tree --fromfile'
     # sudo cp --archive /etc/ufw/before6.rules /etc/ufw/before6.rules-COPY-$(date +"%Y%m%d%H%M%S")
 

@@ -1,0 +1,18 @@
+{
+  "recommendations": [
+    "vscodevim.vim",
+    "alefragnani.project-manager",
+    "streetsidesoftware.code-spell-checker",
+    "donjayamanne.githistory",
+    "Gruntfuggly.todo-tree",
+    "yzhang.markdown-all-in-one",
+    "svsool.markdown-memo",
+    "ms-azuretools.vscode-docker",
+    "denoland.vscode-deno",
+    "ms-python.autopep8",
+    "ms-python.vscode-pylance",
+    "ms-python.python",
+    "dbaeumer.vscode-eslint",
+    "tamasfe.even-better-toml"
+  ]
+}

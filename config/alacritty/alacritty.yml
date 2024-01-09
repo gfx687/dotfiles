@@ -69,7 +69,7 @@ schemes:
       cyan:    '#8ec07c'
       white:   '#ebdbb2'
 
-colors: *gruvbox
+colors: *onelight
 
 window:
   opacity: 1

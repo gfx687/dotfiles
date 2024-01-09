@@ -1,0 +1,19 @@
+ln -s ~/dotfiles/.zshrc ~
+ln -s ~/dotfiles/.zshenv ~
+ln -s ~/dotfiles/.zlogin ~
+
+ln -s ~/dotfiles/.gitconfig ~
+ln -s ~/dotfiles/.gitignore_global ~
+
+ln -s ~/dotfiles/.tmux.conf ~
+
+mkdir ~/.config/nvim
+ln -s ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
+ln -s ~/dotfiles/config/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
+
+mkdir ~/.config/alacritty
+ln -s ~/dotfiles/config/alacritty/alacritty.yml ~
+
+ln -s ~/dotfiles/.vscode/keybindings.json ~/.config/Code/User
+ln -s ~/dotfiles/.vscode/settings.json ~/.config/Code/User
+ln -s ~/dotfiles/.vscode/snippets ~/.config/Code/User
