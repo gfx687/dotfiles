@@ -1,0 +1,19 @@
+# reload sxhkd
+# pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
+
+super + Return
+    alacritty
+
+super + control + Return
+    tdrop --auto-detect-wm --monitor-aware -w 50% -h 40% -x 25% -y 60% alacritty --class dropterm -e tmux
+
+super + shift + control + Return
+    tdrop --auto-detect-wm --monitor-aware -w 50% -h 40% -x 25% -y 0% alacritty --class dropterm -e tmux
+
+Print
+    flameshot gui
+
+# fn + F10 / F11 / F12 on keychron k2
+# xbindkeys -k to check
+XF86Audio{LowerVolume,RaiseVolume,Mute}
+    volume {down,up,toggle}

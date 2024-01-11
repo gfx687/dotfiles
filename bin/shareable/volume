@@ -1,0 +1,46 @@
+#!/bin/bash
+
+function main() {
+    local action=$1
+
+    case $action in
+        up)
+            amixer -q sset Master 5%+
+        ;;
+
+        down)
+            amixer -q sset Master 5%-
+        ;;
+
+        toggle)
+            amixer -q sset Master toggle
+        ;;
+    esac
+
+    notify
+}
+
+notify() {
+    # percentage without %
+    volume="$(amixer sget Master | tail -1 | awk '{print $5}' | sed 's/[^0-9]*//g')"
+
+    # on / off
+    mute="$(amixer sget Master | tail -1 | awk '{print $6}' | sed 's/[^a-z]*//g')"
+
+    message=""
+    if [[ $volume == 0 || "$mute" == "off" ]]; then
+        message="MUTED"
+    else
+        message="${volume}%"
+    fi
+
+    dunstify \
+        -a "Volume Control" \
+        -u low \
+        -i audio-volume-high \
+        -h string:x-dunst-stack-tag:'volumecontrol' \
+        -h int:value:"$volume" \
+        "${message}"
+}
+
+main "$@"

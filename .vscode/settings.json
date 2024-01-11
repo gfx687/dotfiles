@@ -234,18 +234,25 @@
             "comments": "on",
             "strings": "on",
             "other": "on"
-        }
+        },
+        "editor.tabSize": 4,
     },
     "remote.autoForwardPortsSource": "hybrid",
     "cSpell.userWords": [
+        "arandr",
         "Chakra",
         "deno",
         "easymotion",
+        "Fira",
         "Flexbox",
         "Leaderboard",
+        "polybar",
         "quickfix",
+        "rofi",
         "selfhosted",
-        "supabase"
+        "supabase",
+        "sxhkd",
+        "xrandr"
     ],
     "markdown-preview-enhanced.liveUpdate": true,
     "todohighlight.isEnable": true,

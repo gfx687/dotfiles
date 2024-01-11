@@ -1,100 +1,118 @@
-# exec "xrandr --output DP-1 --left-of DP-2"
-# exec "xrandr --output DP-2 --rotate left"
-exec "setxkbmap -option ctrl:nocaps -layout us,ru -option 'grp:win_space_toggle'"
-# exec --no-startup-id feh --bg-fill ~/.dotfiles/wallpaper.jpg
-# exec_always --no-startup-id $HOME/.dotfiles/.config/polybar/polybar.sh
+exec "setxkbmap -layout us,ru -option 'grp:win_space_toggle'"
 # exec --no-startup-id xautolock -locker "~/.dotfiles/bin/lock-with-blurred-screenshot" -time 10 -detectsleep -notify 10
+exec --no-startup-id $HOME/dotfiles/config/polybar/polybar.sh
+exec --no-startup-id sxhkd
 
-set $mod Mod4
+set $alt Mod1
+floating_modifier $alt
+
 font pango:Fira Code 12
 
-# set $right DP-1
-# set $left DP-2
 
-# binds
-bindsym Control+Print exec gnome-screenshot -i
+# MONITORS SETUP
 
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+exec --no-startup-id xrandr --output eDP --off --output HDMI-A-0 --mode 2560x1440 --pos 0x0 --rotate normal --output DP-1-0 --off --output DP-1-1 --off --output DP-1-2 --mode 2560x1440 --rate 144 --pos 2560x0 --rotate normal --output DP-1-3 --off
 
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+set $left HDMI-A-0
+set $right DP-1-2
 
-# bindsym $mod+Return exec "kitty $SHELL -c 'tmux new-session -A -s main'"
-bindsym $mod+Ctrl+q kill
+bindsym $alt+m move workspace to output $right
+bindsym $alt+Shift+m move workspace to output $left
 
-bindcode $mod+48 layout toggle split
-bindcode $mod+47 layout tabbed
-bindcode $mod+Ctrl+47 layout stacking
-
-# bindsym $mod+Tab exec "rofi -show window"
-# bindsym $mod+Ctrl+Tab exec "rofi -combi-modi drun,run -show combi"
-# bindsym $mod+l exec "sh ~/.dotfiles/bin/lock-with-blurred-screenshot"
-
-bindsym $mod+f fullscreen toggle
-
-# bindsym $mod+m move workspace to output $right
-# bindsym $mod+Shift+m move workspace to output $left
-
-bindcode $mod+Shift+65 floating toggle
-bindcode $mod+65 focus mode_toggle
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
+# stick workspaces to specific monitors
+workspace 1 output $right
+workspace 2 output $right
+workspace 3 output $right
+workspace q output $left
+workspace w output $left
+workspace e output $left
+workspace a output $left
+workspace s output $left
+workspace d output $left
 
 
-# dropdown terminal
-# exec --no-startup-id kitty --title scratchpadterm
-# for_window [title="scratchpadterm"] floating enable, resize set width 100 ppt, resize set height 50 ppt, move position 0 0, move scratchpad
-# bindsym F12 [title="scratchpadterm"] scratchpad show
-# bindsym $mod+t [title="scratchpadterm"] scratchpad show
+# KEYBINDINGS (also check sxhkdrc)
 
-# configure workspaces
-bindsym $mod+1 workspace 1: Ⅰ
-bindsym $mod+2 workspace 2: Ⅱ
-bindsym $mod+3 workspace 3: Ⅲ
-bindsym $mod+q workspace 4: Ⅳ
-bindsym $mod+w workspace 5: Ⅴ
-bindsym $mod+e workspace 6: Ⅵ
-bindsym $mod+a workspace 7: Ⅶ
-bindsym $mod+s workspace 8: Ⅷ
-bindsym $mod+d workspace 9: Ⅸ
+bindsym $alt+Shift+t exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym $mod+Shift+1 move container to workspace 1: Ⅰ
-bindsym $mod+Shift+2 move container to workspace 2: Ⅱ
-bindsym $mod+Shift+3 move container to workspace 3: Ⅲ
-bindsym $mod+Shift+q move container to workspace 4: Ⅳ
-bindsym $mod+Shift+w move container to workspace 5: Ⅴ
-bindsym $mod+Shift+e move container to workspace 6: Ⅵ
-bindsym $mod+Shift+a move container to workspace 7: Ⅶ
-bindsym $mod+Shift+s move container to workspace 8: Ⅷ
-bindsym $mod+Shift+d move container to workspace 9: Ⅸ
+bindsym $alt+Ctrl+q kill
 
-# workspace 1 output $left
-# workspace 2 output $right
-# workspace 3 output $right
-# workspace 4 output $left
+bindsym $alt+f fullscreen toggle
 
-set_from_resource $red         color9  #ff0000
-set_from_resource $cyan        color14 #ff0000
-set_from_resource $black       color0  #ff0000
-set_from_resource $white       color7  #ff0000
+bindsym $alt+Tab exec "rofi -show window"
+bindsym $alt+r exec "rofi -show drun"
+# bindsym $alt+Ctrl+Tab exec "rofi -combi-modi drun,run -show combi"
+# bindsym $alt+l exec "sh ~/.dotfiles/bin/lock-with-blurred-screenshot"
 
-# class                 border  bground text    indicator child_border
-client.focused          $cyan   $cyan   $black  $cyan     $cyan
-client.focused_inactive $red    $red    $red    $red      $red
-client.unfocused        #2E3440 #2E3440 $white  #2E3440   #2E3440
-client.urgent           $red    $red    $red    $red      $red
-client.placeholder      $red    $red    $red    $red      $red
-client.background       $red
+# 47 is semicolon, 48 is singular quote
+bindcode $alt+48 layout toggle split
+bindcode $alt+47 layout tabbed
+bindcode $alt+Ctrl+47 layout stacking
 
-hide_edge_borders smart
+# 61 is /
+bindcode $alt+61 focus mode_toggle
+bindcode $alt+Ctrl+61 floating toggle
 
-# gaps
-# gaps inner 10
-# # gaps top 30
-# # gaps outer 10
-# for_window [class=".*"] border pixel 3
+bindsym $alt+Left focus left
+bindsym $alt+Down focus down
+bindsym $alt+Up focus up
+bindsym $alt+Right focus right
+
+bindsym $alt+h focus left
+bindsym $alt+j focus down
+bindsym $alt+k focus up
+bindsym $alt+l focus right
+
+bindsym $alt+Shift+Left move left
+bindsym $alt+Shift+Down move down
+bindsym $alt+Shift+Up move up
+bindsym $alt+Shift+Right move right
+
+bindsym $alt+Shift+h move left
+bindsym $alt+Shift+j move down
+bindsym $alt+Shift+k move up
+bindsym $alt+Shift+l move right
+
+bindsym $alt+1 workspace 1
+bindsym $alt+2 workspace 2
+bindsym $alt+3 workspace 3
+bindsym $alt+q workspace q
+bindsym $alt+w workspace w
+bindsym $alt+e workspace e
+bindsym $alt+a workspace a
+bindsym $alt+s workspace s
+bindsym $alt+d workspace d
+
+bindsym $alt+Shift+1 move container to workspace 1
+bindsym $alt+Shift+2 move container to workspace 2
+bindsym $alt+Shift+3 move container to workspace 3
+bindsym $alt+Shift+q move container to workspace q
+bindsym $alt+Shift+w move container to workspace w
+bindsym $alt+Shift+e move container to workspace e
+bindsym $alt+Shift+a move container to workspace a
+bindsym $alt+Shift+s move container to workspace s
+bindsym $alt+Shift+d move container to workspace d
+
+
+### FLOATS
+
+for_window [class="dropterm"] floating enable
+for_window [title="^Calendar$"] floating enable
+
+
+### APPEARANCE
+
+client.focused          #83A598 #83A598 #F8F8F2 #83A598 #83A598
+client.focused_inactive #928374 #83A598 #F8F8F2 #928374 #928374
+client.unfocused        #928374 #928374 #BFBFBF #928374 #928374
+client.urgent           #ff0000 #ff0000 #F8F8F2 #ff0000 #ff0000
+client.placeholder      #3c3836 #3c3836 #F8F8F2 #3c3836 #3c3836
+
+client.background       #F8F8F2
+
+smart_gaps on
+hide_edge_borders smart_no_gaps
+focus_follows_mouse no
+
+gaps inner 5
+for_window [class=".*"] border pixel 3

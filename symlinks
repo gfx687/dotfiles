@@ -7,13 +7,28 @@ ln -s ~/dotfiles/.gitignore_global ~
 
 ln -s ~/dotfiles/.tmux.conf ~
 
-mkdir ~/.config/nvim
+mkdir -p ~/.config/nvim
 ln -s ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
 ln -s ~/dotfiles/config/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
 
-mkdir ~/.config/alacritty
+mkdir -p ~/.config/alacritty
 ln -s ~/dotfiles/config/alacritty/alacritty.yml ~
 
 ln -s ~/dotfiles/.vscode/keybindings.json ~/.config/Code/User
 ln -s ~/dotfiles/.vscode/settings.json ~/.config/Code/User
 ln -s ~/dotfiles/.vscode/snippets ~/.config/Code/User
+
+mkdir -p ~/.config/i3
+ln -s ~/dotfiles/config/i3/config ~/.config/i3
+
+mkdir -p ~/.config/sxhkd
+ln -s ~/dotfiles/config/sxhkd/sxhkdrc ~/.config/sxhkd
+
+mkdir -p ~/.config/rofi
+ln -s ~/dotfiles/config/rofi/config.rasi ~/.config/rofi
+
+mkdir -p ~/.config/polybar
+ln -s ~/dotfiles/config/polybar/config.ini ~/.config/polybar
+
+mkdir -p ~/.config/dunst
+ln -s ~/dotfiles/config/dunst/dunstrc ~/.config/dunst

@@ -1,0 +1,8 @@
+@import "~/dotfiles/config/rofi/colors/gruvbox.rasi"
+
+* {
+    /* font: "Iosevka Nerd Font 12"; */
+    font: "FiraCode Nerd Font Mono 12";
+}
+
+@import "~/dotfiles/config/rofi/styles/style1-6.rasi"
