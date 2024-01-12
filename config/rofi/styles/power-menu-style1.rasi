@@ -1,0 +1,34 @@
+/*****----- Configuration -----*****/
+configuration {
+    show-icons:                 false;
+}
+
+@import "~/dotfiles/config/rofi/styles/common.rasi"
+
+window {
+    width:                       400px;
+}
+listview {
+    lines:                       5;
+}
+inputbar {
+    children:                    [ "textbox-prompt-colon", "prompt"];
+}
+
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      false;
+    str:                         "";
+    padding:                     10px 14px;
+    border-radius:               10px;
+    background-color:            @urgent;
+    text-color:                  @background;
+}
+prompt {
+    enabled:                     true;
+    padding:                     10px;
+    border-radius:               10px;
+    background-color:            @active;
+    text-color:                  @background;
+}
+

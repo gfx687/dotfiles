@@ -4,6 +4,9 @@
 super + Return
     alacritty
 
+super + control + f
+    tdrop --auto-detect-wm --monitor-aware -w 50% -h 40% -x 25% -y 60% alacritty --class dropterm -e tmux
+
 super + control + Return
     tdrop --auto-detect-wm --monitor-aware -w 50% -h 40% -x 25% -y 60% alacritty --class dropterm -e tmux
 

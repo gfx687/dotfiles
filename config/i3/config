@@ -1,10 +1,11 @@
 exec "setxkbmap -layout us,ru -option 'grp:win_space_toggle'"
-# exec --no-startup-id xautolock -locker "~/.dotfiles/bin/lock-with-blurred-screenshot" -time 10 -detectsleep -notify 10
+exec --no-startup-id xss-lock -- screen-lock
 exec --no-startup-id $HOME/dotfiles/config/polybar/polybar.sh
 exec --no-startup-id sxhkd
 
 set $alt Mod1
-floating_modifier $alt
+set $win Mod4
+floating_modifier $win
 
 font pango:Fira Code 12
 
@@ -32,15 +33,18 @@ workspace d output $left
 
 
 # KEYBINDINGS (also check sxhkdrc)
-
-bindsym $alt+Shift+t exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# Shift for moving stuff around
+# Ctrl for everything else
 
 bindsym $alt+Ctrl+q kill
 
 bindsym $alt+f fullscreen toggle
 
+bindsym $win+l exec "sh ~/dotfiles/config/rofi/power-menu.sh"
+
 bindsym $alt+Tab exec "rofi -show window"
 bindsym $alt+r exec "rofi -show drun"
+bindsym $alt+Ctrl+r exec "sh ~/dotfiles/config/rofi/favorite-commands.sh"
 # bindsym $alt+Ctrl+Tab exec "rofi -combi-modi drun,run -show combi"
 # bindsym $alt+l exec "sh ~/.dotfiles/bin/lock-with-blurred-screenshot"
 
@@ -98,7 +102,7 @@ bindsym $alt+Shift+d move container to workspace d
 
 for_window [class="dropterm"] floating enable
 for_window [title="^Calendar$"] floating enable
-
+for_window [class="Blueman-manager"] floating enable
 
 ### APPEARANCE
 
@@ -114,5 +118,5 @@ smart_gaps on
 hide_edge_borders smart_no_gaps
 focus_follows_mouse no
 
-gaps inner 5
-for_window [class=".*"] border pixel 3
+gaps inner 0
+for_window [class=".*"] border pixel 5

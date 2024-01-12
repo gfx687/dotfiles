@@ -12,6 +12,7 @@
     // `C-~` - toggle terminal
     // `C-<page_up> / <page_down>` - navigate between multiple terminals
 
+	"editor.fontFamily": "'FiraCode Nerd Font Mono', 'Fira Code', 'Droid Sans Mono', 'monospace', monospace",
     "workbench.colorTheme": "Solarized Light",
     "editor.wordWrap": "on",
 	"workbench.editor.showTabs": "none",
@@ -240,18 +241,23 @@
     "remote.autoForwardPortsSource": "hybrid",
     "cSpell.userWords": [
         "arandr",
+        "blueman",
         "Chakra",
         "deno",
+        "dunst",
         "easymotion",
         "Fira",
+        "flameshot",
         "Flexbox",
         "Leaderboard",
+        "pavucontrol",
         "polybar",
         "quickfix",
         "rofi",
         "selfhosted",
         "supabase",
         "sxhkd",
+        "tdrop",
         "xrandr"
     ],
     "markdown-preview-enhanced.liveUpdate": true,

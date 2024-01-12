@@ -1,0 +1,14 @@
+#!/bin/bash
+
+export XSECURELOCK_SHOW_DATETIME=1
+export XSECURELOCK_AUTH_CURSOR_BLINK=0
+
+if [[ -x '/usr/bin/amixer' ]]; then
+    amixer set Master mute
+fi
+
+xsecurelock
+
+if [[ -x '/usr/bin/amixer' ]]; then
+    amixer set Master unmute
+fi

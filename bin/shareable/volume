@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function main() {
+main() {
     local action=$1
 
     case $action in
@@ -37,7 +37,6 @@ notify() {
     dunstify \
         -a "Volume Control" \
         -u low \
-        -i audio-volume-high \
         -h string:x-dunst-stack-tag:'volumecontrol' \
         -h int:value:"$volume" \
         "${message}"

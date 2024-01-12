@@ -1,0 +1,53 @@
+#!/bin/bash
+
+conName='wg0'
+
+get_status() {
+    status=$(nmcli -f GENERAL.STATE con show $conName | awk '{ print $2 }')
+
+    if [ -n "$status" ]; then
+        status='on'
+    fi
+
+    if [ -z "${status}" ]; then
+        status='off'
+    fi
+
+    echo $status
+}
+
+handle_toggle() {
+    current=$(get_status)
+    message='failed to toggle VPN'
+
+    if [[ "$current" == "on" ]]; then
+        nmcli con down id $conName
+        message="VPN disabled"
+
+    fi
+
+    if [[ "$current" == "off" ]]; then
+        nmcli con up id $conName
+        message="VPN enabled"
+    fi
+
+    dunstify \
+        -a "VPN Toggle" \
+        -u low \
+        -h string:x-dunst-stack-tag:'vpntoggle' \
+        $conName "${message}"
+}
+
+case $1 in
+    status)
+        get_status
+    ;;
+
+    toggle)
+        handle_toggle
+    ;;
+
+    *)
+        get_status
+    ;;
+esac
