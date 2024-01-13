@@ -16,7 +16,12 @@ super + shift + control + Return
 Print
     flameshot gui
 
-# fn + F10 / F11 / F12 on keychron k2
+# fn + F10 / F11 / F12
 # xbindkeys -k to check
 XF86Audio{LowerVolume,RaiseVolume,Mute}
     volume {down,up,toggle}
+
+# fn + F7 / F8 / F9
+# xbindkeys -k to check
+XF86Audio{Prev,Play,Next}
+    playerctl {previous,play-pause,next}

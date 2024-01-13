@@ -9,7 +9,6 @@ floating_modifier $win
 
 font pango:Fira Code 12
 
-
 # MONITORS SETUP
 
 exec --no-startup-id xrandr --output eDP --off --output HDMI-A-0 --mode 2560x1440 --pos 0x0 --rotate normal --output DP-1-0 --off --output DP-1-1 --off --output DP-1-2 --mode 2560x1440 --rate 144 --pos 2560x0 --rotate normal --output DP-1-3 --off
@@ -98,11 +97,13 @@ bindsym $alt+Shift+s move container to workspace s
 bindsym $alt+Shift+d move container to workspace d
 
 
-### FLOATS
+### FLOATS and Assigns
 
 for_window [class="dropterm"] floating enable
 for_window [title="^Calendar$"] floating enable
 for_window [class="Blueman-manager"] floating enable
+
+assign [class="KeePassXC"] d
 
 ### APPEARANCE
 

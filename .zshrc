@@ -125,7 +125,7 @@
 
     # :alias-docker
     alias dk='docker '
-    alias dko='docker-compose '
+    alias dko='docker compose '
 }
 
 # plugins
