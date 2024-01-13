@@ -228,19 +228,21 @@
 
     // markdown
     "[markdown]": {
-        "editor.rulers": [120],
+        "editor.rulers": [100],
         "editor.wordWrap": "wordWrapColumn",
-        "editor.wordWrapColumn": 120,
+        "editor.wordWrapColumn": 100,
         "editor.quickSuggestions": {
             "comments": "on",
             "strings": "on",
             "other": "on"
         },
         "editor.tabSize": 4,
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one",
     },
     "remote.autoForwardPortsSource": "hybrid",
     "cSpell.userWords": [
         "arandr",
+        "backlinks",
         "blueman",
         "Chakra",
         "deno",
@@ -248,12 +250,16 @@
         "easymotion",
         "Fira",
         "flameshot",
+        "flathub",
+        "flatpak",
+        "flatpaks",
         "Flexbox",
         "Leaderboard",
         "pavucontrol",
         "polybar",
         "quickfix",
         "rofi",
+        "sandboxed",
         "selfhosted",
         "supabase",
         "sxhkd",
@@ -263,4 +269,6 @@
     "markdown-preview-enhanced.liveUpdate": true,
     "todohighlight.isEnable": true,
     "window.zoomLevel": 0,
+    "window.menuBarVisibility": "toggle",
+    "workbench.activityBar.location": "hidden",
 }

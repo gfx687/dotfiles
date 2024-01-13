@@ -7,6 +7,10 @@ if [[ -x '/usr/bin/amixer' ]]; then
     amixer set Master mute
 fi
 
+if [[ -x '/usr/bin/playerctl' ]]; then
+    playerctl pause
+fi
+
 xsecurelock
 
 if [[ -x '/usr/bin/amixer' ]]; then
