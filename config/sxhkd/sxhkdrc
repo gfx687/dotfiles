@@ -2,16 +2,10 @@
 # pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
 
 super + Return
-    alacritty
+    alacritty-tmux
 
 super + control + f
-    tdrop --auto-detect-wm --monitor-aware -w 50% -h 40% -x 25% -y 60% alacritty --class dropterm -e tmux
-
-super + control + Return
-    tdrop --auto-detect-wm --monitor-aware -w 50% -h 40% -x 25% -y 60% alacritty --class dropterm -e tmux
-
-super + shift + control + Return
-    tdrop --auto-detect-wm --monitor-aware -w 50% -h 40% -x 25% -y 0% alacritty --class dropterm -e tmux
+    tdrop --auto-detect-wm --monitor-aware -w 50% -h 40% -x 25% -y 60% alacritty --class dropterm -e tmux new-session -s dropterm -A
 
 Print
     flameshot gui

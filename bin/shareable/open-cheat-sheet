@@ -1,0 +1,12 @@
+#!/bin/bash
+notes_folder=~/Documents/notes/cheat-sheets
+
+cd $notes_folder
+picked_note=$(find . -name '*.md' -not -path "*/_templates/*" -type f | cut -c 3- | rofi -dmenu)
+
+if [[ -z "$picked_note" ]]; then
+    exit 0
+fi
+
+alacritty --class floatterm -e nvim "$notes_folder/$picked_note"
+# alacritty -e nvim "$notes_folder/$picked_note"

@@ -1,17 +1,4 @@
 {
-    // Hotkeys:
-    // `<leader><leader> + w / f / 2f / '/'` for easymotion search
-    // `gb` add another cursor on next word match
-    // `C-S-m` - display problems
-    // `C-b`   - toggle sidebar
-    // `S-A-p` - switch / open projects
-    // `S-A-0` - switch split vertical <-> horizontal
-    // `C-1 / 2` - switch between splits
-
-    // terminal
-    // `C-~` - toggle terminal
-    // `C-<page_up> / <page_down>` - navigate between multiple terminals
-
 	"editor.fontFamily": "'FiraCode Nerd Font Mono', 'Fira Code', 'Droid Sans Mono', 'monospace', monospace",
     "workbench.colorTheme": "Solarized Light",
     "editor.wordWrap": "on",
@@ -21,6 +8,13 @@
     "breadcrumbs.enabled": true,
     "editor.minimap.enabled": false,
     "editor.rulers": [120],
+    "editor.renderLineHighlight": "gutter",
+    "workbench.colorCustomizations": {
+        "[Solarized Light]": {
+            "editor.lineHighlightBackground": "#b58900",
+            "editorLineNumber.activeForeground": "#fdf6e3"
+        },
+    },
 
     // TODO : general
     // 1) scroll quickfix options with just J and K (doesn't work, need CTRL)
@@ -107,11 +101,11 @@
         },
         {
             "before": ["[", "g"],
-            "commands": ["editor.action.marker.prev"]
+            "commands": ["editor.action.marker.next"]
         },
         {
             "before": ["]", "g"],
-            "commands": ["editor.action.marker.next"]
+            "commands": ["editor.action.marker.prev"]
         },
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
@@ -239,6 +233,12 @@
         "editor.tabSize": 4,
         "editor.defaultFormatter": "yzhang.markdown-all-in-one",
     },
+
+    // golang
+    "gopls": {
+        "ui.semanticTokens": true
+    },
+
     "remote.autoForwardPortsSource": "hybrid",
     "cSpell.userWords": [
         "arandr",
@@ -254,13 +254,18 @@
         "flatpak",
         "flatpaks",
         "Flexbox",
+        "gopls",
+        "keybinds",
         "Leaderboard",
+        "Multicursor",
         "pavucontrol",
         "polybar",
+        "psql",
         "quickfix",
         "rofi",
         "sandboxed",
         "selfhosted",
+        "Strikethrough",
         "supabase",
         "sxhkd",
         "tdrop",

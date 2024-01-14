@@ -1,0 +1,29 @@
+#!/bin/bash
+
+entries=(
+    "pick-copypasta"
+    "open-cheat-sheet"
+    "quicknote"
+    "chatgpt"
+)
+
+concatenated=""
+for entry in "${entries[@]}"; do
+    concatenated+="${entry}\n"
+done
+concatenated="$(echo -n "$concatenated" | head -c -2)"
+
+pick_command() {
+    # change to search in directory if this feature proves to be useful
+    echo -e "$concatenated" | rofi -dmenu \
+        -theme-str 'mainbox {children: [ "inputbar", "listview" ];}' \
+        -p ' Favorites'
+}
+
+picked_command=$(pick_command)
+
+if [[ -z "$picked_command" ]]; then
+    exit 0
+fi
+
+exec $picked_command

@@ -41,7 +41,7 @@
 */
 
 
-@import "~/dotfiles/config/rofi/colors/gruvbox.rasi"
+@import "~/dotfiles/config/rofi/colors/paper.rasi"
 
 * {
     font: "FiraCode Nerd Font Mono 12";

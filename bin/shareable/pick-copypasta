@@ -1,15 +1,6 @@
 #!/bin/bash
 copypasta_folder=~/Documents/copypastas
 
-if ! command -v rofi &> /dev/null; then
-    echo "dependency 'rofi' not found"
-    exit 1
-fi
-if ! command -v xclip &> /dev/null; then
-    echo "dependency 'xclip' not found"
-    exit 1
-fi
-
 picked_pasta=$(ls $copypasta_folder | rofi -dmenu)
 
 if [[ -z "$picked_pasta" ]]; then

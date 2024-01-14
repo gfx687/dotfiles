@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if ! command -v xsecurelock &> /dev/null; then
+    echo "dependency 'xsecurelock' not found"
+    exit 1
+fi
+
 export XSECURELOCK_SHOW_DATETIME=1
 export XSECURELOCK_AUTH_CURSOR_BLINK=0
 

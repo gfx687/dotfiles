@@ -1,5 +1,4 @@
 #!/bin/bash
-
 theme="$HOME/dotfiles/config/rofi/styles/power-menu-style1.rasi"
 
 uptime="`uptime -p | sed -e 's/up //g'`"
@@ -26,7 +25,15 @@ confirm_exit() {
 }
 
 run_rofi() {
+    message_too_long=$(awk '$1 > (24 * 3600) { print "yes" }' /proc/uptime)
+
+    wider_window_config=''
+    if [[ "$message_too_long" == "yes" ]]; then
+        wider_window_config='window { width: 500px; }'
+    fi
+
     echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi -dmenu \
+        -theme-str "$wider_window_config" \
         -p "$host" \
         -mesg "Uptime: $uptime" \
         -theme ${theme}

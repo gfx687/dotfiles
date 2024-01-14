@@ -1,0 +1,13 @@
+#!/bin/bash
+quicknotes_folder=~/Documents/notes/_inbox/_quicknotes
+
+input=$(rofi -dmenu -p "Quick note" \
+    -theme-str 'listview { enabled: false; }' \
+    -theme-str 'entry { placeholder: ""; }')
+
+if [[ -z "$input" ]]; then
+    exit 0
+fi
+
+echo -e "$input\n" >> "$quicknotes_folder/$(date +%F).md"
+
