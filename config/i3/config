@@ -44,8 +44,7 @@ bindsym $alt+Ctrl+r exec "favorite-commands"
 
 # 47 is semicolon, 48 is singular quote
 bindcode $alt+48 layout toggle split
-bindcode $alt+47 layout tabbed
-bindcode $alt+Ctrl+47 layout stacking
+bindcode $alt+47 layout toggle stacking tabbed
 
 # 61 is /
 bindcode $alt+61 focus mode_toggle
@@ -101,6 +100,7 @@ bindsym $alt+Shift+d move container to workspace d
 for_window [class="dropterm"] floating enable
 for_window [class="floatterm"] floating enable
 for_window [title="^Calendar$"] floating enable
+for_window [title="^Calculator$"] floating enable
 for_window [class="Blueman-manager"] floating enable
 
 assign [class="KeePassXC"] d

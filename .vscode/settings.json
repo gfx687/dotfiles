@@ -1,49 +1,29 @@
 {
 	"editor.fontFamily": "'FiraCode Nerd Font Mono', 'Fira Code', 'Droid Sans Mono', 'monospace', monospace",
-    "workbench.colorTheme": "Solarized Light",
     "editor.wordWrap": "on",
-	"workbench.editor.showTabs": "none",
 	"editor.lineNumbers": "relative",
 	"editor.renderWhitespace": "trailing",
-    "breadcrumbs.enabled": true,
     "editor.minimap.enabled": false,
     "editor.rulers": [120],
     "editor.renderLineHighlight": "gutter",
+    "editor.semanticHighlighting.enabled": true,
+    "window.zoomLevel": 0,
+    "window.menuBarVisibility": "toggle",
+    "workbench.activityBar.location": "hidden",
+    "workbench.colorTheme": "Catppuccin Latte",
+	"workbench.editor.showTabs": "none",
     "workbench.colorCustomizations": {
         "[Solarized Light]": {
             "editor.lineHighlightBackground": "#b58900",
             "editorLineNumber.activeForeground": "#fdf6e3"
         },
+        "[Catppuccin Latte]": {
+            "editor.lineHighlightBackground": "#7287fd",
+            "editorLineNumber.activeForeground": "#eff1f5"
+        },
     },
-
-    // TODO : general
-    // 1) scroll quickfix options with just J and K (doesn't work, need CTRL)
-    // 2) auto add new commented line - https://github.com/Microsoft/vscode/issues/26694
-    // 3) scroll code on the left when searching references (JK to go from one to another, but for code itself need to switch focus with Ctrl+K F2)
-    //      https://dev.to/ansonh/10-vs-code-vim-tricks-to-boost-your-productivity-1b0n
-    // 4) Scroll hover with Ctrl-U / D (by half-screen), Ctrl-J / K (line by line)
-    // 6) param hints overlap with intellisense suggestions
-    //      try `bot.command("start", asy)` in TS file, grammy
-    // 7) autocompletion in strings but without code intellisense, just words
-    // 8) scroll signatures
-    //      Example - `ts file -> fetch(%HERE%)` will show that there is 2 possible signatures
-    // 9) emmet options are constantly getting in the way of intellisense for methods in TSX
-    // 10) TSX - pressing enter between tags doesn't indent properly
-    // 15) working with splits - Open in split, switch focus, etc
-    //      switch focus works but only for vim windows
-    //      https://github.com/VSCodeVim/Vim/issues/1452
-    //      Ctrl+Enter to open in split from file picker
-
-    // TODO : try out
-    // 1) copilot       - https://code.visualstudio.com/docs/editor/github-copilot
-    // 2) debugging     - https://code.visualstudio.com/docs/editor/debugging
-    // 3) tasks         - https://code.visualstudio.com/docs/editor/tasks
-    // 4) settings sync - https://code.visualstudio.com/docs/editor/settings-sync
-    // 5) workspaces    - https://code.visualstudio.com/docs/editor/multi-root-workspaces
-
-    // TODO : python
-    // 1) auto-imports (vim suggests auto-imports while vscode in the same situation doesn't)
-
+    "catppuccin.italicKeywords": false,
+    "catppuccin.boldKeywords": false,
 
     "vim.leader": "<space>",
     "vim.useSystemClipboard": true,
@@ -191,13 +171,11 @@
         "vscodevim.vim": 1
     },
 
-    // python
 	"python.analysis.completeFunctionParens": true,
     "[python]": {
         "editor.acceptSuggestionOnCommitCharacter": true
     },
 
-    // js
     // "typescript.suggest.completeFunctionCalls": true,
     // "javascript.suggest.completeFunctionCalls": true,
     "[javascript]": {
@@ -212,7 +190,6 @@
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },
 
-    // json
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
@@ -220,7 +197,6 @@
         "editor.defaultFormatter": "vscode.json-language-features"
     },
 
-    // markdown
     "[markdown]": {
         "editor.rulers": [100],
         "editor.wordWrap": "wordWrapColumn",
@@ -234,7 +210,6 @@
         "editor.defaultFormatter": "yzhang.markdown-all-in-one",
     },
 
-    // golang
     "gopls": {
         "ui.semanticTokens": true
     },
@@ -269,11 +244,7 @@
         "supabase",
         "sxhkd",
         "tdrop",
+        "Unstage",
         "xrandr"
     ],
-    "markdown-preview-enhanced.liveUpdate": true,
-    "todohighlight.isEnable": true,
-    "window.zoomLevel": 0,
-    "window.menuBarVisibility": "toggle",
-    "workbench.activityBar.location": "hidden",
 }

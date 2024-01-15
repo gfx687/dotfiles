@@ -3,9 +3,9 @@
 # 2) create base bash config like 00-vim to copy into remote machines. No mods, but all the aliases / settings (not zsh specific either, for base bash)
 
 # The following lines were added by compinstall
-# zstyle :compinstall filename '/home/gfx687/.zshrc'
-# autoload -Uz compinit
-# compinit
+zstyle :compinstall filename '/home/gfx687/.zshrc'
+autoload -Uz compinit
+compinit
 # End of lines added by compinstall
 
 # :prezto
@@ -30,7 +30,6 @@
 
     # zstyle ':completion:*' rehash true
 
-    # Source Prezto.
     if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
       source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
     fi
@@ -38,6 +37,17 @@
 
 # :keybinds
 {
+    # scritps are in different places for different distros
+    # check fzf README - /usr/share/docs/fzf
+    source /usr/share/fzf/shell/key-bindings.zsh                  # fedora
+    # source /usr/share/doc/fzf/examples/key-bindings.zsh           # debian
+    bindkey -v "^P" fzf-file-widget
+    bindkey -v "^T" fzf-file-widget
+    bindkey -v "^R" fzf-history-widget
+
+    source ~/dotfiles/bin/shareable/tmux-autocomplete.zsh
+    bindkey '^ ' tmux_autocomplete
+
     bindkey -M viins '^^' beginning-of-line
     bindkey -M viins '^\' end-of-line
     bindkey -M viins '^B' kill-word                 # delete word forward
@@ -52,7 +62,6 @@
     unsetopt beep                                   # no beeps
     setopt autocd                                   # cd by just folder name
 
-
     # is needed for pyenv to work but slows dows zsh start
     # eval "$(pyenv init -)"
     # [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
@@ -60,14 +69,6 @@
 
 # :fzf
 {
-    # scritps are in different places for different distros, check fzf README
-    # /usr/share/docs/fzf
-    source /usr/share/fzf/shell/key-bindings.zsh                  # fedora
-    # source /usr/share/doc/fzf/examples/key-bindings.zsh           # debian
-    bindkey -v "^P" fzf-file-widget
-    bindkey -v "^T" fzf-file-widget
-    bindkey -v "^R" fzf-history-widget
-
     export FZF_CTRL_R_OPTS='--layout=reverse'
     export FZF_DEFAULT_COMMAND='fd --type file --hidden --exclude .git --exclude node_modules'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
