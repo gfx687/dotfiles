@@ -8,7 +8,7 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-# :prezto
+# prezto
 {
     zstyle ':prezto:*:*' color 'yes'
 
@@ -35,7 +35,7 @@ compinit
     fi
 }
 
-# :keybinds
+# keybinds
 {
     # scritps are in different places for different distros
     # check fzf README - /usr/share/docs/fzf
@@ -57,7 +57,7 @@ compinit
     bindkey -M viins "^H" backward-word
 }
 
-# :setup
+# setup
 {
     unsetopt beep                                   # no beeps
     setopt autocd                                   # cd by just folder name
@@ -67,7 +67,7 @@ compinit
     # [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 }
 
-# :fzf
+# fzf
 {
     export FZF_CTRL_R_OPTS='--layout=reverse'
     export FZF_DEFAULT_COMMAND='fd --type file --hidden --exclude .git --exclude node_modules'
@@ -88,7 +88,15 @@ compinit
     fi
 }
 
-# :func
+# tmux
+{
+    if [ ! -d ~/.tmux ] || [ ! -d ~/.tmux/tmux-resurrect ]; then
+        mkdir -p ~/.tmux/tmux-resurrect
+        git clone https://github.com/tmux-plugins/tmux-resurrect ~/.tmux/tmux-resurrect
+    fi
+}
+
+# func
 {
     create-and-change-dir() {
         mkdir -p "$@"
@@ -100,7 +108,7 @@ compinit
     }
 }
 
-# :alias
+# alias
 {
     alias sudo='sudo '
     alias v='nvim'

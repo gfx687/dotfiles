@@ -7,7 +7,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'gfx687/catppuccin-nvim', { 'as': 'catppuccin' }
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'itchyny/lightline.vim'
-Plug 'altercation/vim-colors-solarized'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'SirVer/ultisnips'
