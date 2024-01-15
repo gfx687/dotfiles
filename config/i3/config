@@ -99,8 +99,10 @@ bindsym $alt+Shift+d move container to workspace d
 
 for_window [class="dropterm"] floating enable
 for_window [class="floatterm"] floating enable
+for_window [class="Pavucontrol"] floating enable
 for_window [title="^Calendar$"] floating enable
 for_window [title="^Calculator$"] floating enable
+for_window [title="^Mousepad$"] floating enable
 for_window [class="Blueman-manager"] floating enable
 
 assign [class="KeePassXC"] d
