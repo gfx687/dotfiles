@@ -34,7 +34,9 @@ let g:coc_global_extensions = [
     \ 'coc-ultisnips',
     \ 'coc-tsserver',
     \ 'coc-css',
-    \ 'coc-react-refactor'
+    \ 'coc-react-refactor',
+    \ 'coc-deno',
+    \ 'coc-pyright'
     \ ]
 
 nmap <leader>f <Plug>(coc-format)

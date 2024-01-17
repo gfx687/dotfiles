@@ -4,9 +4,13 @@
 "    inside HTML tags
 
 call plug#begin('~/.vim/plugged')
-Plug 'gfx687/catppuccin-nvim', { 'as': 'catppuccin' }
+Plug 'gfx687/catppuccin-nvim', { 'as': 'catppuccin', 'branch': 'lightline-fix' }
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'itchyny/lightline.vim'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'romainl/flattened'
+Plug 'altercation/vim-colors-solarized'
+Plug 'lifepillar/vim-solarized8'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'SirVer/ultisnips'
@@ -57,6 +61,8 @@ Plug 'justinmk/vim-sneak'              " multiline 2-character search
     map s <Plug>Sneak_s
     map S <Plug>Sneak_S
 
+Plug 'fatih/vim-go'
+    let g:go_def_mapping_enabled = 0
 " Plug 'OmniSharp/omnisharp-vim'
 
 " javascript

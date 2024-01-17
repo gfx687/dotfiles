@@ -1,19 +1,65 @@
-snippet pr "print" b
-print($1)
+snippet r "return" b
+return $0
 endsnippet
 
-snippet ift "ternary conditional operator" w
+snippet rf "return False" b
+return False
+endsnippet
+
+snippet rt "return True" b
+return True
+endsnippet
+
+
+snippet i "If" b
+if ${1:condition}:
+	${2:${VISUAL:pass}}
+endsnippet
+
+snippet it "ternary if" w
 $1 if $2 else $3
 endsnippet
 
-snippet frl "for range len" Ab
+snippet ie "If / Else" b
+if ${1:condition}:
+	${2:${VISUAL:pass}}
+else:
+	${3:pass}
+endsnippet
+
+
+snippet frl "for range len" b
 for $2 in range(len($1)):
+	$0
+endsnippet
+
+snippet fir "for i in range" b
+for ${1:i} in range($2):
 	$0
 endsnippet
 
 snippet f' "string formatting" Ai
 f'$1'
 endsnippet
+
+snippet l[ "List[]" i
+List[$1]
+endsnippet
+
+snippet def "define function" b
+def $1($2) ${3:->}$4:
+    
+endsnippet
+
+snippet prf "print" b
+print(f'$1')
+endsnippet
+
+snippet pr "print" b
+print($1)
+endsnippet
+
+# ======= SMART SNIPPETS
 
 snippet "([^\s]+)\.len" "expand X.len into len(X)" rA
 `!p snip.rv = 'len(' + match.group(1) + ')'`

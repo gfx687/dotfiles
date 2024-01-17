@@ -1,74 +1,72 @@
-snippet s "string" w
-string
+snippet { "{$0}" i
+{$0}
 endsnippet
 
-snippet : ":=" b
-$1 := $0
+
+snippet re "return" b
+return $0
 endsnippet
 
-snippet _: ":=" b
-$1, _ := $0
+snippet rt "return true" b
+return true
 endsnippet
 
-snippet e: "_, err :=" b
-$1, err := $2
-if err != nil {
-	$3
+snippet rf "return false" b
+return false
+endsnippet
+
+snippet rn "return nil" b
+return nil
+endsnippet
+
+snippet rne "return nil, err" b
+return nil, err
+endsnippet
+
+
+snippet i "if" b
+if $1 {
+    $0
 }
 endsnippet
 
-snippet fr "for range" b
-for ${2:_}, $3 := range $1 {
-	${0}
+snippet in "if == nil" b
+if $1 == nil {
+    $0
 }
 endsnippet
+
 
 snippet fi "for i" b
-for ${1:i} := 0; $1 < $2; $1++ {
-	${0}
-}
-endsnippet
-
-snippet if "if" w
-if $1 {
+for ${1:i} := ${2:0}; $1 < $3; $1++ {
 	$0
 }
 endsnippet
 
-snippet fpl "fmt.Println" b
-fmt.Println("$1")
+
+snippet ts "type struct" b
+type $1 struct {
+	$0
+}
 endsnippet
 
-snippet fp "fmt.Printf" b
-fmt.Printf("${1}\n", ${2})
+snippet ti "type interface" b
+type $1 interface {
+	$0
+}
 endsnippet
 
-snippet examplehttp "mini http server example" b
-package main
 
-import (
-	"encoding/json"
-	"net/http"
-)
+snippet fln "fmt.Println" b
+fmt.Println($1)
+endsnippet
 
-type SA struct {
-	Msg string
-	Code int
-}
+snippet ff "fmt.Printf" b
+fmt.Printf("$1\n", $2)
+endsnippet
 
-func greet(w http.ResponseWriter, r *http.Request) {
-	jData, err := json.Marshal(&SA{"message", 123})
-	if err != nil {
-
-	}
-
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusAccepted)
-	w.Write(jData)
-}
-
-func main() {
-	http.HandleFunc("/", greet)
-	http.ListenAndServe(":8080", nil)
+snippet fm "method" b
+func ($1) $2($3) $4 {
+    $0
 }
 endsnippet

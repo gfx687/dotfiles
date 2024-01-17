@@ -4,6 +4,7 @@ entries=(
     "pick-copypasta"
     "open-cheat-sheet"
     "quicknote"
+    "todoist-status list-rofi"
 )
 
 concatenated=""
