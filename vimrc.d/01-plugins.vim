@@ -6,12 +6,10 @@
 call plug#begin('~/.vim/plugged')
 Plug 'gfx687/catppuccin-nvim', { 'as': 'catppuccin', 'branch': 'lightline-fix' }
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'ishan9299/nvim-solarized-lua'
 Plug 'itchyny/lightline.vim'
-Plug 'sonph/onehalf', { 'rtp': 'vim' }
-Plug 'romainl/flattened'
-Plug 'altercation/vim-colors-solarized'
-Plug 'lifepillar/vim-solarized8'
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'SirVer/ultisnips'
 Plug 'junegunn/fzf'
@@ -37,9 +35,9 @@ Plug 'tpope/vim-dispatch'              " `<CR> `<Space> :Dispatch :Copen
 Plug 'norcalli/nvim-colorizer.lua'     " :ColorizerToggle
 Plug 'tpope/vim-commentary'            " gc + text object to comment
 Plug 'preservim/vim-markdown'
-" Plug 'preservim/tagbar'
-"     nmap <F8> :TagbarToggle<CR>
-"     let g:tagbar_wrap=1
+Plug 'preservim/tagbar'
+    nmap <F8> :TagbarToggle<CR>
+    let g:tagbar_wrap=0
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'wellle/targets.vim'              " more text objects

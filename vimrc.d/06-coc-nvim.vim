@@ -23,9 +23,9 @@
 "   suggest
 "   coc-status
 
-" Show signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-set signcolumn=yes
+" Set signcolumn to either 'yes' or 'number' so text doesn't shift every time
+" there is an error to show
+set signcolumn=number
 
 " coc-react-refactor - extract selected HTML into component
 let g:coc_global_extensions = [

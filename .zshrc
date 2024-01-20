@@ -85,6 +85,12 @@ compinit
             --color=bg+:#ccd0da,bg:#eff1f5,spinner:#dc8a78,hl:#d20f39
             --color=fg:#4c4f69,header:#d20f39,info:#8839ef,pointer:#dc8a78
             --color=marker:#dc8a78,fg+:#4c4f69,prompt:#8839ef,hl+:#d20f39"
+
+        # solarized light
+        export FZF_DEFAULT_OPTS="
+            --color=bg+:#eee8d5,bg:#fdf6e3,hl:#2aa198,hl+:#2aa198
+            --color=fg:#657b83,fg+:#4c4f69,header:#d20f39,info:#2aa198
+            --color=marker:#dc8a78,pointer:#dc8a78,prompt:#2aa198,spinner:#dc8a78"
     fi
 }
 

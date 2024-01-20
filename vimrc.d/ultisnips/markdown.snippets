@@ -16,11 +16,16 @@ snippet ud "Upsides and downsides lists" b
 
 endsnippet
 
-# ======= SMART SNIPPETS
+# ======= Hypersnips (VSCode) incompatible snippets
 
-snippet cb "code block" b
-`!p snip.rv = "\`\`\`" `$1
-$0
-`!p snip.rv = "\`\`\`" `
+snippet c|d "table command description" b
+COMMAND | DESCRIPTION
+---|---
+\`$1\` | \`$2\`
 endsnippet
 
+snippet cb "code block" b
+\`\`\`$1
+$0
+\`\`\`
+endsnippet

@@ -26,9 +26,8 @@ function! RelativeFilename()
 endfunction
 
 if $BACKGROUND == "light"
-    let g:lightline.colorscheme = 'catppuccin'
-
-    " let g:lightline#colorscheme#catppuccin#palette.normal.middle = [ [ '#ff0000', '#ff0000', '#ff0000', '#ff0000' ] ]
+    " let g:lightline.colorscheme = 'catppuccin'
+    let g:lightline.colorscheme = 'solarized'
 else
     let g:lightline.colorscheme = 'dracula'
 endif

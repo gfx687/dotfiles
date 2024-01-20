@@ -1,24 +1,26 @@
-" TODO and Known Issues
-" comment color is too light, change it to more readable
-
 set termguicolors
 set cursorline
 
 if $BACKGROUND == "light"
     set background=light
 
-lua << EOF
-        require("catppuccin").setup({
-            no_underline = true
-        })
+    colorscheme solarized
 
-        vim.cmd.colorscheme "catppuccin-latte"
-EOF
-
-    hi CursorLine guibg=#dddddd
+    " catppuccin latte
+" lua << EOF
+"     require("catppuccin").setup({
+"         no_underline = true,
+"         color_overrides = {
+"             latte = {
+"                 --base = "#fdf6e3" -- solarized light background
+"             },
+"         }
+"     })
+"     vim.cmd.colorscheme "catppuccin-latte"
+" EOF
+"     hi CursorLine guibg=#dddddd
 else
     set background=dark
     colorscheme dracula
     let g:dracula_italic = 0
 endif
-

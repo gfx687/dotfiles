@@ -31,6 +31,7 @@
     "vim.easymotion": true,
     "vim.surround": true,
     "vim.sneak": false,
+    "vim.foldfix": true,
     "vim.handleKeys": {
         "<C-b>": false,
         "<C-t>": false,

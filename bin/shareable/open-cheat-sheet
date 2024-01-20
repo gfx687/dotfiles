@@ -2,7 +2,7 @@
 notes_folder=~/Documents/notes/cheat-sheets
 
 cd $notes_folder
-picked_note=$(find . -name '*.md' -not -path "*/_templates/*" -type f | cut -c 3- | rofi -dmenu)
+picked_note=$(find . -name '*.md' -not -path "*/_templates/*" -type f | cut -c 3- | rofi -dmenu -p 'Cheat Sheets')
 
 if [[ -z "$picked_note" ]]; then
     exit 0

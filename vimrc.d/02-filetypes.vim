@@ -20,5 +20,7 @@ augroup end
 augroup Markdown_ft
     au!
 
+    au Syntax markdown highlight MarkdownHeader guifg=#268bd2 gui=bold
+
     au Syntax markdown normal zR
 augroup end

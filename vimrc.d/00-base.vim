@@ -1,6 +1,3 @@
-" TODO and Known Issues
-" 1) configure folding (https://github.com/Konfekt/FastFold)
-
 set nocompatible
 
 filetype plugin indent on
@@ -29,7 +26,6 @@ set path+=**
 set undofile
 set undodir=~/.vim/undo-dir
 set clipboard+=unnamedplus
-set foldcolumn=1
 
 let mapleader = "\<space>"
 nnoremap <silent> <Leader>/ :noh<CR>
@@ -64,3 +60,7 @@ vnoremap <silent> > >gv
 vnoremap <silent> < <gv
 
 nnoremap @@ @q
+
+" abbreviations
+iab isntall install
+iab Isntall Install

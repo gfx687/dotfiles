@@ -7,9 +7,10 @@ ln -s ~/dotfiles/.gitignore_global ~
 
 ln -s ~/dotfiles/.tmux.conf ~
 
-mkdir -p ~/.config/nvim
+mkdir -p ~/.config/nvim/after
 ln -s ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
 ln -s ~/dotfiles/config/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
+ln -s ~/dotfiles/config/nvim/after ~/.config/nvim/after
 
 mkdir -p ~/.config/alacritty
 ln -s ~/dotfiles/config/alacritty/alacritty.yml ~
