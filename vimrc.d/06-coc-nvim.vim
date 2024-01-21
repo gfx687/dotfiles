@@ -31,7 +31,7 @@ set signcolumn=number
 let g:coc_global_extensions = [
     \ 'coc-json',
     \ 'coc-yaml',
-    \ 'coc-ultisnips',
+    \ 'coc-snippets',
     \ 'coc-tsserver',
     \ 'coc-css',
     \ 'coc-react-refactor',

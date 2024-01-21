@@ -35,8 +35,11 @@ nnoremap <leader>p o<Esc>p
 inoremap jk <ESC>
 
 " Show found line in the center of the screen
-nnoremap n nzz
-nnoremap N Nzz
+" nnoremap n nzz
+" nnoremap N Nzz
+
+nnoremap # *N
+nnoremap * #
 
 " do not include linebreak character
 vnoremap $ g_

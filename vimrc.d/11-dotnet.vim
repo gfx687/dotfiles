@@ -1,5 +1,3 @@
-" TODO and Known Issues
-
 let g:OmniSharp_completion_without_overloads = 1
 
 let g:OmniSharp_popup_position = 'peek'

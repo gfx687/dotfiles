@@ -88,7 +88,7 @@ compinit
 
         # solarized light
         export FZF_DEFAULT_OPTS="
-            --color=bg+:#eee8d5,bg:#fdf6e3,hl:#2aa198,hl+:#2aa198
+            --color=bg+:#eee8d5,bg:#fdf6e3,hl:#2aa198:bold:underline,hl+:#2aa198:underline
             --color=fg:#657b83,fg+:#4c4f69,header:#d20f39,info:#2aa198
             --color=marker:#dc8a78,pointer:#dc8a78,prompt:#2aa198,spinner:#dc8a78"
     fi

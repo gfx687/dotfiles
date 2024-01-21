@@ -8,6 +8,7 @@ Plug 'gfx687/catppuccin-nvim', { 'as': 'catppuccin', 'branch': 'lightline-fix' }
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'ishan9299/nvim-solarized-lua'
 Plug 'itchyny/lightline.vim'
+Plug 'ellisonleao/gruvbox.nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -39,7 +40,7 @@ Plug 'preservim/tagbar'
     nmap <F8> :TagbarToggle<CR>
     let g:tagbar_wrap=0
 
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 Plug 'wellle/targets.vim'              " more text objects
 Plug 'gfx687/vim-ski'
     let g:skeletons_dir=$HOME . '/dotfiles/vimrc.d/skeletons/'

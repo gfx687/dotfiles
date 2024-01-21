@@ -1,9 +1,8 @@
-" TODO and Known Issues
-
 " Keybinds:
 "   Tab       - expand snippet from coc.nvim suggestion (coc-ultisnips)
 "   C-J / C-K - jump to next placeholder of snippet
 
+let g:UltiSnipsEnableSnipMate = 0
 let g:UltiSnipsSnippetDirectories = [ $HOME . '/dotfiles/vimrc.d/ultisnips' ]
 let g:UltiSnipsExpandTrigger = "<nop>"
 " let g:UltiSnipsJumpForwardTrigger = '<C-J>'

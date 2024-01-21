@@ -1,11 +1,7 @@
-" TODO and Known Issues
-" 1) :Rg search option only by text, not filenames
-"        There is some config example where you can add keybind into search
-"        Maybe add kb to switch files on/off for :Rg?
-
 nmap <C-P> :Files<Cr>
 nmap <C-E> :Buffers<Cr>
-nmap <C-F> :Rg<Cr>
+nmap <C-F> :RgContentOnly<Cr>
+nmap <leader><C-F> :Rg<Cr>
 nmap <C-T> :BTags<Cr>
 
 " command! W write
@@ -25,6 +21,7 @@ let g:fzf_colors = { 'border':  ['fg', 'Normal'] }
 " showing preview window if you use same opts as for :Rg)
 let fzf_options = [ '--layout=reverse', '--info=inline' ]
 let fzf_options_preview = [ '--layout=reverse', '--info=inline' ]
+let fzf_options_rg_content_only = [ '--layout=reverse', '--info=inline', '--delimiter=:', '--nth=4..' ]
 
 command! -bang -nargs=? -complete=dir Buffers
     \ call fzf#vim#buffers(<q-args>, {'options': fzf_options}, <bang>0)
@@ -36,6 +33,11 @@ command! -bang -nargs=* Rg
     \ call fzf#vim#grep(
     \   "rg --column --line-number --no-heading --color=always --smart-case --hidden --glob '!{.git,node_modules}\' -- ".shellescape(<q-args>), 1,
     \   fzf#vim#with_preview({'options': fzf_options_preview }), <bang>0)
+
+command! -bang -nargs=* RgContentOnly
+    \ call fzf#vim#grep(
+    \   "rg --column --line-number --no-heading --color=always --smart-case --hidden --glob '!{.git,node_modules}\' -- ".shellescape(<q-args>), 1,
+    \   fzf#vim#with_preview({'options': fzf_options_rg_content_only }), <bang>0)
 
 command! -bang -nargs=* Tags
     \ call fzf#vim#tags(<q-args>,

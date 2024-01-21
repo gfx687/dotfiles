@@ -28,21 +28,22 @@ else:
 endsnippet
 
 
-snippet frl "for range len" b
-for $2 in range(len($1)):
-	$0
-endsnippet
-
 snippet fir "for i in range" b
 for ${1:i} in range($2):
 	$0
 endsnippet
 
+snippet firl "for range len" b
+for $2 in range(len($1)):
+	$0
+endsnippet
+
+
 snippet f' "string formatting" Ai
 f'$1'
 endsnippet
 
-snippet l[ "List[]" i
+snippet L "List[]" i
 List[$1]
 endsnippet
 
@@ -57,6 +58,11 @@ endsnippet
 
 snippet pr "print" b
 print($1)
+endsnippet
+
+snippet swap "swap two variables" b
+$1, $2 = $2, $1
+$0
 endsnippet
 
 # ======= SMART SNIPPETS

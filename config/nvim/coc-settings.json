@@ -1,4 +1,5 @@
 {
+    "suggest.enablePreselect": false,
     "coc.preferences.bracketEnterImprove": true,
     "suggest.floatConfig.border": true,
     "diagnostic.floatConfig.border": true,
@@ -7,7 +8,19 @@
     "diagnostic.format": "[%severity] %message [%source%code]",
     "diagnostic.infoSign": "--",
     "diagnostic.errorSign": ">>",
+    "diagnostic.warningSign": "??",
     "diagnostic.checkCurrentLine": true,
+    "snippets.excludePatterns": [
+        "$HOME/.vim/plugged/vim-go/gosnippets/UltiSnips/go.snippets"
+    ],
+    "snippets.loadFromExtensions": false,
+    "snippets.ultisnips.directories": [
+        "$HOME/dotfiles/vimrc.d/ultisnips"
+    ],
+    "coc.preferences.formatOnSaveFiletypes": [
+        "go",
+        "python"
+    ],
     "languageserver": {
         "go": {
             "command": "gopls",
@@ -27,7 +40,10 @@
         }
     },
     "go.goplsOptions": {
-        "gofumpt": false,
+        "gofumpt": false
     },
-    "python.pythonPath": "python3"
+    "python.pythonPath": "python3",
+    "python.formatting.provider": "yapf",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true
 }
