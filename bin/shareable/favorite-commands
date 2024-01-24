@@ -5,6 +5,7 @@ entries=(
     "open-cheat-sheet"
     "quicknote"
     "todoist-status list-rofi"
+    "alacritty-colors"
 )
 
 concatenated=""

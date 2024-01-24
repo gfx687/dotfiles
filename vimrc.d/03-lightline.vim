@@ -1,7 +1,13 @@
-" TODO and Known Issues
+" TODO:
 " 1) Add info about vim-lexical typos to the status line
+" 2) TODOs in project - https://github.com/folke/todo-comments.nvim/issues/197
 
 autocmd User CocDiagnosticChange call lightline#update()
+
+augroup lightline-events
+    autocmd!
+    autocmd ColorScheme * call s:onColorSchemeChange(expand("<amatch>"))
+augroup END
 
 let g:lightline = {
   \ 'active': {
@@ -56,10 +62,31 @@ function! GitBranch()
     return ' ' . FugitiveHead()
 endfunction
 
-if $BACKGROUND == "light"
-    " let g:lightline.colorscheme = 'catppuccin'
-    let g:lightline.colorscheme = 'solarized'
-else
-    let g:lightline.colorscheme = 'dracula'
-endif
+let s:colour_scheme_map = {
+    \ 'tokyonight-day': 'tokyonight',
+    \ 'tokyonight-moon': 'tokyonight',
+    \ 'tokyonight-night': 'tokyonight',
+    \ 'tokyonight-storm': 'tokyonight',
+    \ 'catppuccin-latte': 'catppuccin',
+    \ 'catppuccin-mocha': 'catppuccin',
+    \ 'catppuccin-frappe': 'catppuccin',
+    \ 'catppuccin-mochiato': 'catppuccin'
+    \ }
 
+function! s:onColorSchemeChange(scheme)
+    " Try a scheme provided already
+    execute 'runtime autoload/lightline/colorscheme/'.a:scheme.'.vim'
+    if exists('g:lightline#colorscheme#{a:scheme}#palette')
+        let g:lightline.colorscheme = a:scheme
+    else  " Try falling back to a known colour scheme
+        let l:colors_name = get(s:colour_scheme_map, a:scheme, '')
+        if empty(l:colors_name)
+            return
+        else
+            let g:lightline.colorscheme = l:colors_name
+        endif
+    endif
+    call lightline#init()
+    call lightline#colorscheme()
+    call lightline#update()
+endfunction

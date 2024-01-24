@@ -12,7 +12,8 @@ endfunction
 if $BACKGROUND == "light"
     set background=light
 
-    exec Ishan9299_solarized_light()
+    " exec Ishan9299_solarized_light()
+    colorscheme tokyonight-day
 
     " catppuccin latte
 " lua << EOF

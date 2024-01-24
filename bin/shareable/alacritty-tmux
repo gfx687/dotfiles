@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# open alacritty with tmux and attach to new / existing session
+# based on i3 workspace name
+
+session="workspace-1"
+
+if [[ -x '/usr/bin/amixer' ]]; then
+    session=workspace-$(i3-msg -t get_workspaces \
+                  | jq '.[] | select(.focused==true).name' \
+                  | cut -d"\"" -f2)
+fi
+
+alacritty -e zsh -c "tmux new-session -s $session -A"

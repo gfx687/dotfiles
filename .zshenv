@@ -22,6 +22,7 @@ path=(
   $HOME/dotfiles/bin/non-shareable
   $GOPATH/bin
   /usr/local/go/bin
-  $path
   $DENO_INSTALL/bin
+  $HOME/.cargo/bin
+  $path
 )

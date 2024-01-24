@@ -1,0 +1,36 @@
+#!/bin/bash
+#
+# open rofi to pick a color theme from the list
+# after use alacritty template config to write theme
+
+themes=(
+    "solarized-light"
+    "tokyonight-day"
+)
+
+concatenated=""
+for entry in "${themes[@]}"; do
+    concatenated+="${entry}\n"
+done
+concatenated="$(echo -n "$concatenated" | head -c -2)"
+
+pick_theme() {
+    # change to search in directory if this feature proves to be useful
+    echo -e "$concatenated" | rofi -dmenu \
+        -theme-str 'mainbox {children: [ "inputbar", "listview" ];}' \
+        -p 'Pick theme'
+}
+
+picked_theme=$(pick_theme)
+
+if [[ -z "$picked_theme" ]]; then
+    exit 0
+fi
+
+cat ~/dotfiles/config/alacritty/alacritty.yml.template | sed -r "s/%THEME%/$picked_theme/g" > ~/dotfiles/config/alacritty/alacritty.yml
+
+dunstify \
+    -a "Alacritty Theme Picker" \
+    -u low \
+    -h string:x-dunst-stack-tag:'alacritty-theme-picker' \
+    "Alacritty theme changed: $picked_theme"

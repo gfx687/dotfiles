@@ -23,7 +23,6 @@ handle_toggle() {
     if [[ "$current" == "on" ]]; then
         nmcli con down id $conName
         message="VPN disabled"
-
     fi
 
     if [[ "$current" == "off" ]]; then

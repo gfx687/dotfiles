@@ -136,7 +136,7 @@ schemes:
       cyan:       '#007197'
       white:      '#3760bf'
 
-colors: *tokyonight-day
+colors: *%THEME%
 
 window:
   opacity: 1

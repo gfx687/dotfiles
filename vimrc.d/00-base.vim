@@ -26,6 +26,7 @@ set path+=**
 set undofile
 set undodir=~/.vim/undo-dir
 set clipboard+=unnamedplus
+set signcolumn=yes
 
 let mapleader = "\<space>"
 nnoremap <silent> <Leader>/ :noh<CR>

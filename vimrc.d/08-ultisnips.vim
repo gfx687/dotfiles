@@ -3,6 +3,8 @@
 "   C-J / C-K - jump to next placeholder of snippet
 
 let g:UltiSnipsEnableSnipMate = 0
+" main snippets location for :UltiSnipsEdit in case multiple sources
+let g:UltiSnipsSnippetStorageDirectoryForUltiSnipsEdit = $HOME . '/dotfiles/vimrc.d/ultisnips'
 let g:UltiSnipsSnippetDirectories = [ $HOME . '/dotfiles/vimrc.d/ultisnips' ]
 let g:UltiSnipsExpandTrigger = "<nop>"
 " let g:UltiSnipsJumpForwardTrigger = '<C-J>'

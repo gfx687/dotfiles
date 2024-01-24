@@ -1,4 +1,4 @@
-# TODO and Known Issues
+# TODO:
 # 1) add a func to create backups for files
 # 2) create base bash config like 00-vim to copy into remote machines. No mods, but all the aliases / settings (not zsh specific either, for base bash)
 
@@ -69,29 +69,17 @@ compinit
 
 # fzf
 {
-    export FZF_CTRL_R_OPTS='--layout=reverse'
+    # export FZF_CTRL_R_OPTS='--layout=reverse'
     export FZF_DEFAULT_COMMAND='fd --type file --hidden --exclude .git --exclude node_modules'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-    # dracula colors
-    export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9
-        --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9
-        --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6
-        --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
-
-    if [[ $BACKGROUND == "light" ]]; then
-        # catppuccin colors
-        export FZF_DEFAULT_OPTS="
-            --color=bg+:#ccd0da,bg:#eff1f5,spinner:#dc8a78,hl:#d20f39
-            --color=fg:#4c4f69,header:#d20f39,info:#8839ef,pointer:#dc8a78
-            --color=marker:#dc8a78,fg+:#4c4f69,prompt:#8839ef,hl+:#d20f39"
-
-        # solarized light
-        export FZF_DEFAULT_OPTS="
-            --color=bg+:#eee8d5,bg:#fdf6e3,hl:#2aa198:bold:underline,hl+:#2aa198:underline
-            --color=fg:#657b83,fg+:#4c4f69,header:#d20f39,info:#2aa198
-            --color=marker:#dc8a78,pointer:#dc8a78,prompt:#2aa198,spinner:#dc8a78"
-    fi
+    # colorscheme agnostic setting (hopefully)
+    export FZF_DEFAULT_OPTS="
+        --color=bg:-1,bg+:-1,hl:magenta:bold:underline,hl+:magenta:underline
+        --color=fg:-1,fg+:-1:bold:underline,header:-1,info:-1
+        --color=marker:magenta,pointer:magenta,prompt:cyan,spinner:-1
+        --bind=ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down,ctrl-t:toggle-preview
+        --layout=reverse"
 }
 
 # tmux
@@ -119,6 +107,7 @@ compinit
     alias sudo='sudo '
     alias v='nvim'
     alias vim='nvim -u ~/dotfiles/vimrc.d/00-base.vim'
+    alias lazyvim='NVIM_APPNAME=lazyvim nvim'
     alias py=python3
     alias ck='create-and-change-dir'
     alias l='ls --color=auto -lA'

@@ -1,16 +1,19 @@
-from datetime import datetime, UTC, timedelta
+# vim:ft=python
+
+from datetime import UTC, datetime, timedelta
 import json
+import os
 import subprocess
 import sys
+
 import requests
-import os
 
 CACHE_FILE = '/tmp/todoist-status.cache'
 LOG_FILE = '/tmp/todoist-status.log'
 
 
 def log(s: str):
-    with open(LOG_FILE, 'a') as file:
+    with open(LOG_FILE, 'a', encoding='utf-8') as file:
         file.write(f'{datetime.now().strftime("%Y-%m-%d %H:%M:%S")} - {s}\n')
 
 
@@ -19,7 +22,7 @@ def get_cache():
     if not os.path.isfile(CACHE_FILE):
         return None
 
-    with open(CACHE_FILE, 'r') as file:
+    with open(CACHE_FILE, 'r', encoding='utf-8') as file:
         content = file.readline()[1:-2]  # strip $ and \n chars
         parsed_date = datetime.fromtimestamp(int(content), UTC)
 
@@ -31,13 +34,11 @@ def get_cache():
         return json.loads(json_string)
 
 
-def set_cache(json: str):
+def set_cache(json_string: str):
     log('todoist-status: setting cache')
-    with open('/tmp/todoist-status.cache', 'w') as file:
+    with open('/tmp/todoist-status.cache', 'w', encoding='utf-8') as file:
         file.write(f'${round(datetime.now().timestamp() * 10)}\n')
-        file.write(json)
-
-    return None
+        file.write(json_string)
 
 
 def get_today_tasks_data():
@@ -48,15 +49,15 @@ def get_today_tasks_data():
     log('todoist-status: making HTTP request')
     url = "https://api.todoist.com/rest/v2/tasks"
 
-    params = dict(
-        filter='today|overdue'
-    )
+    params = {
+        'filter': 'today|overdue'
+    }
 
     headers = {
         "Authorization": "Bearer " + os.environ["TODOIST_TOKEN"]
     }
 
-    r = requests.get(url, params=params, headers=headers)
+    r = requests.get(url, params=params, headers=headers, timeout=5.0)
     if r.status_code != 200:
         print('fail')
 
@@ -70,8 +71,8 @@ def get_today_status():
     today = datetime.now().strftime("%Y-%m-%d")
     for_today = 0
     overdue = 0
-    for i in range(len(data)):
-        if data[i]['due']['date'] == today:
+    for _, d in enumerate(data):
+        if d['due']['date'] == today:
             for_today += 1
         else:
             overdue += 1
@@ -81,7 +82,7 @@ def get_today_status():
 
 def show_today_list_in_rofi():
     data = get_today_tasks_data()
-    items = [x for x in data]
+    items = list(data)
     items.sort(key=lambda x: x['due']['date'], reverse=True)
     items = [f'{x['due']['date']} - {x['content']}' for x in items]
 

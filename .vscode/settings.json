@@ -211,9 +211,20 @@
         "editor.defaultFormatter": "yzhang.markdown-all-in-one",
     },
 
-    "gopls": {
-        "ui.semanticTokens": true
+    "[go]": {
+        "editor.parameterHints.enabled": true,
     },
+    "gopls": {
+        "usePlaceholders": true,
+        "ui.semanticTokens": true,
+    },
+    "go.inlayHints.assignVariableTypes": true,
+    "go.inlayHints.compositeLiteralFields": true,
+    "go.inlayHints.compositeLiteralTypes": true,
+    "go.inlayHints.constantValues": true,
+    "go.inlayHints.functionTypeParameters": true,
+    "go.inlayHints.parameterNames": true,
+    "go.inlayHints.rangeVariableTypes": true,
 
     "remote.autoForwardPortsSource": "hybrid",
     "cSpell.userWords": [
@@ -253,6 +264,7 @@
         "nvim",
         "pavucontrol",
         "polybar",
+        "pomodoro",
         "Println",
         "psql",
         "quickfix",

@@ -1,15 +1,33 @@
 {
-    "suggest.enablePreselect": false,
     "coc.preferences.bracketEnterImprove": true,
-    "suggest.floatConfig.border": true,
-    "diagnostic.floatConfig.border": true,
-    "signature.floatConfig.border": true,
-    "hover.floatConfig.border": true,
+    "suggest.enablePreselect": false,
+    "suggest.virtualText": false,
+    "suggest.floatConfig": {
+        "border": true
+    },
+    "signature.floatConfig": {
+        "border": true
+    },
+    "hover.floatConfig": {
+        "border": true
+    },
+    "diagnostic.floatConfig": {
+        "border": true
+    },
     "diagnostic.format": "[%severity] %message [%source%code]",
     "diagnostic.infoSign": "--",
     "diagnostic.errorSign": ">>",
     "diagnostic.warningSign": "??",
     "diagnostic.checkCurrentLine": true,
+    "diagnostic.virtualText": true,
+    "diagnostic.virtualTextPrefix": "  ",
+    "diagnostic.virtualTextCurrentLineOnly": false,
+    "diagnostic.refreshOnInsertMode": false,
+    "semanticTokens.enable": true,
+    "inlayHint.enable": true,
+    "inlayHint.display": true,
+    "inlayHint.enableParameter": true,
+    "inlayHint.refreshOnInsertMode": false,
     "snippets.excludePatterns": [
         "$HOME/.vim/plugged/vim-go/gosnippets/UltiSnips/go.snippets"
     ],
@@ -17,33 +35,55 @@
     "snippets.ultisnips.directories": [
         "$HOME/dotfiles/vimrc.d/ultisnips"
     ],
-    "coc.preferences.formatOnSaveFiletypes": [
-        "go",
-        "python"
-    ],
     "languageserver": {
-        "go": {
+        "bash": {
+            "command": "bash-language-server",
+            "args": [
+                "start"
+            ],
+            "filetypes": [
+                "sh",
+                "bash"
+            ]
+        },
+        "golang": {
             "command": "gopls",
             "rootPatterns": [
-                "go.work",
-                "go.mod",
-                ".vim/",
-                ".git/",
-                ".hg/"
+                "go.mod"
             ],
             "filetypes": [
                 "go"
             ],
             "initializationOptions": {
-                "usePlaceholders": true
+                "ui.completion.usePlaceholders": true,
+                "ui.semanticTokens": true,
+                "ui.diagnostic.staticcheck": false,
+                "formatting.gofumpt": true
+            }
+        },
+        "golangci-lint-languageserver": {
+            "command": "golangci-lint-langserver",
+            "filetypes": [
+                "go"
+            ],
+            "initializationOptions": {
+                "command": [
+                    "golangci-lint",
+                    "run",
+                    "--out-format",
+                    "json",
+                    "--issues-exit-code=1"
+                ]
             }
         }
     },
-    "go.goplsOptions": {
-        "gofumpt": false
+    "[python]": {
+        "coc.preferences.formatOnSave": true
     },
+    "python.analysis.autoImportCompletions": true,
     "python.pythonPath": "python3",
     "python.formatting.provider": "yapf",
     "python.linting.enabled": true,
-    "python.linting.pylintEnabled": true
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintArgs": ["--disable=C0111"]
 }

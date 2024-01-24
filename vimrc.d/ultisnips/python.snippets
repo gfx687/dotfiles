@@ -28,13 +28,18 @@ else:
 endsnippet
 
 
-snippet fir "for i in range" b
+snippet fr "for i in range" b
 for ${1:i} in range($2):
 	$0
 endsnippet
 
-snippet firl "for range len" b
+snippet frl "for range len" b
 for $2 in range(len($1)):
+	$0
+endsnippet
+
+snippet fin "for i in XXX" b
+for ${1:i} in $2:
 	$0
 endsnippet
 
