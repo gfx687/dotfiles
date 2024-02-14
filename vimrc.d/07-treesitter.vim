@@ -32,7 +32,8 @@ require'nvim-treesitter.configs'.setup {
     "go",
     "gomod",
     "gosum",
-    "gowork"
+    "gowork",
+    "sql"
   },
 
   -- Automatically install missing parsers when entering buffer
@@ -71,15 +72,21 @@ require'nvim-treesitter.configs'.setup {
 -- Markdown
 vim.api.nvim_set_hl(0, "@text.title.1.markdown", { link = "MarkdownHeader" })
 vim.api.nvim_set_hl(0, "@text.title.1.marker.markdown", { link = "MarkdownHeader" })
+vim.api.nvim_set_hl(0, "@markup.heading.1.markdown", { link = "MarkdownHeader" })
 vim.api.nvim_set_hl(0, "@text.title.2.markdown", { link = "MarkdownHeader" })
 vim.api.nvim_set_hl(0, "@text.title.2.marker.markdown", { link = "MarkdownHeader" })
+vim.api.nvim_set_hl(0, "@markup.heading.2.markdown", { link = "MarkdownHeader" })
 vim.api.nvim_set_hl(0, "@text.title.3.markdown", { link = "MarkdownHeader" })
 vim.api.nvim_set_hl(0, "@text.title.3.marker.markdown", { link = "MarkdownHeader" })
+vim.api.nvim_set_hl(0, "@markup.heading.3.markdown", { link = "MarkdownHeader" })
 vim.api.nvim_set_hl(0, "@text.title.4.markdown", { link = "MarkdownHeader" })
 vim.api.nvim_set_hl(0, "@text.title.4.marker.markdown", { link = "MarkdownHeader" })
+vim.api.nvim_set_hl(0, "@markup.heading.4.markdown", { link = "MarkdownHeader" })
 vim.api.nvim_set_hl(0, "@text.title.5.markdown", { link = "MarkdownHeader" })
 vim.api.nvim_set_hl(0, "@text.title.5.marker.markdown", { link = "MarkdownHeader" })
+vim.api.nvim_set_hl(0, "@markup.heading.5.markdown", { link = "MarkdownHeader" })
 vim.api.nvim_set_hl(0, "@text.title.6.markdown", { link = "MarkdownHeader" })
 vim.api.nvim_set_hl(0, "@text.title.6.marker.markdown", { link = "MarkdownHeader" })
+vim.api.nvim_set_hl(0, "@markup.heading.6.markdown", { link = "MarkdownHeader" })
 
 EOF

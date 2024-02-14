@@ -3,7 +3,7 @@ snippet { "{$0}" i
 endsnippet
 
 
-snippet re "return" b
+snippet r "return" b
 return $0
 endsnippet
 
@@ -19,14 +19,22 @@ snippet rn "return nil" b
 return nil
 endsnippet
 
+snippet re "return err" b
+return err
+endsnippet
+
 snippet rne "return nil, err" b
 return nil, err
+endsnippet
+
+snippet rre "return DATA, err" b
+return $0, err
 endsnippet
 
 
 snippet i "if" b
 if $1 {
-    $0
+    ${0:${VISUAL}}
 }
 endsnippet
 
@@ -49,13 +57,13 @@ if $1 != nil {
 endsnippet
 
 
-snippet fi "for i := 0; i < ; i++" b
+snippet fori "for i := 0; i < ; i++" b
 for ${1:i} := ${2:0}; $1 < $3; $1++ {
 	$0
 }
 endsnippet
 
-snippet fr "for a, b := range" b
+snippet forr "for a, b := range" b
 for $1, $2 := range $3 {
 	$0
 }
@@ -88,9 +96,23 @@ snippet fln "fmt.Println" b
 fmt.Println($1)
 endsnippet
 
-snippet ff "fmt.Printf" b
+snippet fpf "fmt.Printf" b
 fmt.Printf("$1\n", $2)
 endsnippet
+
+snippet fsf "fmt.Sprintf" w
+fmt.Sprintf("$1", $2)
+endsnippet
+
+snippet fef "fmt.Errorf" w
+fmt.Errorf("$1")
+endsnippet
+
+
+snippet ew "error wrap" w
+fmt.Errorf("$1: %w", ${2:err})
+endsnippet
+
 
 snippet fm "method" b
 func ($1) $2($3) $4 {

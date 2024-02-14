@@ -1,0 +1,38 @@
+source ~/dotfiles/vimrc.d/00-base.vim
+
+" Plugins - https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins
+set easymotion
+set surround
+set commentary
+set NERDTree
+
+map <C-p> <Action>(GotoFile)
+map <C-t> <Action>(GotoSymbol)
+map <C-f> <Action>(FindInPath)
+
+" let IDE handle those instead of adding a vim config shortcut
+" map <C-e> <Action>(RecentFiles)
+
+map <leader>nf <Action>(SelectInProjectView)
+map <leader>nn :NERDTreeToggle<CR>
+
+map [g <Action>(GotoPreviousError)
+map ]g <Action>(GotoNextError)
+
+map <leader>ca <Action>(ShowIntentionActions)
+map <leader>cg <Action>(Generate)
+map <F2> <Action>(RenameElement)
+map gh <Action>(ShowHoverInfo)
+
+
+
+" coc.nvim
+" multicursor
+" incremental select like tree-sitter
+" git
+" easyalign
+
+" map <leader>b <Action>(Switcher)
+
+" Other hotkeys
+" Shift-Escape to close left bar

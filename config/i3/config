@@ -26,9 +26,9 @@ workspace 3 output $right
 workspace q output $left
 workspace w output $left
 workspace e output $left
-workspace a output $left
-workspace s output $left
-workspace d output $left
+workspace a output $right
+workspace s output $right
+workspace d output $right
 
 
 # KEYBINDINGS (also check sxhkdrc)

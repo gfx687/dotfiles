@@ -34,6 +34,7 @@ Plug 'preservim/nerdtree'
     map <leader>nn :NERDTreeToggle<cr>
     map <leader>nf :NERDTreeFind<cr>
 
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install' }
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui'
     let g:db_ui_execute_on_save=0
@@ -45,6 +46,14 @@ Plug 'preservim/tagbar'
     nmap <F8> :TagbarToggle<CR>
     let g:tagbar_wrap=0
 
+Plug 'camspiers/lens.vim'
+    let g:lens#disabled_filenames = ['coc:.*', 'list:.*']
+    let g:lens#disabled_filetypes = ['nerdtree', 'fzf']
+    let g:lens#width_resize_min = 100
+    let g:lens#width_resize_max = 120
+    if &diff == 1
+        let g:lens#disabled = 1
+    endif
 Plug 'windwp/nvim-autopairs'
 " Plug 'jiangmiao/auto-pairs'
 Plug 'wellle/targets.vim'              " more text objects
@@ -69,8 +78,7 @@ Plug 'reedes/vim-lexical'              " spell-checking, [s ]s <leader>s zg zug
 
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'markonm/traces.vim'              " substitute highlighting
-" Plug 'tpope/vim-surround'              " visual + S + surrounder
-Plug 'echasnovski/mini.surround'       " s + a(dd) / d(elete) / r(eplace)
+Plug 'tpope/vim-surround'              " visual + S + surrounder
 Plug 'bronson/vim-trailing-whitespace' " :FixWhitespace
 
 Plug 'fatih/vim-go'
@@ -99,10 +107,6 @@ require'which-key'.setup {
 }
 
 require'nvim-autopairs'.setup()
-
-require'mini.surround'.setup {
-    search_method = 'cover_or_next'
-}
 
 require('gitsigns').setup()
 

@@ -12,6 +12,8 @@ ln -s ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
 ln -s ~/dotfiles/config/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
 ln -s ~/dotfiles/config/nvim/after ~/.config/nvim/after
 
+ln -s ~/dotfiles/ideavimrc ~/.ideavimrc
+
 mkdir -p ~/.config/alacritty
 ln -s ~/dotfiles/config/alacritty/alacritty.yml ~
 

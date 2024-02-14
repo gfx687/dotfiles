@@ -27,6 +27,7 @@ set undofile
 set undodir=~/.vim/undo-dir
 set clipboard+=unnamedplus
 set signcolumn=yes
+set cc=120
 
 let mapleader = "\<space>"
 nnoremap <silent> <Leader>/ :noh<CR>
@@ -68,3 +69,4 @@ nnoremap @@ @q
 " abbreviations
 iab isntall install
 iab Isntall Install
+iab cosnt const

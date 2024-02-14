@@ -9,7 +9,7 @@
     "editor.semanticHighlighting.enabled": true,
     "editor.autoClosingBrackets": "never",
     "window.menuBarVisibility": "toggle",
-    "workbench.activityBar.location": "hidden",
+    // "workbench.activityBar.location": "hidden",
 	"workbench.editor.showTabs": "none",
     "workbench.colorCustomizations": {
         "[Solarized Light]": {
@@ -76,7 +76,7 @@
             "commands": ["editor.action.goToTypeDefinition"]
         },
         {
-            "before": ["g", "q"],
+            "before": ["<leader>", "c", "a"],
             "commands": ["editor.action.quickFix"]
         },
         {
@@ -132,7 +132,7 @@
             "commands": ["editor.action.outdentLines"]
         },
         {
-            "before": ["g", "q"],
+            "before": ["<leader>", "c", "a"],
             "commands": ["editor.action.quickFix"]
         },
     ],

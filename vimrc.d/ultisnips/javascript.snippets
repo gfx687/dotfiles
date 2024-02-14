@@ -6,11 +6,13 @@ snippet f "function" b
 function $0
 endsnippet
 
-snippet fori "loop basic" Aw
+
+snippet fori "loop basic" b
 for (let ${1:i} = 0; $1 < $2; i++) {
 	$3
 }
 endsnippet
+
 
 snippet log "console.log" w
 console.log(${1});
@@ -19,6 +21,23 @@ endsnippet
 snippet logj "console.log formatted json" w
 console.log(JSON.stringify(${1}, null, 3));
 endsnippet
+
+snippet try "try / catch" b
+try {
+	${1:${VISUAL}}
+} catch ${2:(err)} {
+	$3
+}
+endsnippet
+
+snippet tryf "try / finally" b
+try {
+	${2:${VISUAL}}
+} finally {
+	$1
+}
+endsnippet
+
 
 snippet cl "class definition" b
 class ${1} {
@@ -31,6 +50,31 @@ endsnippet
 snippet req "node require" Ab
 const ${1} = require('${2:$1}');
 endsnippet
+
+
+## Deno testing
+# TODO: only in '*_test.ts' files
+
+snippet denot "Deno.test" b
+Deno.test("${1:function name}: ${2:test case} - should ${3:expected behavior}", ${4:async} () => {
+	$5
+})
+endsnippet
+
+snippet stubsync "deno stub" b
+const $1 = stub($2, "$3", returnsNext([$4]))
+endsnippet
+
+snippet stubasync "deno stub async" b
+const $1 = stub($2, "$3", resolvesNext([$4]))
+endsnippet
+
+snippet spy "deno spy" b
+const $1 = stub($2, "$3")
+endsnippet
+
+
+## SWAGGER
 
 snippet swd "JSDoc Swagger. Base swagger jsdoc for router" w
 /**

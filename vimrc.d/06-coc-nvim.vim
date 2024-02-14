@@ -15,7 +15,10 @@
 " Configuration Questions:
 "   codelens
 "   hover
-"   inlayHint
+
+highlight CocInlayHint guifg=#848cb5
+highlight CocInlayHintType guifg=#848cb5
+highlight CocInlayHintParameter guifg=#848cb5
 
 " coc-react-refactor - extract selected HTML into component
 let g:coc_global_extensions = [
@@ -23,6 +26,7 @@ let g:coc_global_extensions = [
     \ 'coc-yaml',
     \ 'coc-snippets',
     \ 'coc-tsserver',
+    \ 'coc-eslint',
     \ 'coc-css',
     \ 'coc-react-refactor',
     \ 'coc-deno',
@@ -39,12 +43,15 @@ nmap <silent> <leader>ca <Plug>(coc-codeaction-cursor)
 xmap <silent> <leader>ca <Plug>(coc-codeaction-selected)
 xmap <silent> <leader>ca <Plug>(coc-codeaction-selected)
 nmap <silent> <leader>cd :CocDiagnostics<CR>
+nmap <silent> <leader>cl <Plug>(coc-codelens-action)
 
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gh :call CocActionAsync('doHover')<CR>
+nmap <silent> gH :echo CocAction('getHover')<CR>
 nmap <silent> gr :call CocActionAsync('jumpReferences')<CR>
 
 imap <silent> <C-s> <C-r>=CocActionAsync('showSignatureHelp')<CR>

@@ -2,6 +2,7 @@
 "   Tab       - expand snippet from coc.nvim suggestion (coc-ultisnips)
 "   C-J / C-K - jump to next placeholder of snippet
 
+let g:UltiSnipsUsePythonVersion = 3
 let g:UltiSnipsEnableSnipMate = 0
 " main snippets location for :UltiSnipsEdit in case multiple sources
 let g:UltiSnipsSnippetStorageDirectoryForUltiSnipsEdit = $HOME . '/dotfiles/vimrc.d/ultisnips'

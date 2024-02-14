@@ -70,7 +70,7 @@ compinit
 # fzf
 {
     # export FZF_CTRL_R_OPTS='--layout=reverse'
-    export FZF_DEFAULT_COMMAND='fd --type file --hidden --exclude .git --exclude node_modules'
+    export FZF_DEFAULT_COMMAND='fd --type file --hidden --no-ignore --exclude .git --exclude node_modules'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
     # colorscheme agnostic setting (hopefully)
@@ -126,6 +126,7 @@ compinit
     alias gd='git diff'
     alias gd1='git diff HEAD~1 HEAD'
     alias gp='git push'
+    alias gco='git checkout'
 
     # :alias-docker
     alias dk='docker '
