@@ -109,11 +109,6 @@ fmt.Errorf("$1")
 endsnippet
 
 
-snippet ew "error wrap" w
-fmt.Errorf("$1: %w", ${2:err})
-endsnippet
-
-
 snippet fm "method" b
 func ($1) $2($3) $4 {
     $0
@@ -124,4 +119,35 @@ snippet fu "func" b
 func $1($2) $3 {
     $0
 }
+endsnippet
+
+
+## Errors
+
+snippet ew "error wrap" w
+fmt.Errorf("$1: %w", ${2:err})
+endsnippet
+
+snippet en "errors.new" w
+errors.New($1)
+endsnippet
+
+
+## Testing
+# TODO: only in '*_test.go' files
+
+snippet fut "func Test" b
+func Test$1(t *testing.T) {
+    $0
+}
+endsnippet
+
+snippet trun "t.Run" b
+t.Run("if $1 - should $2", func(t *testing.T) {
+	$0
+})
+endsnippet
+
+snippet stub "mock.On().Return()" b
+$1.On("$2").Return($3)
 endsnippet

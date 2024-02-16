@@ -12,6 +12,18 @@ augroup Golang_ft
     au FileType go nmap <leader>tc :GoCoverageToggle<Cr>
     au FileType go nmap <leader>cd :GoLint<CR>
 
-    ":GoImpl
-
+    au FileType go nmap <silent> <buffer> [[ :call GotoNext_Golang()<CR>
+    au FileType go nmap <silent> <buffer> ]] :call GotoPrev_Golang()<CR>
 augroup end
+
+func! GotoNext_Golang()
+    call search('^\s*\(func\|t.Run\|func Test\)', 'b')
+    nohlsearch
+    " normal zt
+endfunc!
+
+func! GotoPrev_Golang()
+    call search('^\s*\(func\|t.Run\|func Test\)', '')
+    nohlsearch
+    " normal zt
+endfunc!
