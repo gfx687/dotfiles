@@ -111,7 +111,12 @@
     //
     // javascript / typescript
     //
+    "[javascript][typescript]": {
+        "coc.preferences.formatOnSave": true
+    },
     "javascript.format.enable": true,
     "typescript.format.enable": true,
-    "eslint.format.enable": false
+    "eslint.format.enable": false,
+    "prettier.enable": true,
+    "prettier.formatterPriority": 1, // prettier has higher priority than LSPs
 }

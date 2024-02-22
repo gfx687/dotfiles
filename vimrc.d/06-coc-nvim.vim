@@ -27,10 +27,12 @@ let g:coc_global_extensions = [
     \ 'coc-snippets',
     \ 'coc-tsserver',
     \ 'coc-eslint',
+    \ 'coc-prettier',
     \ 'coc-css',
     \ 'coc-react-refactor',
     \ 'coc-deno',
-    \ 'coc-pyright'
+    \ 'coc-pyright',
+    \ 'coc-sumneko-lua'
     \ ]
 
 nmap <leader>f <Plug>(coc-format)
