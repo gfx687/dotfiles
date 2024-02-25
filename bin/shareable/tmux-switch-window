@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# use FZF to pick tmux window and switch to it
+
+selected_window=$(tmux list-windows -a | fzf --reverse --header="Switch to tmux window")
+if [ -n "$selected_window" ]; then
+    session_name=$(echo "$selected_window" | awk --field-separator=':' '{print $1}')
+    window_number=$(echo "$selected_window" | awk --field-separator=':' '{print $2}')
+
+    tmux switch -t "$session_name"
+    tmux select-window -t "$window_number"
+fi

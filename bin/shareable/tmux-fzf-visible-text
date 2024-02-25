@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# retrieve text on all visible panes and use FZF to pick a substring
+
+pane_list=$(tmux list-panes -F "#{pane_id}")
+
+text=""
+
+for pane_id in $pane_list; do
+    text+=$(tmux capture-pane -t "$pane_id" -p)
+done
+
+pick=$(echo "$text" | grep -oP '(\S+)' | sort -u | fzf --reverse --height 20%)
+
+echo $pick
