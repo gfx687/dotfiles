@@ -55,8 +55,10 @@ nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gh :call CocActionAsync('doHover')<CR>
 nmap <silent> gH :echo CocAction('getHover')<CR>
 nmap <silent> gr :call CocActionAsync('jumpReferences')<CR>
+nmap <silent> gi <Plug>(coc-implementation)
 
 imap <silent> <C-s> <C-r>=CocActionAsync('showSignatureHelp')<CR>
+inoremap <silent><expr> <c-space> coc#refresh()
 
 vmap <C-j> <Plug>(coc-snippets-select)
 

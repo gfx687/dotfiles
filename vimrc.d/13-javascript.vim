@@ -1,7 +1,9 @@
 augroup Javascript_ft
     au!
-    autocmd FileType javascript,jsx,typescript,tsx nmap <silent> <buffer> [[ :call GotoNext_Javascript()<CR>
-    autocmd FileType javascript,jsx,typescript,tsx nmap <silent> <buffer> ]] :call GotoPrev_Javascript()<CR>
+    au FileType javascript,jsx,typescript,tsx nmap <silent> <buffer> [[ :call GotoNext_Javascript()<CR>
+    au FileType javascript,jsx,typescript,tsx nmap <silent> <buffer> ]] :call GotoPrev_Javascript()<CR>
+
+    au FileType javascript,jsx,typescript,tsx setlocal tabstop=2
 augroup end
 
 func! GotoNext_Javascript()

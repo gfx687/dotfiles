@@ -14,11 +14,11 @@ for (let ${1:i} = 0; $1 < $2; i++) {
 endsnippet
 
 
-snippet log "console.log" w
+snippet clog "console.log" w
 console.log(${1});
 endsnippet
 
-snippet logj "console.log formatted json" w
+snippet clogj "console.log formatted json" w
 console.log(JSON.stringify(${1}, null, 3));
 endsnippet
 
@@ -71,40 +71,4 @@ endsnippet
 
 snippet spy "deno spy" b
 const $1 = stub($2, "$3")
-endsnippet
-
-
-## SWAGGER
-
-snippet swd "JSDoc Swagger. Base swagger jsdoc for router" w
-/**
- * @swagger
- *
- *  /api${1}:
- *    post:
- *      description: ${2}
- *      produces:
- *        - application/json
- *      parameters:${4}
- *      responses:
- *        200:
- *          description: ${3}
- */
-
-endsnippet
-
-snippet swp "JSDoc Swagger. Params required" w
-- name: ${1}
-*          description: ${2}
-*          in: ${3:formData}
-*          required: true
-*          type: ${5:string}
-endsnippet
-
-snippet swpf "JSDoc Swagger. Params not required" w
-- name: ${1}
-*          description: ${2}
-*          in: ${3:formData}
-*          required: false
-*          type: ${5:string}
 endsnippet
