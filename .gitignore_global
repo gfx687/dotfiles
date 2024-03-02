@@ -6,3 +6,4 @@ tags
 .tags
 .tempfiles
 package-lock.json
+node_modules
