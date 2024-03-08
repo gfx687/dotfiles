@@ -7,13 +7,13 @@ augroup Javascript_ft
 augroup end
 
 func! GotoNext_Javascript()
-    call search('^\(Deno.test\|function\|export\|async\)', 'b')
+    call search('^\(Deno.test\|function\|export\|async\|type\)', 'b')
     nohlsearch
     " normal zt
 endfunc!
 
 func! GotoPrev_Javascript()
-    call search('^\(Deno.test\|function\|export\|async\)', '')
+    call search('^\(Deno.test\|function\|export\|async\|type\)', '')
     nohlsearch
     " normal zt
 endfunc!

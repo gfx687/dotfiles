@@ -85,6 +85,8 @@ Plug 'fatih/vim-go'
     let g:go_def_mapping_enabled = 0
 " Plug 'OmniSharp/omnisharp-vim'
 
+Plug 'towolf/vim-helm'
+
 " javascript
 " Plug 'styled-components/vim-styled-components'
 " Plug 'pangloss/vim-javascript'
