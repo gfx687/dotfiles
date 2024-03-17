@@ -115,6 +115,7 @@ compinit
     # alias fd='fdfind '
     alias treegi='rg --files | tree --fromfile'
     # sudo cp --archive /etc/ufw/before6.rules /etc/ufw/before6.rules-COPY-$(date +"%Y%m%d%H%M%S")
+    alias image='feh'
 
     # :alias-git
     alias gl='PAGER=cat git log --oneline --graph --decorate --all --max-count=30'
