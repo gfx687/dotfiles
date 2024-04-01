@@ -198,6 +198,7 @@
         "editor.defaultFormatter": "vscode.json-language-features"
     },
 
+	"markdown.extension.toc.updateOnSave": false,
     "[markdown]": {
         "editor.rulers": [100],
         "editor.wordWrap": "wordWrapColumn",

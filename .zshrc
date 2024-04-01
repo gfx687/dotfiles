@@ -114,7 +114,6 @@ compinit
     alias diff='diff-with-dsf'
     # alias fd='fdfind '
     alias treegi='rg --files | tree --fromfile'
-    # sudo cp --archive /etc/ufw/before6.rules /etc/ufw/before6.rules-COPY-$(date +"%Y%m%d%H%M%S")
     alias image='feh'
 
     # :alias-git
@@ -130,8 +129,8 @@ compinit
     alias gco='git checkout'
 
     # :alias-docker
-    alias dk='docker '
-    alias dko='docker compose '
+    alias dk='docker'
+    alias dko='docker compose'
 }
 
 # plugins
