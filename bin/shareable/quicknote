@@ -1,5 +1,5 @@
 #!/bin/bash
-quicknotes_folder=~/Documents/notes/_inbox/_quicknotes
+quicknotes_folder=~/Documents/notes/_quicknotes
 
 input=$(rofi -dmenu -p "Quick note" \
     -theme-str 'listview { enabled: false; }' \
